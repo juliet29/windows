@@ -1,0 +1,29 @@
+{
+    "072522": 
+        {
+            "422a": "Open",
+            "422b": "Sometimes Open",
+            "cutoff_times": {
+                "start": "2022, 07, 20, 07, 20",
+                "end": "2022, 07, 24, 07, 20"
+            }
+        },
+    "081622": 
+        {
+            "422a": "Sometimes Closed",
+            "422b": "Closed",
+            "cutoff_times": {
+                "start": "2022, 07, 27, 09, 00",
+                "end": "2022, 08, 10, 20, 00"
+            }
+        },
+    "092022": 
+        {
+            "422a": "Sometimes Closed",
+            "422b": "Closed",
+            "cutoff_times": {
+                "start": "2022, 09, 08, 08, 00",
+                "end": "2022, 09, 11, 08, 00"
+            }
+        }
+}
