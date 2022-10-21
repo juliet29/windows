@@ -93,7 +93,7 @@ class Temp_RH_Analysis:
         return (fnum - 32) * (5/9)
 
     def get_ambient_data(self):
-        su_csv = os.path.join(self.root, f"stanford_weather_data/SU_Hourly_{self.date}.csv") 
+        su_csv = os.path.join(self.root, f"data/stanford_weather_data/SU_Hourly_{self.date}.csv") 
         su_df = pd.read_csv(su_csv, header=0, names=["Date", "Time", "Temp F"], usecols=[0,1,2], skiprows=[1])
 
         # adjust date and time data 
