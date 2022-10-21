@@ -1,4 +1,6 @@
-""" Contains Temp_RH_Analyis module (mostly for visualization though) -> created 08/23/22 """
+""" Contains Temp_RH_Analyis module (mostly for visualization though) -> created 08/23/22 
+-> updated 09/20/22 update path names, add ambient_trh function
+"""
 
 import pandas as pd
 import plotly.graph_objects as go
@@ -106,6 +108,22 @@ class Temp_RH_Analysis:
         su_df_sort = su_df.sort_values("datetimes")
         hdata_su_c = self.far2cel(su_df_sort["Temp F"])
         self.ambient_data = {"times": su_df_sort["datetimes"], "temps": hdata_su_c}
+
+    def get_ambient_trh_data(self):
+        su_csv = os.path.join(self.root, f"data/stanford_weather_data/SU_Hourly_TRH_{self.date}.csv") 
+        su_df = pd.read_csv(su_csv, header=0, names=["Date", "Time", "Temp F", "RH"], usecols=[0,1,2,3], skiprows=[1])
+
+        # adjust date and time data 
+        dates = pd.to_datetime(su_df["Date"])
+        times = pd.to_datetime(su_df["Time"]/100, format="%H").dt.time
+        fulldatetimes = [datetime.datetime.combine(d, t) for d, t in zip(dates, times)]
+        su_df["datetimes"] = pd.to_datetime(fulldatetimes)
+
+        # sort by dataframe by date 
+        su_df_sort = su_df.sort_values("datetimes")
+        hdata_su_t = self.far2cel(su_df_sort["Temp F"])
+        hdata_su_rh = self.far2cel(su_df_sort["RH"])
+        self.ambient_data = {"times": su_df_sort["datetimes"], "temps": hdata_su_t, "rh":hdata_su_rh }
 
 
     
