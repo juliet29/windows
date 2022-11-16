@@ -1,7 +1,7 @@
 # windows
 
 ## Data
-Tidied data can be found in analysis/constants/td_ambient_102022.csv
+Tidied data can be found in [analysis/constants/td_ambient_102022.csv](https://github.com/juliet29/windows/blob/main/analysis/constants/td_ambient_102022.csv)
 
 ### Key for Categorical Data
 * Room 0 = 442A, Room B = 422B
