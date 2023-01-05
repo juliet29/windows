@@ -52,3 +52,9 @@ def str2dt(date):
 #     u1, u2 = mean(d1), mean(d2)
 #     # calculate the effect size
 #     return (u1 - u2) / s
+
+
+
+# def normalize(arr):
+#     arr2 =  (arr - arr.min())/(arr.max() - arr.min()) 
+#     return arr2
