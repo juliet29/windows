@@ -60,11 +60,18 @@ def cohend(d1, d2):
 
 
 def normalize(arr):
+    "normalize the values in an array to be between 0 and 1 based on the minimum and maximum values in the array"
     arr2 =  (arr - arr.min())/(arr.max() - arr.min()) 
     return arr2
 
 
 def rmse(arr1, arr2):
+    "calculate the root mean squared error between two arrays"
     MSE = np.square(np.subtract(arr1, arr2)).mean() 
     RMSE = math.sqrt(MSE)
     return RMSE
+
+def mbe(true, pred):
+    "calculate the mean bias error between two arrays"
+    mbe_loss = np.mean(true - pred)
+    return mbe_loss
