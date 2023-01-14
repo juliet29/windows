@@ -41,7 +41,8 @@ def make_df_with_freq(df, freq):
 
 
 def str2dt(date):
-    """Convert a string to a pandas timestamp object """
+    """Convert a string to a pandas timestamp object 
+    Format should be: '2022, 07, 24, 07, 20' """
     return pd.to_datetime(date, format= '%Y, %m, %d, %H, %M' )
 
 # function to calculate Cohen's d for independent samples
