@@ -80,7 +80,7 @@ def day_split(arr_of_dfs):
     """splits all the dfs in the arr_of_dfs list into smaller dataframes that are split by day"""
     arr_of_split_dfs = []
     for arr in arr_of_dfs:
-        # dataframe might have timing information in the index, or in a column 
+        # dataframe might have timing information in the index, or in a column so try out both 
         try:
             daysplit_list = [group[1] for group in arr.groupby(arr.index.date)]
         except:
