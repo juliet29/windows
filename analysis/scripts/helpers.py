@@ -23,6 +23,7 @@ def make_df_with_freq(df, freq):
     and groups based on a passed in frequency signature 
     "60T", "30T", "15T", "10T", "5T", "1T", "30s"
     "30T" = 30 mins, "30s" = 30 seconds 
+    See classification_102022 for use case
 """
     dftime = df.copy()
 
@@ -64,6 +65,11 @@ def normalize(arr):
     arr2 =  (arr - arr.min())/(arr.max() - arr.min()) 
     return arr2
 
+def normalize_scale(arr, tmin, tmax):
+    "normalize the values in an array to be between 0 and 1 based on the minimum and maximum values in the array"
+    arr2 =  (arr - arr.min())/(arr.max() - arr.min())  * (tmax - tmin) + tmin
+    return arr2
+
 
 def rmse(arr1, arr2):
     "calculate the root mean squared error between two arrays"
@@ -77,7 +83,9 @@ def mbe(true, pred):
     return mbe_loss
 
 def day_split(arr_of_dfs):
-    """splits all the dfs in the arr_of_dfs list into smaller dataframes that are split by day"""
+    """splits all the dfs in the arr_of_dfs list into smaller dataframes that are split by day 
+    used in the daily_analysis notebooks 
+    """
     arr_of_split_dfs = []
     for arr in arr_of_dfs:
         # dataframe might have timing information in the index, or in a column so try out both 
@@ -89,3 +97,6 @@ def day_split(arr_of_dfs):
         # print(daysplit_list)
 
     return arr_of_split_dfs
+
+def import_desired_data():
+    # get specific experiment, specific room, and specific frequency of data 
