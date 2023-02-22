@@ -161,7 +161,7 @@ def import_desired_data(exp, freq):
         if exp == "A":
             df_exp = df.loc[df["DateTime"] < exp_a_end]
         elif exp == "B":
-            mask = (df['DateTime'] > exp_a_end) & (df['DateTime'] > exp_b_end)
+            mask = (df['DateTime'] > exp_a_end) & (df['DateTime'] < exp_b_end)
             df_exp = df.loc[mask].reset_index(drop=True)
         elif exp == "C":
             df_exp = df.loc[df["DateTime"] > exp_b_end]
@@ -185,7 +185,7 @@ def import_desired_data(exp, freq):
 
         return df00, df01 
     else:
-        return df1, df0
+        return df0, df1
 
 ## ------------------------- ! End Reorganize Data 
 
