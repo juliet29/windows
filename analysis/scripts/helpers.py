@@ -7,6 +7,23 @@ from math import sqrt
 import json
 import plotly.graph_objects as go
 
+## typical imports 
+# import plotly.graph_objects as go
+# from plotly.subplots import make_subplots
+# import pandas as pd
+# import numpy as np
+# import json
+
+# # local modules 
+# import sys
+# sys.path.insert(0, "../scripts")
+# from helpers import *
+# sys.path.insert(0, "../../JUST")
+# from JUSTjumps import *
+
+
+
+
 # Key for categorical data in constants/td_ambient_102022.csv
 # * Room: 442A = 0, 422B = 1
 # * Window Open: Closed = 0, Open = 1
@@ -27,7 +44,7 @@ def check_window_treatment(df):
         window_treatment = "Constant Open Window" if window_check[0] == 1 else "Constant Closed Window"
     return window_treatment
 
-## ------------------------- ! Tools 
+## ------------------------- ! End Tools 
 
 # 
 
