@@ -44,6 +44,12 @@ def check_window_treatment(df):
         window_treatment = "Constant Open Window" if window_check[0] == 1 else "Constant Closed Window"
     return window_treatment
 
+def find_nearest(array, value):
+    "find index of closest value in an array to a value that has passed in "
+    array = np.asarray(array)
+    idx = (np.abs(array - value)).argmin()
+    return array[idx]
+
 ## ------------------------- ! End Tools 
 
 # 
@@ -91,6 +97,40 @@ def cohend(d1, d2):
     u1, u2 = mean(d1), mean(d2)
     # calculate the effect size
     return (u1 - u2) / s
+
+def calc_win_change_dist(df, ix):
+    """
+    Report if the index (ix) returned by an algorithm is what the data (df) recognizes as a window flip 
+
+    Returns
+    exact: if ix reported by the algo is spot on 
+    nearest: the nearest ix to what was reported 
+    distance: the distance (# of indices) between the ix and the nearest found value 
+    """
+    # note where the value in Window Open series changes 
+    shift  = df["Window Open"].shift() != df["Window Open"]
+
+    # return if ix > lenght of data 
+    if ix > len(shift):
+       return "Passed index larger than it should be"
+    
+    # some of the experiments did not have any shifts 
+    flips = np.where(shift*1==1)[0] #[1:-1]
+    if len(flips) < 2:
+        return "No Flip Happened!"
+    
+    # check if got the exact flip 
+    exact = shift[ix]
+    
+    # drop the first entry which will always be true 
+    flips = flips[1:-1]
+
+    # find the distance between the nearest flip, and the ix 
+    nearest = find_nearest(flips, ix)
+    distance = find_nearest(flips, ix) - ix
+
+    # report performance 
+    return exact, nearest, distance 
 
 ## ------------------------- ! End Metrics 
 
