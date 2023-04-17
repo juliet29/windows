@@ -33,8 +33,7 @@ class Window_Detect:
     
 
     def make_s3d(self):
-        "s3d = stl_deriv_dif_deriv"
-
+        " calculate s3d = stl_deriv_dif_deriv"
         # ~ calculate derivative of observation 
         self.obs_deriv = h.normalize(pd.Series(np.gradient(self.varied_room["Temp C"]), self.varied_room.index, name='obs_deriv'))
         
@@ -54,7 +53,7 @@ class Window_Detect:
         return 
     
     def check_winstate(self, row):
-        """ compare subsequent values of the derivative to determine window state"""
+        """ compare subsequent values of the derivative to determine window state """
         curr = row["adjust_deriv"]
         next = row["shift_adjust_deriv"]
         if curr < 0 and next > 0:
@@ -71,12 +70,14 @@ class Window_Detect:
             return None
     
     def make_guesses(self):
+        """ make predictions about where the window state is changing using s3d"""
         # ~ find the points at which the derivative is greater than some threshold (here +- 0.3 from the mean) using a mask 
         s3d = pd.DataFrame(self.stl_deriv_dif_deriv)
         mask = (s3d["deriv"] > 0.8) | (s3d["deriv"] <= 0.2) #TODO somehow detect this automatically...
         m = s3d.loc[mask]
 
-        # ~ find where the difference in times is not equal to 15 (time perood of each data collection in this modified dataset => see h.import_deired_data())
+        # ~ find where the difference in times is not equal to 15 (time period of each data collection in this modified dataset => see h.import_deired_data()) 
+        # # TODO use frequency of data 
         diff_series = pd.Series(m.index).diff() # drop where diff = 15 
         duplicate_mask = diff_series != pd.Timedelta(minutes=15)
 
@@ -89,8 +90,8 @@ class Window_Detect:
         # ~ further adjustments to create time series of predicted window state 
         
         # adjust the values of the derivatives to be < or > than 0, 
-        clean_deriv.loc[:, "adjust_deriv"] = clean_deriv["deriv"] - 0.5
-        ws_df = clean_deriv.reset_index(drop=True)
+        ws_df = clean_deriv.copy()
+        ws_df["adjust_deriv"] = ws_df["deriv"] - 0.5
 
         # shift the adjusted derivatives up one so can easily compare 
         ws_df["shift_adjust_deriv"] = ws_df["adjust_deriv"].shift(-1)
@@ -99,9 +100,8 @@ class Window_Detect:
         ws_df["state"] = ws_df.apply(self.check_winstate, axis=1 )
 
         # adjust dataframe and resample values to recreate frequency of input temperature time series, then flash fill 
-        ws_df2 = ws_df.copy()
-        ws_df2.set_index(ws_df2["index"].values, drop=False, inplace=True)
-        self.win_state = ws_df2.resample(self.period).ffill()["state"]
+        ws_df.set_index(ws_df["index"].values, drop=False, inplace=True)
+        self.win_state = ws_df.resample(self.period).ffill()["state"]
 
         return 
     
@@ -118,20 +118,6 @@ class Window_Detect:
 
     def plot_guesses(self):
         fig = go.Figure()
-        fig.add_trace(go.Scatter(
-            x = self.win_state.index,
-            y=self.win_state,
-            mode='lines',
-            name="Guess as Time Series", 
-            opacity=0.5,
-            line=dict( width=4, dash='dot')
-        ))
-        fig.add_trace(go.Scatter(
-            x = self.guess["index"],
-            y=self.guess["deriv"], 
-            mode='markers',
-            name="Guess"
-        ))
 
         fig.add_trace(go.Scatter(
             x=self.varied_room["DateTime"].index,
@@ -141,8 +127,25 @@ class Window_Detect:
             line=dict(width=1),
         ))
 
+        fig.add_trace(go.Scatter(
+            x = self.guess["index"],
+            y=self.guess["deriv"], 
+            mode='markers',
+            name="Guess"
+        ))
+
+        fig.add_trace(go.Scatter(
+            x = self.win_state.index,
+            y=self.win_state,
+            mode='lines',
+            name="Guess as Time Series", 
+            opacity=0.5,
+            line=dict( width=4, dash='dot')
+        ))
+
         return fig
 
+# ! Make figures ----
     
     def plot_s3d(self):
         fig = go.Figure()
