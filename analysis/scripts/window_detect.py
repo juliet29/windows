@@ -4,6 +4,7 @@ import plotly.io as pio
 import pandas as pd
 import numpy as np
 import json
+import math
 
 
 from statsmodels.tsa.seasonal import seasonal_decompose
@@ -52,21 +53,55 @@ class Window_Detect:
 
         return 
     
+    def check_winstate(self, row):
+        """ compare subsequent values of the derivative to determine window state"""
+        curr = row["adjust_deriv"]
+        next = row["shift_adjust_deriv"]
+        if curr < 0 and next > 0:
+            return 1
+        elif curr > 0 and next < 0:
+            return 0
+        elif curr > 0 and math.isnan(next) :
+            print("next is null, but predict close", row.name )
+            return 0
+        elif curr < 0 and math.isnan(next) :
+            print("next is null, but predict open", row.name )
+            return 1
+        else:
+            return None
+    
     def make_guesses(self):
-        # find the points at which the derivative is greater than some threshold (here +- 0.3 from the mean) using a mask 
+        # ~ find the points at which the derivative is greater than some threshold (here +- 0.3 from the mean) using a mask 
         s3d = pd.DataFrame(self.stl_deriv_dif_deriv)
         mask = (s3d["deriv"] > 0.8) | (s3d["deriv"] <= 0.2) #TODO somehow detect this automatically...
         m = s3d.loc[mask]
 
-        # find where the difference in times is not equal to 15 (time perood of each data collection in this modified dataset => see h.import_deired_data())
+        # ~ find where the difference in times is not equal to 15 (time perood of each data collection in this modified dataset => see h.import_deired_data())
         diff_series = pd.Series(m.index).diff() # drop where diff = 15 
         duplicate_mask = diff_series != pd.Timedelta(minutes=15)
 
-        # make the datetime index into a column that can be accessed
+        # ~ make the datetime index into a column that can be accessed
         mdt = m.reset_index()
         a = mdt["index"][duplicate_mask].index
         clean_deriv = mdt.iloc[a]
         self.guess = clean_deriv
+
+        # ~ further adjustments to create time series of predicted window state 
+        
+        # adjust the values of the derivatives to be < or > than 0, 
+        clean_deriv.loc[:, "adjust_deriv"] = clean_deriv["deriv"] - 0.5
+        ws_df = clean_deriv.reset_index(drop=True)
+
+        # shift the adjusted derivatives up one so can easily compare 
+        ws_df["shift_adjust_deriv"] = ws_df["adjust_deriv"].shift(-1)
+
+        # apply function that compares subsequent values to determine state 
+        ws_df["state"] = ws_df.apply(self.check_winstate, axis=1 )
+
+        # adjust dataframe and resample values to recreate frequency of input temperature time series, then flash fill 
+        ws_df2 = ws_df.copy()
+        ws_df2.set_index(ws_df2["index"].values, drop=False, inplace=True)
+        self.win_state = ws_df2.resample(self.period).ffill()["state"]
 
         return 
     
@@ -77,21 +112,33 @@ class Window_Detect:
         fig = self.plot_guesses()
 
         return fig
+    
+
+
 
     def plot_guesses(self):
         fig = go.Figure()
         fig.add_trace(go.Scatter(
-            x=self.varied_room["DateTime"].index,
-            y=h.normalize(self.varied_room["Window Open"]), 
+            x = self.win_state.index,
+            y=self.win_state,
             mode='lines',
-            name="Window Schedule",
-            line=dict(width=1),
+            name="Guess as Time Series", 
+            opacity=0.5,
+            line=dict( width=4, dash='dot')
         ))
         fig.add_trace(go.Scatter(
             x = self.guess["index"],
             y=self.guess["deriv"], 
             mode='markers',
             name="Guess"
+        ))
+
+        fig.add_trace(go.Scatter(
+            x=self.varied_room["DateTime"].index,
+            y=h.normalize(self.varied_room["Window Open"]), 
+            mode='lines',
+            name="Window Schedule",
+            line=dict(width=1),
         ))
 
         return fig
