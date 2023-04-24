@@ -1,0 +1,45 @@
+suggested_col_names,Note
+Series_Num,Series_Num
+Date,Date
+Season,"Season: Rainy - Aug.-Sep., 2018; Autumn: October, 2018"
+Building_Type,Building type
+Floor_Num,Floor number 0-7
+Orientation,Orientation
+Time,Morning :9-11 AM; Afternoon: 12:00-3:00PM; Evening: 5:00-7:00 PM;
+Temperature_Air_indoor [C],Indoor air temperature [C]
+Temperature_Globe [C],Globe temeprature [C]
+Temperature_Mean_Radiant [C],Mean radiant temperature [C]
+Temperature_Operative [C],Operative temperature [C]
+Temperature_Wall [C],Wall  temperature [C]
+Relative_Humidity [%],Relative humidity [%]
+Air_Sped [m/s],Air sped [m/s]
+TSV,Thermal sensation vote
+TPV,Thermal Preference vote
+Data Accracy and Removal of outlier,Data Accracy and Removal of outlier
+ASV,Air speed sensation vote
+APV,Air speed preference vote
+HSV,Humidity sensation vote
+HPV,Humidity preference bote
+Overall Comfort,Overall comfort 0/1
+Temperature_outdoor [C],Outdoor  temperature [C]
+Relative_Humidity [%],Relative humidity [%]
+Outdoor_Condition,Outdoor condition
+Clothing_Level,Clothing level
+Activity_Level,Activity level
+Exterior_Door_Status,Exterior door status 0/1
+Window_Status,Window status  0/1
+Fan_Status,Fan status  0/1
+PMV,Predicted mean vote
+PPD,Predicted percentage of dissatisfied
+Window_Operation,Open/close windows 0/1
+Door_Operation,Open/close doors 0/1
+Fan_Operation,On/off Fans 0/1
+Clothing_Change,Clothing change 0/1
+Posture_Change,Change posture 0/1
+Walking_In_Out,Walking Indoor/Outdoor 0/1
+Drink_Change,Drink Beverage 0/1
+Evaporative_Cooling_Status,Evaporative cooling status 0/1
+Temperature_Outdoor_Daily_Mean,Daily mean outdoor temperature
+Temperature_Outdoor_Running_Mean_3d,3 days running mean outdoor temperature
+Temperature_Outdoor_Running_Mean_7d,7 days running mean outdoor temperature
+Temperature_Outdoor_Monthly_Mean,Monthly mean outdoor temperature

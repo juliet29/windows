@@ -1,0 +1,35 @@
+col_names,Note
+Obs_No,Obs No
+Date,Date
+Time,Time
+Loc_Type,Loc Type
+Age,Age
+Gender,Gender
+Residency_Year,Residency Year
+Own_Refrigerator?,Own Refrigerator? Yes/No
+Own_Washing_Machine?,Own Washing Machine? Yes/No
+Own_TV?,Own TV? Yes/No
+Own_Ceiling_fan?,Own Ceiling fan? Yes/No
+Own_Exhaust_Fan?,Own Exhaust Fan? Yes/No
+Own_Air-cooler?,Own Air-cooler? Yes/No
+Own_AC?,Own AC? Yes/No
+Own_Computer?,Own Computer? Yes/No
+Others?,Others? Yes/No
+Metabolic_Rate  [W/m2],Metabolic Rate  [W/m2]
+Clothing_insulation,Clothing insulation
+Window_Status,Window Status
+Balcony_Door,Balcony Door
+Door_Status,Door Status
+Window_Curtains,Window Curtains
+Lights,Lights
+Exhaust_fans,Exhaust fans
+Ceiling_fans,Ceiling fans
+Air-coolers,Air-coolers
+AC,AC
+Temperature_Indoor [C],Indoor Temp [C]
+Temperature_Indoor_Globe [C],Indoor Globe Temperature [C]
+Relative_Humidity_Indoor [%],Relative Humidity Indoor [%]
+Air_Speed_Indoor [m/s],Air Speed Indoor [m/s]
+Illumination_Indoor [LUX],Indoor Illumination [LUX]
+Temperature_Outdoor [C],Outdoor Temp [C]
+Relative_Humidity_Outdoor [%],Outdoor RH [%]

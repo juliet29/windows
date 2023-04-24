@@ -1,0 +1,460 @@
+@prefix bldg: <http://example.org/building#> .
+@prefix brick: <https://brickschema.org/schema/Brick#> .
+@prefix brick1: <https://brickschema.org/schema/1.2/Brick#> .
+@prefix brick11: <https://brickschema.org/schema/Brick/extension/occupancy#> .
+
+bldg:Building-1 a brick1:Building,
+        brick:Building,
+        brick11:Building ;
+    brick1:hasLocation bldg:Equipment-Building-1-1 ;
+    brick:hasLocation bldg:Room-Building-1-1,
+        bldg:Room-Building-1-10,
+        bldg:Room-Building-1-11,
+        bldg:Room-Building-1-12,
+        bldg:Room-Building-1-13,
+        bldg:Room-Building-1-14,
+        bldg:Room-Building-1-15,
+        bldg:Room-Building-1-16,
+        bldg:Room-Building-1-17,
+        bldg:Room-Building-1-18,
+        bldg:Room-Building-1-19,
+        bldg:Room-Building-1-2,
+        bldg:Room-Building-1-20,
+        bldg:Room-Building-1-21,
+        bldg:Room-Building-1-22,
+        bldg:Room-Building-1-23,
+        bldg:Room-Building-1-24,
+        bldg:Room-Building-1-25,
+        bldg:Room-Building-1-26,
+        bldg:Room-Building-1-27,
+        bldg:Room-Building-1-28,
+        bldg:Room-Building-1-29,
+        bldg:Room-Building-1-3,
+        bldg:Room-Building-1-30,
+        bldg:Room-Building-1-4,
+        bldg:Room-Building-1-5,
+        bldg:Room-Building-1-6,
+        bldg:Room-Building-1-7,
+        bldg:Room-Building-1-8,
+        bldg:Room-Building-1-9 ;
+    brick11:hasLocation bldg:Room-Building-1-11,
+        bldg:Room-Building-1-12,
+        bldg:Room-Building-1-14,
+        bldg:Room-Building-1-15,
+        bldg:Room-Building-1-17,
+        bldg:Room-Building-1-19,
+        bldg:Room-Building-1-21,
+        bldg:Room-Building-1-22,
+        bldg:Room-Building-1-24,
+        bldg:Room-Building-1-26,
+        bldg:Room-Building-1-28 .
+
+bldg:Room-Building-1-11-Window_Status_1 a brick11:Window ;
+    brick11:isPointOf bldg:Room-Building-1-11 .
+
+bldg:Room-Building-1-12-Window_Status_1 a brick11:Window ;
+    brick11:isPointOf bldg:Room-Building-1-12 .
+
+bldg:Room-Building-1-14-Window_Status_1 a brick11:Window ;
+    brick11:isPointOf bldg:Room-Building-1-14 .
+
+bldg:Room-Building-1-14-Window_Status_2 a brick11:Window ;
+    brick11:isPointOf bldg:Room-Building-1-14 .
+
+bldg:Room-Building-1-15-Door_Status_1 a brick11:Door ;
+    brick11:isPointOf bldg:Room-Building-1-15 .
+
+bldg:Room-Building-1-17-Window_Status_1 a brick11:Window ;
+    brick11:isPointOf bldg:Room-Building-1-17 .
+
+bldg:Room-Building-1-19-Window_Status_1 a brick11:Window ;
+    brick11:isPointOf bldg:Room-Building-1-19 .
+
+bldg:Room-Building-1-21-Door_Status_1 a brick11:Door ;
+    brick11:isPointOf bldg:Room-Building-1-21 .
+
+bldg:Room-Building-1-22-Window_Status_1 a brick11:Window ;
+    brick11:isPointOf bldg:Room-Building-1-22 .
+
+bldg:Room-Building-1-22-Window_Status_2 a brick11:Window ;
+    brick11:isPointOf bldg:Room-Building-1-22 .
+
+bldg:Room-Building-1-22-Window_Status_3 a brick11:Window ;
+    brick11:isPointOf bldg:Room-Building-1-22 .
+
+bldg:Room-Building-1-24-Window_Status_1 a brick11:Window ;
+    brick11:isPointOf bldg:Room-Building-1-24 .
+
+bldg:Room-Building-1-26-Door_Status_1 a brick11:Door ;
+    brick11:isPointOf bldg:Room-Building-1-26 .
+
+bldg:Room-Building-1-28-Window_Status_1 a brick11:Window ;
+    brick11:isPointOf bldg:Room-Building-1-28 .
+
+bldg:Room-Building-1-28-Window_Status_2 a brick11:Window ;
+    brick11:isPointOf bldg:Room-Building-1-28 .
+
+bldg:Equipment-Building-1-1 a brick1:Equipment ;
+    brick1:Regulates bldg:Weather_Station-Building-1-1 .
+
+bldg:Room-Building-1-1 a brick:Room ;
+    brick:hasPoint bldg:Room-Building-1-1-Room_Air_Temperature_Sensor,
+        bldg:Room-Building-1-1-Room_Humidity_Sensor,
+        bldg:Room-Building-1-1-Room_Illuminance_Sensor .
+
+bldg:Room-Building-1-1-Room_Air_Temperature_Sensor a brick:Room_Air_Temperature_Sensor .
+
+bldg:Room-Building-1-1-Room_Humidity_Sensor a brick:Humidity_Sensor .
+
+bldg:Room-Building-1-1-Room_Illuminance_Sensor a brick:Illuminance_Sensor .
+
+bldg:Room-Building-1-10 a brick:Room ;
+    brick:hasPoint bldg:Room-Building-1-10-Room_Air_Temperature_Sensor,
+        bldg:Room-Building-1-10-Room_Humidity_Sensor,
+        bldg:Room-Building-1-10-Room_Illuminance_Sensor .
+
+bldg:Room-Building-1-10-Room_Air_Temperature_Sensor a brick:Room_Air_Temperature_Sensor .
+
+bldg:Room-Building-1-10-Room_Humidity_Sensor a brick:Humidity_Sensor .
+
+bldg:Room-Building-1-10-Room_Illuminance_Sensor a brick:Illuminance_Sensor .
+
+bldg:Room-Building-1-11-Room_Air_Temperature_Sensor a brick:Room_Air_Temperature_Sensor .
+
+bldg:Room-Building-1-11-Room_Humidity_Sensor a brick:Humidity_Sensor .
+
+bldg:Room-Building-1-11-Room_Illuminance_Sensor a brick:Illuminance_Sensor .
+
+bldg:Room-Building-1-12-Room_Air_Temperature_Sensor a brick:Room_Air_Temperature_Sensor .
+
+bldg:Room-Building-1-12-Room_Humidity_Sensor a brick:Humidity_Sensor .
+
+bldg:Room-Building-1-12-Room_Illuminance_Sensor a brick:Illuminance_Sensor .
+
+bldg:Room-Building-1-13 a brick:Room ;
+    brick:hasPoint bldg:Room-Building-1-13-Room_Air_Temperature_Sensor,
+        bldg:Room-Building-1-13-Room_Humidity_Sensor,
+        bldg:Room-Building-1-13-Room_Illuminance_Sensor .
+
+bldg:Room-Building-1-13-Room_Air_Temperature_Sensor a brick:Room_Air_Temperature_Sensor .
+
+bldg:Room-Building-1-13-Room_Humidity_Sensor a brick:Humidity_Sensor .
+
+bldg:Room-Building-1-13-Room_Illuminance_Sensor a brick:Illuminance_Sensor .
+
+bldg:Room-Building-1-14-Room_Air_Temperature_Sensor a brick:Room_Air_Temperature_Sensor .
+
+bldg:Room-Building-1-14-Room_Humidity_Sensor a brick:Humidity_Sensor .
+
+bldg:Room-Building-1-14-Room_Illuminance_Sensor a brick:Illuminance_Sensor .
+
+bldg:Room-Building-1-15-Room_Air_Temperature_Sensor a brick:Room_Air_Temperature_Sensor .
+
+bldg:Room-Building-1-15-Room_Humidity_Sensor a brick:Humidity_Sensor .
+
+bldg:Room-Building-1-15-Room_Illuminance_Sensor a brick:Illuminance_Sensor .
+
+bldg:Room-Building-1-16 a brick:Room ;
+    brick:hasPoint bldg:Room-Building-1-16-Room_Air_Temperature_Sensor,
+        bldg:Room-Building-1-16-Room_Humidity_Sensor,
+        bldg:Room-Building-1-16-Room_Illuminance_Sensor .
+
+bldg:Room-Building-1-16-Room_Air_Temperature_Sensor a brick:Room_Air_Temperature_Sensor .
+
+bldg:Room-Building-1-16-Room_Humidity_Sensor a brick:Humidity_Sensor .
+
+bldg:Room-Building-1-16-Room_Illuminance_Sensor a brick:Illuminance_Sensor .
+
+bldg:Room-Building-1-17-Room_Air_Temperature_Sensor a brick:Room_Air_Temperature_Sensor .
+
+bldg:Room-Building-1-17-Room_Humidity_Sensor a brick:Humidity_Sensor .
+
+bldg:Room-Building-1-17-Room_Illuminance_Sensor a brick:Illuminance_Sensor .
+
+bldg:Room-Building-1-18 a brick:Room ;
+    brick:hasPoint bldg:Room-Building-1-18-Room_Air_Temperature_Sensor,
+        bldg:Room-Building-1-18-Room_Humidity_Sensor,
+        bldg:Room-Building-1-18-Room_Illuminance_Sensor .
+
+bldg:Room-Building-1-18-Room_Air_Temperature_Sensor a brick:Room_Air_Temperature_Sensor .
+
+bldg:Room-Building-1-18-Room_Humidity_Sensor a brick:Humidity_Sensor .
+
+bldg:Room-Building-1-18-Room_Illuminance_Sensor a brick:Illuminance_Sensor .
+
+bldg:Room-Building-1-19-Room_Air_Temperature_Sensor a brick:Room_Air_Temperature_Sensor .
+
+bldg:Room-Building-1-19-Room_Humidity_Sensor a brick:Humidity_Sensor .
+
+bldg:Room-Building-1-19-Room_Illuminance_Sensor a brick:Illuminance_Sensor .
+
+bldg:Room-Building-1-2 a brick:Room ;
+    brick:hasPoint bldg:Room-Building-1-2-Room_Air_Temperature_Sensor,
+        bldg:Room-Building-1-2-Room_Humidity_Sensor,
+        bldg:Room-Building-1-2-Room_Illuminance_Sensor .
+
+bldg:Room-Building-1-2-Room_Air_Temperature_Sensor a brick:Room_Air_Temperature_Sensor .
+
+bldg:Room-Building-1-2-Room_Humidity_Sensor a brick:Humidity_Sensor .
+
+bldg:Room-Building-1-2-Room_Illuminance_Sensor a brick:Illuminance_Sensor .
+
+bldg:Room-Building-1-20 a brick:Room ;
+    brick:hasPoint bldg:Room-Building-1-20-Room_Air_Temperature_Sensor,
+        bldg:Room-Building-1-20-Room_Humidity_Sensor,
+        bldg:Room-Building-1-20-Room_Illuminance_Sensor .
+
+bldg:Room-Building-1-20-Room_Air_Temperature_Sensor a brick:Room_Air_Temperature_Sensor .
+
+bldg:Room-Building-1-20-Room_Humidity_Sensor a brick:Humidity_Sensor .
+
+bldg:Room-Building-1-20-Room_Illuminance_Sensor a brick:Illuminance_Sensor .
+
+bldg:Room-Building-1-21-Room_Air_Temperature_Sensor a brick:Room_Air_Temperature_Sensor .
+
+bldg:Room-Building-1-21-Room_Humidity_Sensor a brick:Humidity_Sensor .
+
+bldg:Room-Building-1-21-Room_Illuminance_Sensor a brick:Illuminance_Sensor .
+
+bldg:Room-Building-1-22-Room_Air_Temperature_Sensor a brick:Room_Air_Temperature_Sensor .
+
+bldg:Room-Building-1-22-Room_Humidity_Sensor a brick:Humidity_Sensor .
+
+bldg:Room-Building-1-22-Room_Illuminance_Sensor a brick:Illuminance_Sensor .
+
+bldg:Room-Building-1-23 a brick:Room ;
+    brick:hasPoint bldg:Room-Building-1-23-Room_Air_Temperature_Sensor,
+        bldg:Room-Building-1-23-Room_Humidity_Sensor,
+        bldg:Room-Building-1-23-Room_Illuminance_Sensor .
+
+bldg:Room-Building-1-23-Room_Air_Temperature_Sensor a brick:Room_Air_Temperature_Sensor .
+
+bldg:Room-Building-1-23-Room_Humidity_Sensor a brick:Humidity_Sensor .
+
+bldg:Room-Building-1-23-Room_Illuminance_Sensor a brick:Illuminance_Sensor .
+
+bldg:Room-Building-1-24-Room_Air_Temperature_Sensor a brick:Room_Air_Temperature_Sensor .
+
+bldg:Room-Building-1-24-Room_Humidity_Sensor a brick:Humidity_Sensor .
+
+bldg:Room-Building-1-24-Room_Illuminance_Sensor a brick:Illuminance_Sensor .
+
+bldg:Room-Building-1-25 a brick:Room ;
+    brick:hasPoint bldg:Room-Building-1-25-Room_Air_Temperature_Sensor,
+        bldg:Room-Building-1-25-Room_Humidity_Sensor,
+        bldg:Room-Building-1-25-Room_Illuminance_Sensor .
+
+bldg:Room-Building-1-25-Room_Air_Temperature_Sensor a brick:Room_Air_Temperature_Sensor .
+
+bldg:Room-Building-1-25-Room_Humidity_Sensor a brick:Humidity_Sensor .
+
+bldg:Room-Building-1-25-Room_Illuminance_Sensor a brick:Illuminance_Sensor .
+
+bldg:Room-Building-1-26-Room_Air_Temperature_Sensor a brick:Room_Air_Temperature_Sensor .
+
+bldg:Room-Building-1-26-Room_Humidity_Sensor a brick:Humidity_Sensor .
+
+bldg:Room-Building-1-26-Room_Illuminance_Sensor a brick:Illuminance_Sensor .
+
+bldg:Room-Building-1-27 a brick:Room ;
+    brick:hasPoint bldg:Room-Building-1-27-Room_Air_Temperature_Sensor,
+        bldg:Room-Building-1-27-Room_Humidity_Sensor,
+        bldg:Room-Building-1-27-Room_Illuminance_Sensor .
+
+bldg:Room-Building-1-27-Room_Air_Temperature_Sensor a brick:Room_Air_Temperature_Sensor .
+
+bldg:Room-Building-1-27-Room_Humidity_Sensor a brick:Humidity_Sensor .
+
+bldg:Room-Building-1-27-Room_Illuminance_Sensor a brick:Illuminance_Sensor .
+
+bldg:Room-Building-1-28-Room_Air_Temperature_Sensor a brick:Room_Air_Temperature_Sensor .
+
+bldg:Room-Building-1-28-Room_Humidity_Sensor a brick:Humidity_Sensor .
+
+bldg:Room-Building-1-28-Room_Illuminance_Sensor a brick:Illuminance_Sensor .
+
+bldg:Room-Building-1-29 a brick:Room ;
+    brick:hasPoint bldg:Room-Building-1-29-Room_Air_Temperature_Sensor,
+        bldg:Room-Building-1-29-Room_Humidity_Sensor,
+        bldg:Room-Building-1-29-Room_Illuminance_Sensor .
+
+bldg:Room-Building-1-29-Room_Air_Temperature_Sensor a brick:Room_Air_Temperature_Sensor .
+
+bldg:Room-Building-1-29-Room_Humidity_Sensor a brick:Humidity_Sensor .
+
+bldg:Room-Building-1-29-Room_Illuminance_Sensor a brick:Illuminance_Sensor .
+
+bldg:Room-Building-1-3 a brick:Room ;
+    brick:hasPoint bldg:Room-Building-1-3-Room_Air_Temperature_Sensor,
+        bldg:Room-Building-1-3-Room_Humidity_Sensor,
+        bldg:Room-Building-1-3-Room_Illuminance_Sensor .
+
+bldg:Room-Building-1-3-Room_Air_Temperature_Sensor a brick:Room_Air_Temperature_Sensor .
+
+bldg:Room-Building-1-3-Room_Humidity_Sensor a brick:Humidity_Sensor .
+
+bldg:Room-Building-1-3-Room_Illuminance_Sensor a brick:Illuminance_Sensor .
+
+bldg:Room-Building-1-30 a brick:Room ;
+    brick:hasPoint bldg:Room-Building-1-30-Room_Air_Temperature_Sensor,
+        bldg:Room-Building-1-30-Room_Humidity_Sensor,
+        bldg:Room-Building-1-30-Room_Illuminance_Sensor .
+
+bldg:Room-Building-1-30-Room_Air_Temperature_Sensor a brick:Room_Air_Temperature_Sensor .
+
+bldg:Room-Building-1-30-Room_Humidity_Sensor a brick:Humidity_Sensor .
+
+bldg:Room-Building-1-30-Room_Illuminance_Sensor a brick:Illuminance_Sensor .
+
+bldg:Room-Building-1-4 a brick:Room ;
+    brick:hasPoint bldg:Room-Building-1-4-Room_Air_Temperature_Sensor,
+        bldg:Room-Building-1-4-Room_Humidity_Sensor,
+        bldg:Room-Building-1-4-Room_Illuminance_Sensor .
+
+bldg:Room-Building-1-4-Room_Air_Temperature_Sensor a brick:Room_Air_Temperature_Sensor .
+
+bldg:Room-Building-1-4-Room_Humidity_Sensor a brick:Humidity_Sensor .
+
+bldg:Room-Building-1-4-Room_Illuminance_Sensor a brick:Illuminance_Sensor .
+
+bldg:Room-Building-1-5 a brick:Room ;
+    brick:hasPoint bldg:Room-Building-1-5-Room_Air_Temperature_Sensor,
+        bldg:Room-Building-1-5-Room_Humidity_Sensor,
+        bldg:Room-Building-1-5-Room_Illuminance_Sensor .
+
+bldg:Room-Building-1-5-Room_Air_Temperature_Sensor a brick:Room_Air_Temperature_Sensor .
+
+bldg:Room-Building-1-5-Room_Humidity_Sensor a brick:Humidity_Sensor .
+
+bldg:Room-Building-1-5-Room_Illuminance_Sensor a brick:Illuminance_Sensor .
+
+bldg:Room-Building-1-6 a brick:Room ;
+    brick:hasPoint bldg:Room-Building-1-6-Room_Air_Temperature_Sensor,
+        bldg:Room-Building-1-6-Room_Humidity_Sensor,
+        bldg:Room-Building-1-6-Room_Illuminance_Sensor .
+
+bldg:Room-Building-1-6-Room_Air_Temperature_Sensor a brick:Room_Air_Temperature_Sensor .
+
+bldg:Room-Building-1-6-Room_Humidity_Sensor a brick:Humidity_Sensor .
+
+bldg:Room-Building-1-6-Room_Illuminance_Sensor a brick:Illuminance_Sensor .
+
+bldg:Room-Building-1-7 a brick:Room ;
+    brick:hasPoint bldg:Room-Building-1-7-Room_Air_Temperature_Sensor,
+        bldg:Room-Building-1-7-Room_Humidity_Sensor,
+        bldg:Room-Building-1-7-Room_Illuminance_Sensor .
+
+bldg:Room-Building-1-7-Room_Air_Temperature_Sensor a brick:Room_Air_Temperature_Sensor .
+
+bldg:Room-Building-1-7-Room_Humidity_Sensor a brick:Humidity_Sensor .
+
+bldg:Room-Building-1-7-Room_Illuminance_Sensor a brick:Illuminance_Sensor .
+
+bldg:Room-Building-1-8 a brick:Room ;
+    brick:hasPoint bldg:Room-Building-1-8-Room_Air_Temperature_Sensor,
+        bldg:Room-Building-1-8-Room_Humidity_Sensor,
+        bldg:Room-Building-1-8-Room_Illuminance_Sensor .
+
+bldg:Room-Building-1-8-Room_Air_Temperature_Sensor a brick:Room_Air_Temperature_Sensor .
+
+bldg:Room-Building-1-8-Room_Humidity_Sensor a brick:Humidity_Sensor .
+
+bldg:Room-Building-1-8-Room_Illuminance_Sensor a brick:Illuminance_Sensor .
+
+bldg:Room-Building-1-9 a brick:Room ;
+    brick:hasPoint bldg:Room-Building-1-9-Room_Air_Temperature_Sensor,
+        bldg:Room-Building-1-9-Room_Humidity_Sensor,
+        bldg:Room-Building-1-9-Room_Illuminance_Sensor .
+
+bldg:Room-Building-1-9-Room_Air_Temperature_Sensor a brick:Room_Air_Temperature_Sensor .
+
+bldg:Room-Building-1-9-Room_Humidity_Sensor a brick:Humidity_Sensor .
+
+bldg:Room-Building-1-9-Room_Illuminance_Sensor a brick:Illuminance_Sensor .
+
+bldg:Weather_Station-Building-1-1 a brick1:Weather_Station ;
+    brick1:hasPoint bldg:Weather_Station-Building-1-Air_Temperature_Sensor,
+        bldg:Weather_Station-Building-1-Humidity_Sensor,
+        bldg:Weather_Station-Building-1-Solar_Radiance_Sensor,
+        bldg:Weather_Station-Building-1-Static_Pressure_Sensor,
+        bldg:Weather_Station-Building-1-Wind_Direction_Sensor,
+        bldg:Weather_Station-Building-1-Wind_Speed_Sensor .
+
+bldg:Weather_Station-Building-1-Air_Temperature_Sensor a brick1:Weather_Station_Air_Temperature_Sensor .
+
+bldg:Weather_Station-Building-1-Humidity_Sensor a brick1:Weather_Station_Humidity_Sensor .
+
+bldg:Weather_Station-Building-1-Solar_Radiance_Sensor a brick1:Solar_Radiance_Sensor .
+
+bldg:Weather_Station-Building-1-Static_Pressure_Sensor a brick1:Static_Pressure_Sensor .
+
+bldg:Weather_Station-Building-1-Wind_Direction_Sensor a brick1:Wind_Direction_Sensor .
+
+bldg:Weather_Station-Building-1-Wind_Speed_Sensor a brick1:Wind_Speed_Sensor .
+
+bldg:Room-Building-1-11 a brick:Room,
+        brick11:Room ;
+    brick:hasPoint bldg:Room-Building-1-11-Room_Air_Temperature_Sensor,
+        bldg:Room-Building-1-11-Room_Humidity_Sensor,
+        bldg:Room-Building-1-11-Room_Illuminance_Sensor .
+
+bldg:Room-Building-1-12 a brick:Room,
+        brick11:Room ;
+    brick:hasPoint bldg:Room-Building-1-12-Room_Air_Temperature_Sensor,
+        bldg:Room-Building-1-12-Room_Humidity_Sensor,
+        bldg:Room-Building-1-12-Room_Illuminance_Sensor .
+
+bldg:Room-Building-1-15 a brick:Room,
+        brick11:Room ;
+    brick:hasPoint bldg:Room-Building-1-15-Room_Air_Temperature_Sensor,
+        bldg:Room-Building-1-15-Room_Humidity_Sensor,
+        bldg:Room-Building-1-15-Room_Illuminance_Sensor .
+
+bldg:Room-Building-1-17 a brick:Room,
+        brick11:Room ;
+    brick:hasPoint bldg:Room-Building-1-17-Room_Air_Temperature_Sensor,
+        bldg:Room-Building-1-17-Room_Humidity_Sensor,
+        bldg:Room-Building-1-17-Room_Illuminance_Sensor .
+
+bldg:Room-Building-1-19 a brick:Room,
+        brick11:Room ;
+    brick:hasPoint bldg:Room-Building-1-19-Room_Air_Temperature_Sensor,
+        bldg:Room-Building-1-19-Room_Humidity_Sensor,
+        bldg:Room-Building-1-19-Room_Illuminance_Sensor .
+
+bldg:Room-Building-1-21 a brick:Room,
+        brick11:Room ;
+    brick:hasPoint bldg:Room-Building-1-21-Room_Air_Temperature_Sensor,
+        bldg:Room-Building-1-21-Room_Humidity_Sensor,
+        bldg:Room-Building-1-21-Room_Illuminance_Sensor .
+
+bldg:Room-Building-1-24 a brick:Room,
+        brick11:Room ;
+    brick:hasPoint bldg:Room-Building-1-24-Room_Air_Temperature_Sensor,
+        bldg:Room-Building-1-24-Room_Humidity_Sensor,
+        bldg:Room-Building-1-24-Room_Illuminance_Sensor .
+
+bldg:Room-Building-1-26 a brick:Room,
+        brick11:Room ;
+    brick:hasPoint bldg:Room-Building-1-26-Room_Air_Temperature_Sensor,
+        bldg:Room-Building-1-26-Room_Humidity_Sensor,
+        bldg:Room-Building-1-26-Room_Illuminance_Sensor .
+
+bldg:Room-Building-1-14 a brick:Room,
+        brick11:Room ;
+    brick:hasPoint bldg:Room-Building-1-14-Room_Air_Temperature_Sensor,
+        bldg:Room-Building-1-14-Room_Humidity_Sensor,
+        bldg:Room-Building-1-14-Room_Illuminance_Sensor .
+
+bldg:Room-Building-1-28 a brick:Room,
+        brick11:Room ;
+    brick:hasPoint bldg:Room-Building-1-28-Room_Air_Temperature_Sensor,
+        bldg:Room-Building-1-28-Room_Humidity_Sensor,
+        bldg:Room-Building-1-28-Room_Illuminance_Sensor .
+
+bldg:Room-Building-1-22 a brick:Room,
+        brick11:Room ;
+    brick:hasPoint bldg:Room-Building-1-22-Room_Air_Temperature_Sensor,
+        bldg:Room-Building-1-22-Room_Humidity_Sensor,
+        bldg:Room-Building-1-22-Room_Illuminance_Sensor .
+
