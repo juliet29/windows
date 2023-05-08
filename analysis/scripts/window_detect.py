@@ -45,7 +45,10 @@ class Window_Detect:
         self.stl_deriv = seasonal_decompose(self.obs_deriv,model='additive', period=period)
 
         # ~ difference between obeservation and the seasonal decomposition 
-        self.stl_deriv_dif = h.normalize(h.normalize(self.stl_deriv.seasonal) - h.normalize(self.varied_room["Window Open"]))
+        # self.stl_deriv_dif = h.normalize(h.normalize(self.stl_deriv.seasonal) - h.normalize(self.varied_room["Window Open"])) # ! this is an error!!! 
+        
+        # ! change 05/01/23 think Window Open should be Temp C, but then doesnt work...
+        self.stl_deriv_dif = h.normalize(h.normalize(self.stl_deriv.seasonal) - h.normalize(self.varied_room["Temp C"]))
 
         # ~ derivative of the difference 
         self.stl_deriv_dif_deriv = h.normalize(pd.Series(np.gradient(self.stl_deriv_dif), self.stl_deriv_dif.index, name='deriv'))
@@ -123,8 +126,7 @@ class Window_Detect:
 
         return fig
     
-
-
+# ! Make figures ----
 
     def plot_guesses(self):
         fig = go.Figure()
@@ -155,7 +157,7 @@ class Window_Detect:
 
         return fig
 
-# ! Make figures ----
+
     
     def plot_s3d(self):
         fig = go.Figure()
