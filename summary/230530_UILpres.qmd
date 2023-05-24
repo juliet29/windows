@@ -110,6 +110,7 @@ format:
 - room in rosse etc 
 - what the data looks like 
 - highlight trends => temperature in certain room changed by xyz when windows open/close 
+- when had the coolest times in room / greatest differential from indoor and outdoor..
 
 ## Time series analysis
 -  time series approach 
