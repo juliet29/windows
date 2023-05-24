@@ -1,0 +1,144 @@
+---
+title: "A socio-technical approach to increasing the use of natural cooling"
+subtitle: "Presentation for the Urban Informatics Lab, May 30, 2023"
+author: Juliet Nwagwu Ume-Ezeoke, Kopal Nihar, Catehrine Gorle, Rishee Jain 
+format:
+  revealjs: 
+    slide-number: true
+    chalkboard: 
+      buttons: false
+    preview-links: auto
+    footer: Urban Informatics Lab
+
+---
+
+
+## Overview? 
+
+- Background
+- Approaches
+- Conclusions 
+
+# Background and motivation 
+
+## Global warming in context 
+
+- Global warming - recent reports descibe have hit 1.5ºC, s
+- Occurence of extreme heat events is occuring more frequently, and effects of extreme heat on body, mental health, productivity, s 
+- Ramifications felt most significantly in cities where urban heat island effect is present, s 
+  - These tend to be large urban metropolises/metropoli where ubranization is occuring rapidly 
+  - also here, many people's work is outside ?
+  - but still a global problem
+<!-- - maybe some graph showing uhi and cities?  -->
+
+## Mechanical cooling 
+- To adapt to the heat, people to turn to mechanical sources of cooling which
+  <!-- - maybe do a 2 column with pros and cons here -->
+  - pros
+    - relatively easy to design for 
+    - industry is comfortable with 
+    - reliable 
+  <!-- - then strike through  -->
+      - susceptible to failures during extreme heat events, 
+      <!-- - s grid black outs during these, as well as equipment peformance charts  -->
+  - cons 
+    - consume a high amount of energy, s: energy consumption from residential cooling 
+    - unaffordable
+      - cost to own and operate an ac is this range, s
+      - in cities of greatest concern incomes are rising quickly, s
+      - but x% of population live in informal housing / have this income level 
+      <!-- - more people owning ac, means more cooling energy consumption, but not inherently accesible  -->
+
+## Natural cooling 
+- Natural cooling is needed 
+<!-- - now more than ever critical to explore less-energy intensive methods of cooling  -->
+  - pros 
+    - low operational energy 
+    - accesible
+    - rich history, people have relied on natural cooling methods for centuries,
+      - architectural history.. recent emergence of mechanical cooling, s 
+      <!-- - maybe a timeline here?  -->
+  - cons 
+    - difficult to design for 
+    - industry skepticism 
+    - unreliable due to uncertainty 
+      - occupant behavior 
+      - outdoor climate 
+
+## Research questions 
+
+- Work seeks to better understand and address sources of uncertainty regarding natural cooling.
+- Start with low hanging fruit: windows 
+- critical for mediating relationship between indoor and outdoor, but effectiveness is dependent on two uncertain factors that brought up before: occupant behavior, outdoor climate
+- and also the design of the building which, once decided upon, is less uncertain 
+- Questions 
+  - question 1: what is the effect of opening and closing windows on indoor climate 
+  - question 2: how can we enable to practitioners to access this information in a fast enough way to be useful for decision making  in the early stages of the design process 
+
+# Approaches  
+
+## Research on window opening and closing to date 
+
+- history of this 
+  <!-- - timeline here? + model performance  -->
+  - fritsch, logistic regression, 19?
+  - de rautlin de roy, 2023
+- methods 
+  <!-- - table that gets filled in as timeline happens  -->
+  - methods of data collection: x years long sample, places where data collected, types of buildings where data collected 
+  - methods of analysis + model performance?: logistic regression, machine learning models
+  - gaps:  
+    <!-- - add to table   -->
+    - long data collection periods
+    - unclear how coefficients/models transfer to randically different buildings in different climates 
+
+## Why understanding w/o/c is important 
+- uninvasive? way of determining if windows open/closed can enable better understanding of occupant behavior 
+- understanding when windows are open, enables us to use to contextural info and social methods to understand why they are open
+- critical information for designers 
+
+## My approach:
+- develop understanding of physical processes governing changes in indoor temperature through 
+  - measurement and analysis 
+  - energy modeling tools 
+  - computational fluid dynamics 
+
+# Measurement and time series analysis 
+
+## Measurement procedure 
+-  guided by aim to develop a model: using temperature data, is it possible to predict when win open/close? 
+- room in rosse etc 
+- what the data looks like 
+- highlight trends => temperature in certain room changed by xyz when windows open/close 
+
+## Time series analysis
+-  time series approach 
+
+
+# Energy modeling tools 
+
+## Energy model 
+- model built in energy+ 
+- similarities and differences from real life data 
+- difference in prediction 
+
+# CFD 
+
+## CFD progress on this so far 
+- how this works 
+- progress so far 
+- integrating all three...
+
+# Conclusions 
+
+## Comclusion 
+- problems to solve
+- question asked 
+- approach taken to solve
+- results so far 
+
+## Future Work 
+- continue work on 3 levers?
+- questions aksed by CIFE people 
+
+

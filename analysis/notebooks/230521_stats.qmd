@@ -1,0 +1,89 @@
+---
+title: "statistics in r"
+author: "Juliet Nwagwu Ume-Ezeoke"
+date: "5/22/2023"
+format: 
+  html:
+    fig-width: 8
+    fig-height: 4
+    code-fold: true
+---
+
+## Air Quality
+
+@fig-airquality further explores the impact of temperature on ozone level. (Example of how to use this...)
+
+```{r}
+#| label: fig-airquality
+#| fig-cap: "Temperature and ozone level."
+#| warning: false
+
+library(ggplot2)
+
+ggplot(airquality, aes(Temp, Ozone)) +
+    geom_point() +
+    geom_smooth(method = "loess")
+```
+
+Now we want to use functions from the textbook 
+
+```{r}
+# downlpad astsa
+
+install.packages("remotes", repos = "http://cran.us.r-project.org") # if you don't have the package already
+remotes::install_github("nickpoison/astsa/astsa_build")
+library(astsa)
+```
+
+Birth example, figure 5.11
+```{r}
+#
+tsplot(birth)
+acf2(birth)
+acf2(diff(birth))
+```
+
+Another dataset to see what its like...
+```{r}
+#
+tsplot(blood[WBC])
+# acf2(blood[WBC])
+# class(blood[WBC])
+# acf2(diff(blood))
+```
+
+Now, read in my own dataset, exp A, Room 01, temperature data 
+```{r}
+getwd()
+
+a01 <- read.csv("analysis/constants/a01.csv")
+time <- a01["X"][, 1]
+temp <- a01["Temp.C"][, 1]
+```
+
+```{r}
+getwd()
+
+tsplot(temp)
+acf2(temp)
+
+# tsplot(diff(temp))
+
+# tsplot(diff(diff(temp)))
+
+# acf2(diff(temp))
+
+
+# acf2(diff(diff(temp)))
+```
+
+```{r}
+# sarima(temp, p=24,d=0,q=1, P=0,D=1,Q=1,S=24)
+```
+
+```{r}
+par(mfrow=c(2,1))
+tsplot(temp)
+k = mvspec(temp, col=4, lwd=2, type='o', pch=20)
+
+```
