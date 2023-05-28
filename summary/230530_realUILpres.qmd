@@ -1,0 +1,288 @@
+---
+title: "A socio-technical approach to increasing the use of natural cooling"
+subtitle: "Presentation for the Urban Informatics Lab, May 30, 2023"
+author: Juliet Nwagwu Ume-Ezeoke, Kopal Nihar, Catehrine Gorle, Rishee Jain 
+zotero:
+  csl-style: author-date # pre-fill the style
+bibliography: http://127.0.0.1:23119/better-bibtex/export/collection?/1/DTLYMVAD.bibtex
+link-citations: true
+format:
+  revealjs: 
+    slide-number: true
+    chalkboard: 
+      buttons: false
+    preview-links: auto
+    footer: Urban Informatics Lab
+
+---
+
+<!-- zotero api key: JrQ1xvfI537YCv9w1HDSSfdI -->
+<!-- # http://127.0.0.1:23119/better-bibtex/export/collection?/1/DTLYMVAD.bibtex -->
+
+
+## Overview? 
+
+- Global warming in context 
+- Solutions
+- Analysis
+- Recap 
+
+# Global warming in context 
+
+## untitled
+<!-- TODO image of global warming  -->
+::: {.notes}
+Project is situated in the context of a warming world 
+:::
+
+
+## untitled
+<!-- TODO nature figure, double pane  -->
+- XX% increase in cumulative heat intensity between 1950 and 2014 
+
+
+::: aside
+@perkins-kirkpatrickIncreasingTrendsRegional2020
+:::
+
+::: {.notes}
+XX places recieving as many as XX additional hours of intense heat each year..
+:::
+
+## untitled
+- heat exhaustion 
+- stroke 
+- increased risks for those with pre-existing conditions
+- 166,000 excess deaths between 1998 - 2017
+
+
+::: aside
+@worldhealthorganizationHeatwaves
+:::
+
+::: {.notes}
+although heat waves do not get as much attention as other natural disasters because there impacts are not immediately obvious, they do have significant impacts on human health 
+:::
+
+## vulnerable regions
+- urban heat island effect increases the intensity of heat waves  ^[@source]?
+- emerging markets have higher % of people working outside, increasing exposure
+  - in India, 75% of people are in "heat-exposed professions" ^[@IndiaDeadlyHeatwaves]
+
+
+# Solutions? 
+
+## mechanical cooling 
+:::: {.columns}
+
+::: {.column width="40%"}
+- Pros
+  - easy to design for 
+  - accepted in industry 
+  - has supported development in warmer parts of the world
+  - reliable?
+:::
+
+::: {.column width="60%"}
+- Cons 
+  - susceptible to failure during heat waves 
+    - loads increase when power system most vulnerable, leading to blackouts
+    - in Shanghai, documented shortages greater than a 1 GWh ^[@liangHeatWaveElectricity2016]
+  - energy intensive 
+    - AC + electric fan account for 20% of total energy use in buildings ^[@internationalenergyagencyFutureCoolingOpportunities2018]
+  - inaccesible 
+    - ability to own an AC constrained by income ^[@internationalenergyagencyFutureCoolingOpportunities2018]
+      - 99% of private apartments in Singapore have AC
+      - Closer to 4% of households in India 
+    <!-- TODO figure of from IEA if desired and fits..  -->
+:::
+
+::::
+
+## viscous cycle 
+<!-- TODO figure of visous cycle  -->
+
+
+## natural cooling 
+:::: {.columns}
+
+::: {.column width="40%"}
+- Pros
+  - low operational energy 
+  - accessible 
+  - has worked well for some time 
+    - modern AC unit invented in 1900s, first popularized in the US in the 1950s ^[@internationalenergyagencyFutureCoolingOpportunities2018]
+:::
+
+::: {.column width="60%"}
+- Cons 
+    - difficult to design for 
+    - industry skepticism 
+    - unreliable due to uncertainty 
+      - occupant behavior 
+      - outdoor climate 
+
+:::
+
+::::
+
+
+## cooling "tech"
+<!-- TODO zhang figure -->
+
+::: aside
+@zhangResilientCoolingStrategies2021a
+:::
+
+## untitled 
+"Vernacular building traditions across the world display ... sophisticated thermal adaptation" - Lisa Heschong, Thermal delight in Architecture 
+<!-- TODO zhang figure + lisa interventions  -->
+
+::: aside
+@heschongThermalDelightArchitecture1979
+:::
+<!-- TODO repeat and circle ventilation   -->
+
+
+## why windows?
+:::: {.columns}
+
+::: {.column width="40%"}
+- Both climate and occupant uncertainty
+
+:::
+
+::: {.column width="60%"}
+- Questions 
+    - what is the effect of opening and closing windows on indoor climate?
+    - how can we enable to practitioners to access this information in a fast enough way to be useful for decision making  in the early stages of the design process 
+
+:::
+
+::::
+
+## why predicting w/o/c is important 
+- uninvasive way of determining if windows open/closed 
+- can enable better understanding of occupant behavior 
+- understanding when windows are open, enables us to use to contextual information understand why they are open
+  - D'Oca and Hong grouped occupants into 3-types: thermal-driven, time-driven, thermal+time driven ^[@docaDataminingApproachDiscover2014]
+- critical information for designers 
+
+## predicting w/o/c since 1990...
+<!-- TODO timeline   -->
+  - Dai 2020 Table 1 => popular methods + Fig 5 => frequency of ML methods used, 4.2.1 = prediction of window opening closing action 
+    - fritsch, 1990 [54] Markov chain methods 
+    - Haldi and Robinson [78] markov chain + logistic regression 
+    - Schweiker [79] tested this (also the source of external data!) => differences in culture meant different performance 
+    - Markovic [80] Bayesian and random forest 
+    - de rautlin de roy, 2023, looked at different learning techniques 
+
+
+::: aside
+@docaDataminingApproachDiscover2014
+:::
+
+## research gaps 
+<!-- TODO table with author, length of data collected, location, method, and supervised/not    -->
+  - gaps:  
+    - long data collection periods: shorter periods are needed for practical use
+    - only supervised models : unclear how coefficients/models transfer to radically different buildings in different climates
+
+
+::: aside
+discussion of supervised vs not.
+:::
+
+
+## approach
+- problem statement: design an unsupervised method to predict window/open closing based on short periods of easily accesible data 
+<!-- TODO: wite a problem statement that involves the question -->
+- tools
+  - measurment
+  - time series analysis 
+  - building energy modeling 
+  - computational fluid dynamics 
+
+
+# Analysis
+
+## measurement technique
+<!-- TODO: figure of how measurements taken, see other presentation  -->
+::: {.notes}
+highlight that sensors used are affordable, and many modern buildings already monitor temperature as part of their operation 
+:::
+
+## collected data  
+<!-- TODO: figure of data collected -->
+<!-- TODO: some inights about how much WOC helped over all -->
+
+::: {.notes}
+highlight that predicting the window opening close data as a function of temperature 
+and that didnt colelct for very long periods of time 
+:::
+
+
+## predicting w/o/c at a high level 
+<!-- TODO: figure for all of these -->
+1. have observed time series, here indoor temperature 
+2. smooth out some way 
+3. make anomalies due to w/oc uniquely apparent
+   - subtracting smoothed data and 
+   - taking derivatives
+4. detect anaomalies using *likelihood estimation*
+<!-- TODO: not sure if this is actually likelihood estimation?? -->
+
+::: {.notes}
+note that any combo of 2 and 3 could work... 
+:::
+
+## essentially, trying to seperate signal from noise 
+<!-- TODO: figure for all of these -->
+- indoor temp, constant distaortion from outside due to building materials
+- seasonality from day to night transition 
+- + noise from people doing stuff inside 
+- + w/o/c
+
+## 1. observed time series using building energy modeling...
+- can recreate real life scenario and simplify so don't have noise 
+<!-- TODO: building figure -->
+<!-- TODO: about the simulation, not calibrated  -->
+<!-- TODO: 1. observed time series real data, building data for july experiment    -->
+
+## 2. smoothing with STL 
+<!-- TODO: STL figure-->
+
+## 3. and 4. detecting anomalies
+<!-- TODO: anomaly figure -->
+
+## back to reality -> 1. observed data 
+<!-- TODO: real vs observed data   -->
+
+## STL results 
+<!-- TODO: STL figure-->
+
+## other smoothing techniques 
+<!-- TODO: othe rsmoothing technique figures -->
+
+
+## results 
+<!-- TODO: de raultin de roy metrics + compare to other ML methods on same data  -->
+
+## next steps..
+- better understanding the unique way that w/o/c appears in the time series
+  - how this differs 
+    - based on time of day 
+    - length of w/o/c
+  - can use BEM + CFD for this?
+- when sort of smoothing method is truly best for this use case?
+- test on larger external data set 
+<!-- TODO: progress on cfd so far?  -->
+
+
+# Recap 
+
+## summmary + open questions addressed to group 
+<!-- TODO...  -->
+
+## Citations
+

@@ -1,0 +1,658 @@
+<rdf:RDF
+ xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+ xmlns:z="http://www.zotero.org/namespaces/export#"
+ xmlns:dcterms="http://purl.org/dc/terms/"
+ xmlns:bib="http://purl.org/net/biblio#"
+ xmlns:foaf="http://xmlns.com/foaf/0.1/"
+ xmlns:link="http://purl.org/rss/1.0/modules/link/"
+ xmlns:dc="http://purl.org/dc/elements/1.1/"
+ xmlns:prism="http://prismstandard.org/namespaces/1.2/basic/"
+ xmlns:vcard="http://nwalsh.com/rdf/vCard#">
+    <bib:Article rdf:about="#item_1730">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf>
+           <bib:Journal></bib:Journal>
+        </dcterms:isPartOf>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                       <foaf:surname>International Energy Agency</foaf:surname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_1729"/>
+        <dc:title>The Future of Cooling: Opportunities for energy- efficient air conditioning</dc:title>
+        <dc:date>2018</dc:date>
+        <z:language>en</z:language>
+        <z:libraryCatalog>Zotero</z:libraryCatalog>
+        <bib:pages>92</bib:pages>
+    </bib:Article>
+    <z:Attachment rdf:about="#item_1729">
+        <z:itemType>attachment</z:itemType>
+        <rdf:resource rdf:resource="/Users/julietnwagwuume-ezeoke/Desktop/UIL/2022_Winter/The_Future_of_Cooling.pdf"/>
+        <dc:title>The_Future_of_Cooling.pdf</dc:title>
+        <z:linkMode>2</z:linkMode>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <bib:Article rdf:about="https://www.nature.com/articles/s41467-020-16970-7">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf rdf:resource="urn:issn:2041-1723"/>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Perkins-Kirkpatrick</foaf:surname>
+                        <foaf:givenName>S. E.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Lewis</foaf:surname>
+                        <foaf:givenName>S. C.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_1874"/>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Climate change</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Climate-change impacts</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Projection and prediction</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:title>Increasing trends in regional heatwaves</dc:title>
+        <dcterms:abstract>Heatwaves have increased in intensity, frequency and duration, with these trends projected to worsen under enhanced global warming. Understanding regional heatwave trends has critical implications for the biophysical and human systems they impact. Until now a comprehensive assessment of regional observed changes was hindered by the range of metrics employed, underpinning datasets, and time periods examined. Here, using the Berkeley Earth temperature dataset and key heatwave metrics, we systematically examine regional and global observed heatwave trends. In almost all regions, heatwave frequency demonstrates the most rapid and significant change. A measure of cumulative heat shows significant increases almost everywhere since the 1950s, mainly driven by heatwave days. Trends in heatwave frequency, duration and cumulative heat have accelerated since the 1950s, and due to the high influence of variability we recommend regional trends are assessed over multiple decades. Our results provide comparable regional observed heatwave trends, on spatial and temporal scales necessary for understanding impacts.</dcterms:abstract>
+        <dc:date>2020-07-03</dc:date>
+        <z:language>en</z:language>
+        <z:libraryCatalog>www.nature.com</z:libraryCatalog>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://www.nature.com/articles/s41467-020-16970-7</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2023-05-27 22:54:58</dcterms:dateSubmitted>
+        <dc:rights>2020 The Author(s)</dc:rights>
+        <dc:description>Number: 1
+Publisher: Nature Publishing Group</dc:description>
+        <bib:pages>3357</bib:pages>
+    </bib:Article>
+    <bib:Journal rdf:about="urn:issn:2041-1723">
+        <prism:volume>11</prism:volume>
+        <dc:title>Nature Communications</dc:title>
+        <dc:identifier>DOI 10.1038/s41467-020-16970-7</dc:identifier>
+        <prism:number>1</prism:number>
+        <dcterms:alternative>Nat Commun</dcterms:alternative>
+        <dc:identifier>ISSN 2041-1723</dc:identifier>
+    </bib:Journal>
+    <z:Attachment rdf:about="#item_1874">
+        <z:itemType>attachment</z:itemType>
+        <dc:title>Full Text PDF</dc:title>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://www.nature.com/articles/s41467-020-16970-7.pdf</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2023-05-27 22:55:00</dcterms:dateSubmitted>
+        <z:linkMode>1</z:linkMode>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <bib:Document rdf:about="https://www.who.int/health-topics/heatwaves">
+        <z:itemType>webpage</z:itemType>
+        <dcterms:isPartOf>
+           <z:Website></z:Website>
+        </dcterms:isPartOf>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                       <foaf:surname>World Health Organization</foaf:surname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_1876"/>
+        <dc:title>Heatwaves</dc:title>
+        <dcterms:abstract>Heatwaves</dcterms:abstract>
+        <z:language>en</z:language>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>https://www.who.int/health-topics/heatwaves</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2023-05-27 23:01:44</dcterms:dateSubmitted>
+    </bib:Document>
+    <z:Attachment rdf:about="#item_1876">
+        <z:itemType>attachment</z:itemType>
+        <dc:title>Snapshot</dc:title>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://www.who.int/health-topics/heatwaves#tab=tab_1</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2023-05-27 23:01:53</dcterms:dateSubmitted>
+        <z:linkMode>1</z:linkMode>
+        <link:type>text/html</link:type>
+    </z:Attachment>
+    <bib:Article rdf:about="https://www.economist.com/asia/2023/04/02/global-warming-is-killing-indians-and-pakistanis">
+        <z:itemType>magazineArticle</z:itemType>
+        <dcterms:isPartOf rdf:resource="urn:issn:0013-0613"/>
+        <link:link rdf:resource="#item_1878"/>
+        <dc:title>India’s deadly heatwaves are getting even hotter</dc:title>
+        <z:libraryCatalog>The Economist</z:libraryCatalog>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://www.economist.com/asia/2023/04/02/global-warming-is-killing-indians-and-pakistanis</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2023-05-27 23:08:03</dcterms:dateSubmitted>
+    </bib:Article>
+    <bib:Periodical rdf:about="urn:issn:0013-0613">
+        <dc:title>The Economist</dc:title>
+        <dc:identifier>ISSN 0013-0613</dc:identifier>
+    </bib:Periodical>
+    <z:Attachment rdf:about="#item_1878">
+        <z:itemType>attachment</z:itemType>
+        <dc:title>The Economist Snapshot</dc:title>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://www.economist.com/asia/2023/04/02/global-warming-is-killing-indians-and-pakistanis</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2023-05-27 23:08:12</dcterms:dateSubmitted>
+        <z:linkMode>1</z:linkMode>
+        <link:type>text/html</link:type>
+    </z:Attachment>
+    <bib:Article rdf:about="https://linkinghub.elsevier.com/retrieve/pii/S0306261916308224">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf rdf:resource="urn:issn:03062619"/>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Liang</foaf:surname>
+                        <foaf:givenName>Zhuoran</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Tian</foaf:surname>
+                        <foaf:givenName>Zhan</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Sun</foaf:surname>
+                        <foaf:givenName>Laixiang</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Feng</foaf:surname>
+                        <foaf:givenName>Kuishuang</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Zhong</foaf:surname>
+                        <foaf:givenName>Honglin</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Gu</foaf:surname>
+                        <foaf:givenName>Tingting</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Liu</foaf:surname>
+                        <foaf:givenName>Xiaochen</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_1879"/>
+        <dc:title>Heat wave, electricity rationing, and trade-offs between environmental gains and economic losses: The example of Shanghai</dc:title>
+        <dcterms:abstract>In recent decades, many megacities in the world have suffered from increasingly frequent heat waves. During heat waves, air-conditioners, refrigerators, and electric fans add a considerable peak demand on electrical utility grids, and on the supply side, high temperatures exert adverse effects on electricity generation, transmission, and distribution. Without pro-active planning and mitigation measures, the overloading would result in more frequent blackouts (the complete failure of electricity distribution) and brownouts (voltage reductions). To facilitate a pro-active planning, which aims to replace blackouts and brownouts by a rationing regime in selected sectors, this research proposes an integrated modeling tool which couples a regression model between daily electricity use and maximum temperature over the summer and a mixed input-output model with supply constraints. With the help of available data in Shanghai, China, we show that this tool is capable of quantitatively estimating the overall economic effects and sequential changes in carbon emissions, which a given magnitude of power rationing in a specific sector can exert across all sectors. The availability of such information would enable decision makers to plan an electricity rationing regime at the sector level to meet the double criterions of minimizing the overall economic losses and maximizing the extent of carbon emission reduction.</dcterms:abstract>
+        <dc:date>12/2016</dc:date>
+        <z:language>en</z:language>
+        <z:shortTitle>Heat wave, electricity rationing, and trade-offs between environmental gains and economic losses</z:shortTitle>
+        <z:libraryCatalog>DOI.org (Crossref)</z:libraryCatalog>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://linkinghub.elsevier.com/retrieve/pii/S0306261916308224</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2023-05-27 23:13:46</dcterms:dateSubmitted>
+        <bib:pages>951-959</bib:pages>
+    </bib:Article>
+    <bib:Journal rdf:about="urn:issn:03062619">
+        <prism:volume>184</prism:volume>
+        <dc:title>Applied Energy</dc:title>
+        <dc:identifier>DOI 10.1016/j.apenergy.2016.06.045</dc:identifier>
+        <dcterms:alternative>Applied Energy</dcterms:alternative>
+        <dc:identifier>ISSN 03062619</dc:identifier>
+    </bib:Journal>
+    <z:Attachment rdf:about="#item_1879">
+        <z:itemType>attachment</z:itemType>
+        <dc:title>Liang et al. - 2016 - Heat wave, electricity rationing, and trade-offs b.pdf</dc:title>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://pure.iiasa.ac.at/id/eprint/13310/1/Heat%20wave,%20electricity%20rationing,%20and%20trade-offs%20between%20environmental%20gains%20and%20economic%20losses.pdf#</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2023-05-27 23:13:43</dcterms:dateSubmitted>
+        <z:linkMode>1</z:linkMode>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <bib:Article rdf:about="https://linkinghub.elsevier.com/retrieve/pii/S037877882100596X">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf rdf:resource="urn:issn:03787788"/>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Zhang</foaf:surname>
+                        <foaf:givenName>Chen</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Kazanci</foaf:surname>
+                        <foaf:givenName>Ongun Berk</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Levinson</foaf:surname>
+                        <foaf:givenName>Ronnen</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Heiselberg</foaf:surname>
+                        <foaf:givenName>Per</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Olesen</foaf:surname>
+                        <foaf:givenName>Bjarne W.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Chiesa</foaf:surname>
+                        <foaf:givenName>Giacomo</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Sodagar</foaf:surname>
+                        <foaf:givenName>Behzad</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Ai</foaf:surname>
+                        <foaf:givenName>Zhengtao</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Selkowitz</foaf:surname>
+                        <foaf:givenName>Stephen</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Zinzi</foaf:surname>
+                        <foaf:givenName>Michele</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Mahdavi</foaf:surname>
+                        <foaf:givenName>Ardeshir</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Teufl</foaf:surname>
+                        <foaf:givenName>Helene</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Kolokotroni</foaf:surname>
+                        <foaf:givenName>Maria</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Salvati</foaf:surname>
+                        <foaf:givenName>Agnese</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Bozonnet</foaf:surname>
+                        <foaf:givenName>Emmanuel</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Chtioui</foaf:surname>
+                        <foaf:givenName>Feryal</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Salagnac</foaf:surname>
+                        <foaf:givenName>Patrick</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Rahif</foaf:surname>
+                        <foaf:givenName>Ramin</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Attia</foaf:surname>
+                        <foaf:givenName>Shady</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Lemort</foaf:surname>
+                        <foaf:givenName>Vincent</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Elnagar</foaf:surname>
+                        <foaf:givenName>Essam</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Breesch</foaf:surname>
+                        <foaf:givenName>Hilde</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Sengupta</foaf:surname>
+                        <foaf:givenName>Abantika</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Wang</foaf:surname>
+                        <foaf:givenName>Liangzhu Leon</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Qi</foaf:surname>
+                        <foaf:givenName>Dahai</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Stern</foaf:surname>
+                        <foaf:givenName>Philipp</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Yoon</foaf:surname>
+                        <foaf:givenName>Nari</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Bogatu</foaf:surname>
+                        <foaf:givenName>Dragos-Ioan</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Rupp</foaf:surname>
+                        <foaf:givenName>Ricardo Forgiarini</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Arghand</foaf:surname>
+                        <foaf:givenName>Taha</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Javed</foaf:surname>
+                        <foaf:givenName>Saqib</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Akander</foaf:surname>
+                        <foaf:givenName>Jan</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Hayati</foaf:surname>
+                        <foaf:givenName>Abolfazl</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Cehlin</foaf:surname>
+                        <foaf:givenName>Mathias</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Sayadi</foaf:surname>
+                        <foaf:givenName>Sana</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Forghani</foaf:surname>
+                        <foaf:givenName>Sadegh</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Zhang</foaf:surname>
+                        <foaf:givenName>Hui</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Arens</foaf:surname>
+                        <foaf:givenName>Edward</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Zhang</foaf:surname>
+                        <foaf:givenName>Guoqiang</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_1884"/>
+        <dc:title>Resilient cooling strategies – A critical review and qualitative assessment</dc:title>
+        <dcterms:abstract>The global effects of climate change will increase the frequency and intensity of extreme events such as heatwaves and power outages, which have consequences for buildings and their cooling systems. Buildings and their cooling systems should be designed and operated to be resilient under such events to protect occupants from potentially dangerous indoor thermal conditions.</dcterms:abstract>
+        <dc:date>11/2021</dc:date>
+        <z:language>en</z:language>
+        <z:libraryCatalog>DOI.org (Crossref)</z:libraryCatalog>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://linkinghub.elsevier.com/retrieve/pii/S037877882100596X</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2023-05-28 07:17:42</dcterms:dateSubmitted>
+        <bib:pages>111312</bib:pages>
+    </bib:Article>
+    <bib:Journal rdf:about="urn:issn:03787788">
+        <prism:volume>251</prism:volume>
+        <dc:title>Energy and Buildings</dc:title>
+        <dc:identifier>DOI 10.1016/j.enbuild.2021.111312</dc:identifier>
+        <dcterms:alternative>Energy and Buildings</dcterms:alternative>
+        <dc:identifier>ISSN 03787788</dc:identifier>
+    </bib:Journal>
+    <z:Attachment rdf:about="#item_1884">
+        <z:itemType>attachment</z:itemType>
+        <rdf:resource rdf:resource="/Users/julietnwagwuume-ezeoke/Documents/UILDocs/papers/untagged papers/230527 windows_presentation_papers/Zhang 2021 Resilient cooling strategies – A critical review and qualitative assessment.pdf"/>
+        <dc:title>Zhang 2021 Resilient cooling strategies – A critical review and qualitative assessment.pdf</dc:title>
+        <z:linkMode>2</z:linkMode>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <bib:Book rdf:about="urn:isbn:978-0-262-58039-7">
+        <z:itemType>book</z:itemType>
+        <dc:publisher>
+            <foaf:Organization>
+                <vcard:adr>
+                    <vcard:Address>
+                       <vcard:locality>Cambridge, Mass</vcard:locality>
+                    </vcard:Address>
+                </vcard:adr>
+                <foaf:name>The MIT Press</foaf:name>
+            </foaf:Organization>
+        </dc:publisher>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Heschong</foaf:surname>
+                        <foaf:givenName>Lisa</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_1889"/>
+        <dc:title>Thermal Delight in Architecture</dc:title>
+        <dcterms:abstract>Our thermal environment is as rich in cultural associations as our visual, acoustic, olfactory, and tactile environments. This book explores the potential for using thermal qualities as an expressive element in building design. Until quite recently, building technology and design has favored high-energy-consuming mechanical methods of neutralizing the thermal environment. It has not responded to the various ways that people use, remember, and care about the thermal environment and how they associate their thermal sense with their other senses. The hearth fire, the sauna, the Roman and Japanese baths, and the Islamic garden are discussed as archetypes of thermal delight about which rituals have developed—reinforcing bonds of affection and ceremony forged in the thermal experience. Not only is thermal symbolism now obsolete but the modern emphasis on central heating systems and air conditioning and hermetically sealed buildings has actually damaged our thermal coping and sensing mechanisms. This book for the solar age could help change all that and open up for us a new dimension of architectural experience. As the cost of energy continues to skyrocket, alternatives to the use of mechanical force must be developed to meet our thermal needs. A major alternative is the use of passive solar energy, and the book will provide those interested in solar design with a reservoir of ideas.</dcterms:abstract>
+        <dc:date>1979-12-05</dc:date>
+        <z:language>English</z:language>
+        <z:libraryCatalog>Amazon</z:libraryCatalog>
+        <dc:identifier>ISBN 978-0-262-58039-7</dc:identifier>
+        <z:numPages>96</z:numPages>
+    </bib:Book>
+    <z:Attachment rdf:about="#item_1889">
+        <z:itemType>attachment</z:itemType>
+        <dc:title>Amazon.com Link</dc:title>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>https://www.amazon.com/dp/026258039X/</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2023-05-28 07:19:02</dcterms:dateSubmitted>
+        <z:linkMode>3</z:linkMode>
+        <link:type>text/html</link:type>
+    </z:Attachment>
+    <bib:Article rdf:about="https://www.sciencedirect.com/science/article/pii/S0360132314003424">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf rdf:resource="urn:issn:0360-1323"/>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>D'Oca</foaf:surname>
+                        <foaf:givenName>Simona</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Hong</foaf:surname>
+                        <foaf:givenName>Tianzhen</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_1891"/>
+        <link:link rdf:resource="#item_1892"/>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Occupant behavior</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Behavioral pattern</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Data mining</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Office buildings</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Window closing</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Window opening</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:title>A data-mining approach to discover patterns of window opening and closing behavior in offices</dc:title>
+        <dcterms:abstract>Understanding the relationship between occupant behaviors and building energy consumption is one of the most effective ways to bridge the gap between predicted and actual energy consumption in buildings. However effective methodologies to remove the impact of other variables on building energy consumption and isolate the leverage of the human factor precisely are still poorly investigated. Moreover, the effectiveness of statistical and data mining approaches in finding meaningful correlations in data is largely undiscussed in literature. This study develops a framework combining statistical analysis with two data-mining techniques, cluster analysis and association rules mining, to identify valid window operational patterns in measured data. Analyses are performed on a data set with measured indoor and outdoor physical parameters and human interaction with operable windows in 16 offices. Logistic regression was first used to identify factors influencing window opening and closing behavior. Clustering procedures were employed to obtain distinct behavioral patterns, including motivational, opening duration, interactivity and window position patterns. Finally the clustered patterns constituted a base for association rules segmenting the window opening behaviors into two archetypal office user profiles for which different natural ventilation strategies as well as robust building design recommendations that may be appropriate. Moreover, discerned working user profiles represent more accurate input to building energy modeling programs, to investigate the impacts of typical window opening behavior scenarios on energy use, thermal comfort and productivity in office buildings.</dcterms:abstract>
+        <dc:date>2014-12-01</dc:date>
+        <z:language>en</z:language>
+        <z:libraryCatalog>ScienceDirect</z:libraryCatalog>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://www.sciencedirect.com/science/article/pii/S0360132314003424</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2023-05-28 08:15:46</dcterms:dateSubmitted>
+        <bib:pages>726-739</bib:pages>
+    </bib:Article>
+    <bib:Journal rdf:about="urn:issn:0360-1323">
+        <prism:volume>82</prism:volume>
+        <dc:title>Building and Environment</dc:title>
+        <dc:identifier>DOI 10.1016/j.buildenv.2014.10.021</dc:identifier>
+        <dcterms:alternative>Building and Environment</dcterms:alternative>
+        <dc:identifier>ISSN 0360-1323</dc:identifier>
+    </bib:Journal>
+    <z:Attachment rdf:about="#item_1891">
+        <z:itemType>attachment</z:itemType>
+        <dc:title>ScienceDirect Full Text PDF</dc:title>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://www.sciencedirect.com/science/article/pii/S0360132314003424/pdfft?md5=88eca68081d50269a50a3a4afd9fd575&amp;pid=1-s2.0-S0360132314003424-main.pdf&amp;isDTMRedir=Y</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2023-05-28 08:15:51</dcterms:dateSubmitted>
+        <z:linkMode>1</z:linkMode>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <z:Attachment rdf:about="#item_1892">
+        <z:itemType>attachment</z:itemType>
+        <dc:title>ScienceDirect Snapshot</dc:title>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://www.sciencedirect.com/science/article/pii/S0360132314003424?via%3Dihub</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2023-05-28 08:15:55</dcterms:dateSubmitted>
+        <z:linkMode>1</z:linkMode>
+        <link:type>text/html</link:type>
+    </z:Attachment>
+</rdf:RDF>

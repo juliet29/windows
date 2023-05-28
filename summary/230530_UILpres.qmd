@@ -24,9 +24,13 @@ format:
 ## Global warming in context 
 
 - Global warming - recent reports descibe have hit 1.5ºC, s
-- Occurence of extreme heat events is occuring more frequently, and effects of extreme heat on body, mental health, productivity, s 
-- Ramifications felt most significantly in cities where urban heat island effect is present, s 
-  - These tend to be large urban metropolises/metropoli where ubranization is occuring rapidly 
+- Occurence of extreme heat events is occuring more frequently, 
+  - Perkins-Kirpatrick 2020, heatwave days and cumulative heat experienced  between 1950 and 2014 
+- and effects of extreme heat on body, mental health, productivity
+  - WHO 20xx : heat exhaustion and stroke,  increased risk of complication and death for people with chronic diseases, relatively little attention because death toll ! immediately obvious, 166k oeiple dies between 1998 - 2017  
+- Ramifications felt most significantly in cities where urban heat island effect is present, # TODO source!
+  - These tend to be large urban metropolises/metropoli where ubranization is occuring rapidly  
+  - but also difficult for people working outside .. (not really releavant since looking at housing still -> 75% of labour force in heat-exposed work Mickensey Gloval Institute via Economist 2023)
   - also here, many people's work is outside ?
   - but still a global problem
 <!-- - maybe some graph showing uhi and cities?  -->
@@ -40,14 +44,16 @@ format:
     - reliable 
   <!-- - then strike through  -->
       - susceptible to failures during extreme heat events, 
+        - Liang 2016 additional loads while power companies try to deal with stress heat places on generation, transmission and distributopn 
+          - more difficult in lagre urban areas where infrastructure is strained due to rapid population growth  => blackouts and botownouts 
+          - [7] and [8] here, increase in electiricity ownership in Shangai, but electriicity shortage at 1 million kWh 
       <!-- - s grid black outs during these, as well as equipment peformance charts  -->
   - cons 
     - consume a high amount of energy, s: energy consumption from residential cooling 
+      - International Energy Agency, Future of Cooling report (IEA, FOC) => AC + electric fan => 20% of total energy use in buildings toda 
     - unaffordable
-      - cost to own and operate an ac is this range, s
-      - in cities of greatest concern incomes are rising quickly, s
-      - but x% of population live in informal housing / have this income level 
-      <!-- - more people owning ac, means more cooling energy consumption, but not inherently accesible  -->
+      - IEA FOC => ability to own AC is constrained to income, 99% private apartements in Singapore have and are running most of the time , where as 4% in India even though have comprable cooling needs + Figure 2.1 
+      <!-- # TODO  more people owning ac, means more cooling energy consumption, which unless the grid is clean, means more heat events, make figure for this -> visous cycle  -->
 
 ## Natural cooling 
 - Natural cooling is needed 
@@ -57,6 +63,7 @@ format:
     - accesible
     - rich history, people have relied on natural cooling methods for centuries,
       - architectural history.. recent emergence of mechanical cooling, s 
+      - IEA FOC => modern AC unit invented in 1900s, began to take off in the US in the 1950s 
       <!-- - maybe a timeline here?  -->
   - cons 
     - difficult to design for 
@@ -68,21 +75,36 @@ format:
 ## Research questions 
 
 - Work seeks to better understand and address sources of uncertainty regarding natural cooling.
-- Start with low hanging fruit: windows 
-- critical for mediating relationship between indoor and outdoor, but effectiveness is dependent on two uncertain factors that brought up before: occupant behavior, outdoor climate
+- overview of modes of natural cooling 
+  - Lisa Heschong, Thermal Delight in Architecture: vernacular building traditions across the world display ... sophisticated thermal adaptation, p.8
+  - Zhang Table 2 
+  
+- Start with ventilative cooling ->  windows, have aspects of temperature and occupant uncertainty 
+  - critical for mediating relationship between indoor and outdoor, but effectiveness is dependent on two uncertain factors that brought up before: occupant behavior, outdoor climate
 - and also the design of the building which, once decided upon, is less uncertain 
 - Questions 
   - question 1: what is the effect of opening and closing windows on indoor climate 
   - question 2: how can we enable to practitioners to access this information in a fast enough way to be useful for decision making  in the early stages of the design process 
 
+
 # Approaches  
+
+## Why understanding w/o/c is important 
+- uninvasive? way of determining if windows open/closed can enable better understanding of occupant behavior 
+- understanding when windows are open, enables us to use to contextural info and social methods to understand why they are open => D'Oca and Hong [97 from Dai 2020] gruped occupants into 3-types: thermal-driven, time-driven, thermal+time driven => no follow up on this but critical for designers
+- critical information for designers 
 
 ## Research on window opening and closing to date 
 
 - history of this 
   <!-- - timeline here? + model performance  -->
-  - fritsch, logistic regression, 19?
-  - de rautlin de roy, 2023
+  
+  - Dai 2020 Table 1 => popular methods + Fig 5 => frequency of ML methods used, 4.2.1 = prediction of window opening closing action 
+    - fritsch, 1990 [54] Markov chain methods 
+    - Haldi and Robinson [78] markov chain + logistic regression 
+    - Schweiker [79] tested this (also the source of external data!) => differences in culture meant different performance 
+    - Markovic [80] Bayesian and random forest 
+    - de rautlin de roy, 2023, looked at different learning techniques 
 - methods 
   <!-- - table that gets filled in as timeline happens  -->
   - methods of data collection: x years long sample, places where data collected, types of buildings where data collected 
@@ -90,12 +112,16 @@ format:
   - gaps:  
     <!-- - add to table   -->
     - long data collection periods
-    - unclear how coefficients/models transfer to randically different buildings in different climates 
+    - supervised models : unclear how coefficients/models transfer to randically different buildings in different climates 
 
-## Why understanding w/o/c is important 
-- uninvasive? way of determining if windows open/closed can enable better understanding of occupant behavior 
-- understanding when windows are open, enables us to use to contextural info and social methods to understand why they are open
-- critical information for designers 
+
+## (Maybe):
+- sipervised vs unsupervised models ** TODO come back to this, highly philosophical...
+  - super:
+    - collect data on long period of time, test, and train optimal parameters and use for future prediction, assuming data will have some similarity
+- 
+
+
 
 ## My approach:
 - develop understanding of physical processes governing changes in indoor temperature through 
