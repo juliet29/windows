@@ -19,10 +19,24 @@ fig.show()
 
 ```
 
-## STL results 
+## 2. smoothing: STL results 
 <!-- TODO: STL figure-->
 
-## other smoothing techniques 
+```{python}
+
+a00, a01 = h.import_desired_data("A", "15T")
+
+w1 = wd2.Window_Detect2(a01)
+w1.analyze_window_change(wd2.make_stl_smooth)
+fig = w1.plot_analysis()
+
+# for name in ["Smoothed", "Difference", "Deriv1", "Deriv2"]:
+#     fig.update_traces(visible=False,selector=dict(name=name))
+fig.show()
+
+```
+
+## 2. smoothing: other smoothing techniques 
 <!-- TODO: othe rsmoothing technique figures -->
 
 
