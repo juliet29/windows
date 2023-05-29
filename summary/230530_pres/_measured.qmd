@@ -1,21 +1,5 @@
 # Analysis: Measurements 
 
-```{python}
-import plotly.graph_objects as go
-# import kaleido
-from plotly.subplots import make_subplots
-import plotly.io as pio
-import pandas as pd
-import numpy as np
-import json
-
-
-import sys
-sys.path.insert(0, "../../analysis/scripts")
-import helpers as h
-import window_detect2 as wd2
-
-```
 
 ## back to reality -> 1. observed data 
 <!-- TODO: real vs observed data   -->

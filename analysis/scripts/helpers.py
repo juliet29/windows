@@ -206,7 +206,6 @@ def import_desired_data(exp, freq):
     try:
         df = pd.read_csv("../constants/td_ambient_102022.csv" )
     except: 
-        print("wrong dir")
         df = pd.read_csv("/Users/julietnwagwuume-ezeoke/_UILCode/windows/analysis/constants/td_ambient_102022.csv" )
     # transform datetime index to actual pandas datetime, 
     df["DateTime"] = pd.to_datetime(df["DateTime"])

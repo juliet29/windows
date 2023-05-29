@@ -16,6 +16,30 @@ format:
 
 ---
 
+```{python}
+import plotly.graph_objects as go
+# import kaleido
+from plotly.subplots import make_subplots
+import plotly.io as pio
+import pandas as pd
+import numpy as np
+import json
+
+
+import sys
+sys.path.insert(0, "../../analysis/scripts")
+import helpers as h
+import window_detect2 as wd2
+
+colorway = ['#702632', '#A4B494', '#495867', '#912F40', "#81909E", "#F4442E", "#DB7C26", "#BB9BB0"]
+pio.templates["cardinal"] = go.layout.Template(
+    layout=go.Layout(
+        colorway=colorway
+    ))
+# combine templates 
+pio.templates.default = 'plotly_white+cardinal'
+
+```
 
 ## Overview? 
 
