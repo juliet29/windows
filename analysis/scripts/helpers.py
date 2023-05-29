@@ -41,6 +41,9 @@ def find_nearest(array, value):
     idx = (np.abs(array - value)).argmin()
     return array[idx]
 
+
+
+
 ## ------------------------- ! End Tools 
 
 # 
@@ -58,6 +61,9 @@ def normalize_scale(arr, tmin, tmax):
     "normalize the values in an array to be between 0 and 1 based on the minimum and maximum values in the array"
     arr2 =  (arr - arr.min())/(arr.max() - arr.min())  * (tmax - tmin) + tmin
     return arr2
+
+def take_derivative(series):
+    return pd.Series(normalize(np.gradient(series)))
 ## ------------------------- ! End Pre-Processing  
 
 # 
@@ -258,6 +264,12 @@ def temperature_plot(df):
     fig.update_layout(xaxis_title='Dates',
                     yaxis_title='Temperature (ºC)',
                     title=f"Room {df['Room'][0]} - {check_window_treatment(df)}")
+    return fig
+
+
+def plot_many(fig, time, series, names, ):
+    for name, ser in zip(names, series):
+            fig.add_trace(go.Scatter(x=time, y=ser, name=name, mode='lines'))
     return fig
 
 
