@@ -1,7 +1,39 @@
 # Analysis: Measurements 
 
+```{python}
+import plotly.graph_objects as go
+# import kaleido
+from plotly.subplots import make_subplots
+import plotly.io as pio
+import pandas as pd
+import numpy as np
+import json
+
+
+import sys
+sys.path.insert(0, "../../analysis/scripts")
+import helpers as h
+import window_detect2 as wd2
+
+```
+
 ## back to reality -> 1. observed data 
 <!-- TODO: real vs observed data   -->
+```{python}
+#| label: july_observed
+#| fig-cap: Observe indoor temperature, July experiment 
+
+a00, a01 = h.import_desired_data("A", "15T")
+
+w1 = wd2.Window_Detect2(a01)
+w1.analyze_window_change(wd2.make_stl_smooth)
+fig = w1.plot_analysis()
+
+for name in ["Smoothed", "Difference", "Deriv1", "Deriv2"]:
+    fig.update_traces(visible=False,selector=dict(name=name))
+fig.show()
+
+```
 
 ## STL results 
 <!-- TODO: STL figure-->

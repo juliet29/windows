@@ -75,7 +75,9 @@ prompt-toolkit==3.0.33
 psutil==5.9.4
 ptyprocess==0.7.0
 pure-eval==0.2.2
+pwlf==2.2.1
 pycparser==2.21
+pyDOE==0.3.8
 pydot3k==1.0.17
 PyFoam==2021.6
 Pygments==2.13.0
