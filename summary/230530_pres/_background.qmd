@@ -1,0 +1,42 @@
+# Global warming in context 
+<!-- background -->
+
+## untitled
+<!-- TODO image of global warming  -->
+::: {.notes}
+Project is situated in the context of a warming world 
+:::
+
+
+## untitled
+<!-- TODO nature figure, double pane  -->
+- XX% increase in cumulative heat intensity between 1950 and 2014 
+
+
+::: aside
+@perkins-kirkpatrickIncreasingTrendsRegional2020
+:::
+
+::: {.notes}
+XX places recieving as many as XX additional hours of intense heat each year..
+:::
+
+## untitled
+- heat exhaustion 
+- stroke 
+- increased risks for those with pre-existing conditions
+- 166,000 excess deaths between 1998 - 2017
+
+
+::: aside
+@worldhealthorganizationHeatwaves
+:::
+
+::: {.notes}
+although heat waves do not get as much attention as other natural disasters because there impacts are not immediately obvious, they do have significant impacts on human health 
+:::
+
+## vulnerable regions
+- urban heat island effect increases the intensity of heat waves  ^[@source]?
+- emerging markets have higher % of people working outside, increasing exposure
+  - in India, 75% of people are in "heat-exposed professions" ^[@IndiaDeadlyHeatwaves]

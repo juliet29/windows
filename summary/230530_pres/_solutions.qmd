@@ -1,0 +1,122 @@
+# Solutions? 
+
+## mechanical cooling 
+:::: {.columns}
+
+::: {.column width="40%"}
+- Pros
+  - easy to design for 
+  - accepted in industry 
+  - has supported development in warmer parts of the world
+  - reliable?
+:::
+
+::: {.column width="60%"}
+- Cons 
+  - susceptible to failure during heat waves 
+    - loads increase when power system most vulnerable, leading to blackouts
+    - in Shanghai, documented shortages greater than a 1 GWh ^[@liangHeatWaveElectricity2016]
+  - energy intensive 
+    - AC + electric fan account for 20% of total energy use in buildings ^[@internationalenergyagencyFutureCoolingOpportunities2018]
+  - inaccesible 
+    - ability to own an AC constrained by income ^[@internationalenergyagencyFutureCoolingOpportunities2018]
+      - 99% of private apartments in Singapore have AC
+      - Closer to 4% of households in India 
+    <!-- TODO figure of from IEA if desired and fits..  -->
+:::
+
+::::
+
+## viscous cycle 
+<!-- TODO figure of visous cycle  -->
+
+
+## natural cooling 
+:::: {.columns}
+
+::: {.column width="40%"}
+- Pros
+  - low operational energy 
+  - accessible 
+  - has worked well for some time 
+    - modern AC unit invented in 1900s, first popularized in the US in the 1950s ^[@internationalenergyagencyFutureCoolingOpportunities2018]
+:::
+
+::: {.column width="60%"}
+- Cons 
+    - difficult to design for 
+    - industry skepticism 
+    - unreliable due to uncertainty 
+      - occupant behavior 
+      - outdoor climate 
+
+:::
+
+::::
+
+
+## cooling "tech"
+<!-- TODO zhang figure -->
+
+::: aside
+@zhangResilientCoolingStrategies2021a
+:::
+
+## untitled 
+"Vernacular building traditions across the world display ... sophisticated thermal adaptation" - Lisa Heschong, Thermal delight in Architecture 
+<!-- TODO zhang figure + lisa interventions  -->
+
+::: aside
+@heschongThermalDelightArchitecture1979
+:::
+<!-- TODO repeat and circle ventilation   -->
+
+
+## why windows?
+:::: {.columns}
+
+::: {.column width="40%"}
+- Both climate and occupant uncertainty
+
+:::
+
+::: {.column width="60%"}
+- Questions 
+    - what is the effect of opening and closing windows on indoor climate?
+    - how can we enable to practitioners to access this information in a fast enough way to be useful for decision making  in the early stages of the design process 
+
+:::
+
+::::
+
+## why predicting w/o/c is important 
+- uninvasive way of determining if windows open/closed 
+- can enable better understanding of occupant behavior 
+- understanding when windows are open, enables us to use to contextual information understand why they are open
+  - D'Oca and Hong grouped occupants into 3-types: thermal-driven, time-driven, thermal+time driven ^[@docaDataminingApproachDiscover2014]
+- critical information for designers 
+
+## predicting w/o/c since 1990...
+<!-- TODO timeline   -->
+  - Dai 2020 Table 1 => popular methods + Fig 5 => frequency of ML methods used, 4.2.1 = prediction of window opening closing action 
+    - fritsch, 1990 [54] Markov chain methods 
+    - Haldi and Robinson [78] markov chain + logistic regression 
+    - Schweiker [79] tested this (also the source of external data!) => differences in culture meant different performance 
+    - Markovic [80] Bayesian and random forest 
+    - de rautlin de roy, 2023, looked at different learning techniques 
+
+
+::: aside
+@docaDataminingApproachDiscover2014
+:::
+
+## research gaps 
+<!-- TODO table with author, length of data collected, location, method, and supervised/not    -->
+  - gaps:  
+    - long data collection periods: shorter periods are needed for practical use
+    - only supervised models : unclear how coefficients/models transfer to radically different buildings in different climates
+
+
+::: aside
+discussion of supervised vs not.
+:::

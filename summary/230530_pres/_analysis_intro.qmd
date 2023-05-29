@@ -1,0 +1,79 @@
+# Analysis
+
+## approach
+- problem statement: design an unsupervised method to predict window/open closing based on short periods of easily accesible data 
+<!-- TODO: wite a problem statement that involves the question -->
+<!-- TODO: instead of just listing tools, give a preview of what going to discuss -->
+- tools
+  - measurment
+  - time series analysis 
+  - building energy modeling 
+  - computational fluid dynamics 
+
+
+
+
+## measurement technique
+<!-- TODO: fix alignment of sensor  -->
+
+
+:::: {.columns}
+
+::: {.column width="60%"}
+- Data collected in adjacent rooms
+- Affordable sensors 
+:::
+
+::: {.column width="40%"}
+::: {layout-nrow=2}
+![Sensor Placement](figures/data_collection/sensor_placement.png){fig-align="left"}
+
+![Data Logger](figures/data_collection/data_logger.png){fig-align="left" height=70}
+:::
+:::
+
+::::
+
+::: {.notes}
+highlight that sensors used are affordable, and many modern buildings already monitor temperature as part of their operation 
+:::
+
+## collected data  
+![](figures/data_collection/data_collected.png){height=500}
+<!-- TODO: some inights about how much WOC helped over all -->
+
+::: {.notes}
+highlight that predicting the window opening close data as a function of temperature 
+and that didnt colelct for very long periods of time 
+:::
+
+
+## predicting w/o/c at a high level 
+<!-- TODO: figure for all of these -->
+::: {layout-nrow=2}
+![Observed](figures/predicting_at_high_level/observed.png){height=20}
+
+![Smoothed](figures/predicting_at_high_level/smoothed.png){height=20}
+
+![Difference](figures/predicting_at_high_level/differenced.png){height=20}
+
+![Derivative](figures/predicting_at_high_level/derivative.png){height=250}
+:::
+1. have observed time series, here indoor temperature 
+2. smooth out some way 
+3. make anomalies due to w/oc uniquely apparent
+   - subtracting smoothed data and 
+   - taking derivatives
+4. detect anaomalies using *likelihood estimation*
+<!-- TODO: not sure if this is actually likelihood estimation?? -->
+
+::: {.notes}
+note that any combo of 2 and 3 could work... 
+:::
+
+## essentially, trying to seperate signal from noise 
+<!-- TODO: figure for all of these -->
+- indoor temp, constant distortion from outside due to building materials
+- seasonality from day to night transition 
+- + noise from people doing stuff inside 
+- + w/o/c

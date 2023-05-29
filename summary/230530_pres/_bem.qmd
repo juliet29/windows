@@ -1,0 +1,27 @@
+# Analysis: Building Energy Modeling 
+
+## 1. observed time series using building energy modeling...
+<!-- - can recreate real life scenario and simplify so don't have noise  -->
+<!-- TODO: add text, reorganize so that building in own column... -->
+
+::: {layout="[[1], [1,1]]"}
+![Energy+ Model](figures/bem_01/model.png){width=5in}
+
+![Measured Data](figures/bem_01/real_data.png){width=3in}
+
+![Simulated Data](figures/bem_01/simulated_data.png){width=3in}
+:::
+
+## 2. smoothing with STL 
+![Decomposition](figures/bem_02_smoothing/stl.png){width=2in}
+
+## 3. and 4. detecting anomalies
+::: {layout="[[1,1], [1,1]]"}
+![Difference](figures/bem_03_predictions/dif.png){width=3in}
+
+![Derivative](figures/bem_03_predictions/derivs_1.png){width=3in}
+
+![Distribution](figures/bem_03_predictions/distribution.png){width=3in}
+
+![Guess](figures/bem_03_predictions/guess.png){width=3in}
+:::
