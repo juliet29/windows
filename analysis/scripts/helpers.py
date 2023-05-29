@@ -13,8 +13,11 @@ import scipy.optimize
 
 
 # Key for categorical data in constants/td_ambient_102022.csv
-# * Room: 442A = 0, 422B = 1
-# * Window Open: Closed = 0, Open = 1
+# Room: 442A = 0, 422B = 1
+# Window Open: Closed = 0, Open = 1
+
+
+
 
 
 ## ------------------------- ! Tools 
@@ -85,6 +88,10 @@ def cohend(d1, d2):
     u1, u2 = mean(d1), mean(d2)
     # calculate the effect size
     return (u1 - u2) / s
+
+def calc_zscore(arr):
+    z_score = np.apply_along_axis(lambda x, mean, std: (x - mean)/std, 0, arr, arr.mean(), arr.std())
+    return z_score
 
 def calc_win_change_dist(df, ix):
     """
