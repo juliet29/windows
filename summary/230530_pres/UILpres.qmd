@@ -207,13 +207,32 @@ discussion of supervised vs not.
 # Analysis
 
 ## measurement technique
-<!-- TODO: figure of how measurements taken, see other presentation  -->
+<!-- TODO: fix alignment of sensor  -->
+
+
+:::: {.columns}
+
+::: {.column width="60%"}
+- Data collected in adjacent rooms
+- Affordable sensors 
+:::
+
+::: {.column width="40%"}
+::: {layout-nrow=2}
+![Sensor Placement](figures/data_collection/sensor_placement.png){fig-align="left"}
+
+![Data Logger](figures/data_collection/data_logger.png){fig-align="left" height=70}
+:::
+:::
+
+::::
+
 ::: {.notes}
 highlight that sensors used are affordable, and many modern buildings already monitor temperature as part of their operation 
 :::
 
 ## collected data  
-<!-- TODO: figure of data collected -->
+![](figures/data_collection/data_collected.png){height=500}
 <!-- TODO: some inights about how much WOC helped over all -->
 
 ::: {.notes}
@@ -224,6 +243,15 @@ and that didnt colelct for very long periods of time
 
 ## predicting w/o/c at a high level 
 <!-- TODO: figure for all of these -->
+::: {layout-nrow=2}
+![Observed](figures/predicting_at_high_level/observed.png){height=20}
+
+![Smoothed](figures/predicting_at_high_level/smoothed.png){height=20}
+
+![Difference](figures/predicting_at_high_level/differenced.png){height=20}
+
+![Derivative](figures/predicting_at_high_level/derivative.png){height=250}
+:::
 1. have observed time series, here indoor temperature 
 2. smooth out some way 
 3. make anomalies due to w/oc uniquely apparent
@@ -238,22 +266,36 @@ note that any combo of 2 and 3 could work...
 
 ## essentially, trying to seperate signal from noise 
 <!-- TODO: figure for all of these -->
-- indoor temp, constant distaortion from outside due to building materials
+- indoor temp, constant distortion from outside due to building materials
 - seasonality from day to night transition 
 - + noise from people doing stuff inside 
 - + w/o/c
 
 ## 1. observed time series using building energy modeling...
-- can recreate real life scenario and simplify so don't have noise 
-<!-- TODO: building figure -->
-<!-- TODO: about the simulation, not calibrated  -->
-<!-- TODO: 1. observed time series real data, building data for july experiment    -->
+<!-- - can recreate real life scenario and simplify so don't have noise  -->
+<!-- TODO: add text, reorganize so that building in own column... -->
+
+::: {layout="[[1], [1,1]]"}
+![Energy+ Model](figures/bem_01/model.png){width=5in}
+
+![Measured Data](figures/bem_01/real_data.png){width=3in}
+
+![Simulated Data](figures/bem_01/simulated_data.png){width=3in}
+:::
 
 ## 2. smoothing with STL 
-<!-- TODO: STL figure-->
+![Decomposition](figures/bem_02_smoothing/stl.png){width=2in}
 
 ## 3. and 4. detecting anomalies
-<!-- TODO: anomaly figure -->
+::: {layout="[[1,1], [1,1]]"}
+![Difference](figures/bem_03_predictions/dif.png){width=3in}
+
+![Derivative](figures/bem_03_predictions/derivs_1.png){width=3in}
+
+![Distribution](figures/bem_03_predictions/distribution.png){width=3in}
+
+![Guess](figures/bem_03_predictions/guess.png){width=3in}
+:::
 
 ## back to reality -> 1. observed data 
 <!-- TODO: real vs observed data   -->
