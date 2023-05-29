@@ -197,6 +197,7 @@ discussion of supervised vs not.
 ## approach
 - problem statement: design an unsupervised method to predict window/open closing based on short periods of easily accesible data 
 <!-- TODO: wite a problem statement that involves the question -->
+<!-- TODO: instead of just listing tools, give a preview of what going to discuss -->
 - tools
   - measurment
   - time series analysis 
