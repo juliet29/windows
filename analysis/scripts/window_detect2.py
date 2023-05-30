@@ -36,7 +36,33 @@ def make_sin_smooth(series, time):
 def make_ewm_smooth(series, time, level=4):
     return series.ewm(level).mean()
 
+# ============================================================================ #
+# Window detect specific plotting functions that operacte across objects 
 
+def make_dual_plot(obj1, obj2): 
+    fig = make_subplots(rows=1, cols=2, shared_yaxes=True)
+
+    s2, s3 = [[obj.window_norm, obj.temp_norm, obj.smooth_series, obj.dif, obj.deriv, obj.deriv2] for obj in [obj1, obj2]]
+
+    names = ["Window", "Observed Temp", "Smoothed", "Difference", "Deriv1", "Deriv2"]
+    
+    opacities = [0.4] + [1]*(len(s2)-1)
+
+    for ix, name, ser in zip(range(len(names)), names, s2):
+        fig.add_trace(go.Scatter(x=w2.time, y=ser, name=name, mode='lines', line_color=colorway[ix], opacity=opacities[ix],legendgroup=name,), row = 1, col = 1)
+
+    for ix, name, ser in zip(range(len(names)), names, s3):
+        fig.add_trace(go.Scatter(x=w2.time, y=ser, name=name, mode='lines', line_color=colorway[ix], opacity=opacities[ix],legendgroup=name, showlegend=False), row = 1, col = 2)
+
+    return fig, names
+
+def update_dual_plot(fig, names, show_arr, ):
+    for name in names: 
+        if name in show_arr:
+            fig.update_traces(visible=True, selector=dict(name=name))
+        else:
+            fig.update_traces(visible="legendonly", selector=dict(name=name))
+    return fig
 
 
 
