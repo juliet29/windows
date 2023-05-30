@@ -59,12 +59,71 @@ show_double_fig("Deriv2")
 
 ```
 
+## Making Predictions 
+::: {.r-stack}
 
-## 2. smoothing: other smoothing techniques 
+```{python}
+#| layout-ncol: 2
+#| output-location: fragment
+
+def show_double_result(func, obj1=s1, obj2=w1, width=500):
+    if func == "dist":
+        fig1 = obj1.plot_distributions()
+        fig2 = obj2.plot_distributions()
+    elif func == "z":
+        fig1 = obj1.plot_zscore()
+        fig2 = obj2.plot_zscore()
+    elif func == "guess_nofilter":
+        fig1 = obj1.plot_guesses(timedelta=1)
+        fig2 = obj2.plot_guesses(timedelta=1)
+    else:
+        fig1 = obj1.plot_guesses()
+        fig2 = obj2.plot_guesses()
+    fig1.update_layout(autosize=False, width=width, height=500, showlegend=False)
+    fig2.update_layout(autosize=False, width=width, height=500,)
+    fig1.show()
+    fig2.show()
+
+show_double_result("dist")
+```
+
+::: {.fragment}
+```{python}
+#| layout-ncol: 2
+#| output-location: fragment
+show_double_result("z")
+```
+:::
+
+::: {.fragment}
+```{python}
+#| layout-ncol: 2
+#| output-location: fragment
+show_double_result("guess_nofilter")
+```
+:::
+
+::: {.fragment}
+```{python}
+#| layout-ncol: 2
+#| output-location: fragment
+show_double_result("guess")
+```
+:::
+
+
+:::
+
+
+
+## Other Smoothing Techniques 1 
+<!-- TODO: othe rsmoothing technique figures -->
+
+## Other Smoothing Techniques 2 
 <!-- TODO: othe rsmoothing technique figures -->
 
 
-## results 
+## Comparing Smoothing Techniques
 <!-- TODO: de raultin de roy metrics + compare to other ML methods on same data  -->
 
 
