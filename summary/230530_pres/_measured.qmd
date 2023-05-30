@@ -133,29 +133,21 @@ w2.analyze_window_change(wd2.make_sin_smooth)
 w3 = wd2.Window_Detect2(a01)
 w3.analyze_window_change(wd2.make_ewm_smooth)
 
-fig = make_subplots(rows=1, cols=2, shared_yaxes=True, subplot_titles=("Sinusoid", "EWM",))
+fig, names = wd2.make_dual_plot(w2.time, w2, w3, ["Sinusoid", "EWM"])
+fig = fig.update_layout(autosize=False, width=1000, height=500,)
 
-s2, s3 = [[obj.window_norm, obj.temp_norm, obj.smooth_series, obj.deriv] for obj in [w2, w3]]
-names = ["Window", "Observed", "Smoothed", "Deriv1"]
-opacities = [0.4, 1, 1,1]
+fig1 = wd2.update_dual_plot(fig,  names, ["Window", "Observed Temp", "Smoothed"],)
 
-for ix, name, ser in zip(range(len(names)), names, s2):
-    fig.add_trace(go.Scatter(x=w2.time, y=ser, name=name, mode='lines', line_color=colorway[ix], opacity=opacities[ix],legendgroup=name,), row = 1, col = 1)
-
-for ix, name, ser in zip(range(len(names)), names, s3):
-    fig.add_trace(go.Scatter(x=w2.time, y=ser, name=name, mode='lines', line_color=colorway[ix], opacity=opacities[ix],legendgroup=name, showlegend=False), row = 1, col = 2)
-
-fig.update_traces(visible="legendonly", selector=dict(name="Deriv1"))
-fig.update_layout(autosize=False, width=1000, height=500,)
-fig.show()
+fig1.show()
 
 ```
 
 ::: {.fragment}
 ```{python}
-fig.update_traces(visible="legendonly", selector=dict(name="Observed"))
-fig.update_traces(visible="legendonly", selector=dict(name="Smoothed"))
-fig.update_traces(visible=True, selector=dict(name="Deriv1"))
+
+fig1 = wd2.update_dual_plot(fig,  names, ["Window", "Deriv1",],)
+
+fig1.show()
 ```
 :::
 

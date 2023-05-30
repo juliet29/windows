@@ -41,6 +41,7 @@ def find_nearest(array, value):
     idx = (np.abs(array - value)).argmin()
     return array[idx]
 
+colorway = ['#702632', '#A4B494', '#495867', '#912F40', "#81909E", "#F4442E", "#DB7C26", "#BB9BB0"]
 
 
 
