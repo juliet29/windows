@@ -1,27 +1,81 @@
 # Analysis: Building Energy Modeling 
 
-## 1. observed time series using building energy modeling...
+## Building Energy Model with Energy+
 <!-- - can recreate real life scenario and simplify so don't have noise  -->
-<!-- TODO: add text, reorganize so that building in own column... -->
+:::: {.columns}
 
-::: {layout="[[1], [1,1]]"}
-![Energy+ Model](figures/bem_01/model.png){width=5in}
-
-![Measured Data](figures/bem_01/real_data.png){width=3in}
-
-![Simulated Data](figures/bem_01/simulated_data.png){width=3in}
+::: {.column width="50%"}
+- info about E+ model
+- info 2 about E+ mode 
 :::
 
-## 2. smoothing with STL 
-![Decomposition](figures/bem_02_smoothing/stl.png){width=2in}
-
-## 3. and 4. detecting anomalies
-::: {layout="[[1,1], [1,1]]"}
-![Difference](figures/bem_03_predictions/dif.png){width=3in}
-
-![Derivative](figures/bem_03_predictions/derivs_1.png){width=3in}
-
-![Distribution](figures/bem_03_predictions/distribution.png){width=3in}
-
-![Guess](figures/bem_03_predictions/guess.png){width=3in}
+::: {.column width="50%"}
+![Energy+ Model](figures/bem_01/model.png)
 :::
+
+::::
+
+
+## Simulation Results  
+```{python}
+
+sim_data_path = "../../data/energy_model/230307_match.pkl"
+sim_data = pd.read_pickle(sim_data_path)
+
+
+# smoothing on different time series than the observation 
+sim_smooth = wd2.make_stl_smooth(series=sim_data["Always Closed"], time=None, model="additive")
+
+# rename label in simulation dataframe to match class
+sim_data.rename(columns={"Varied": "Temp C"}, inplace=True)
+
+
+s1 = wd2.Window_Detect2(sim_data)
+s1.analyze_window_change(smooth_fx=None, sim_smooth=sim_smooth)
+fig = s1.plot_analysis()
+
+for name in ["Smoothed", "Difference", "Deriv1", "Deriv2"]:
+    fig.update_traces(visible=False,selector=dict(name=name))
+
+
+fig.add_trace(go.Scatter(x=sim_data["DateTime"], y=h.normalize(sim_data["Always Closed"]), mode='lines', name="Control (Always Closed)"))
+
+fig.update_layout(autosize=False, width=1000, height=500,)
+
+fig.show()
+```
+
+## Smoothing with STL
+```{python}
+
+def show_single_trace(obj, current_trace_name ):
+    fig = obj.plot_analysis()
+    # all names remaining in the list will be quited 
+    names = ["Observed Temp", "Smoothed", "Difference", "Deriv", "Deriv2"]
+    names.remove(current_trace_name)
+
+    for name in ["Observed Temp", "Difference", "Deriv1", "Deriv2"]:
+        fig.update_traces(visible="legendonly", selector=dict(name=name))
+
+    fig.update_layout(autosize=False, width=1000, height=500,)
+    return fig
+
+show_single_trace(s1, "Smoothed")
+
+```
+
+## Difference
+```{python}
+show_single_trace(s1, "Difference")
+```
+
+## Derivatives
+```{python}
+show_single_trace(s1, "Deriv1")
+```
+
+## Derivatives
+```{python}
+show_single_trace(s1, "Deriv2")
+```
+

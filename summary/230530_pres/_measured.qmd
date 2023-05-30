@@ -4,8 +4,6 @@
 ## back to reality -> 1. observed data 
 <!-- TODO: real vs observed data   -->
 ```{python}
-#| label: july_observed
-#| fig-cap: Observe indoor temperature, July experiment 
 
 a00, a01 = h.import_desired_data("A", "15T")
 
@@ -14,7 +12,7 @@ w1.analyze_window_change(wd2.make_stl_smooth)
 fig = w1.plot_analysis()
 
 for name in ["Smoothed", "Difference", "Deriv1", "Deriv2"]:
-    fig.update_traces(visible=False,selector=dict(name=name))
+    fig.update_traces(visible="legendonly",selector=dict(name=name))
 fig.show()
 
 ```
@@ -22,19 +20,51 @@ fig.show()
 ## 2. smoothing: STL results 
 <!-- TODO: STL figure-->
 
+
 ```{python}
 
-a00, a01 = h.import_desired_data("A", "15T")
 
-w1 = wd2.Window_Detect2(a01)
-w1.analyze_window_change(wd2.make_stl_smooth)
 fig = w1.plot_analysis()
 
-# for name in ["Smoothed", "Difference", "Deriv1", "Deriv2"]:
-#     fig.update_traces(visible=False,selector=dict(name=name))
+for name in ["Observed Temp", "Difference", "Deriv1", "Deriv2"]:
+    fig.update_traces(visible="legendonly",selector=dict(name=name))
 fig.show()
 
 ```
+
+## 3. difference and derivatives 
+```{python}
+
+
+fig = w1.plot_analysis()
+
+for name in ["Observed Temp", "Smoothed", "Deriv1", "Deriv2"]:
+    fig.update_traces(visible="legendonly",selector=dict(name=name))
+fig.show()
+
+```
+
+## 3. difference and derivatives 
+```{python}
+fig = w1.plot_analysis()
+
+for name in ["Observed Temp","Smoothed", "Difference",  "Deriv2"]:
+    fig.update_traces(visible="legendonly",selector=dict(name=name))
+fig.show()
+
+```
+
+## 3. difference and derivatives 
+
+```{python}
+fig = w1.plot_analysis()
+
+for name in ["Observed Temp","Smoothed", "Difference", "Deriv"]:
+    fig.update_traces(visible="legendonly",selector=dict(name=name))
+fig.show()
+
+```
+
 
 ## 2. smoothing: other smoothing techniques 
 <!-- TODO: othe rsmoothing technique figures -->

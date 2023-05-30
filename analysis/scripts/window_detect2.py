@@ -81,7 +81,7 @@ class Window_Detect2:
 
 
     def plot_distributions(self, marker_width=0.1, bin_size=0.003):
-        print(f"Std 1 = {self.std}, Std 2 = {self.std2}")
+        # print(f"Std 1 = {self.std}, Std 2 = {self.std2}")
         fig = go.Figure()
 
         for ix, ser in enumerate([self.deriv2, self.deriv]):
