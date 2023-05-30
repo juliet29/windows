@@ -1,6 +1,6 @@
 # Analysis: Building Energy Modeling 
 
-## Building Energy Model with Energy+
+## Energy+ Model
 <!-- - can recreate real life scenario and simplify so don't have noise  -->
 :::: {.columns}
 
@@ -48,16 +48,20 @@ fig.show()
 ## Smoothing with STL
 ```{python}
 
-def show_single_trace(obj, current_trace_name ):
+def show_single_trace(obj, current_trace_name, width=1000, showlegend=True):
     fig = obj.plot_analysis()
-    # all names remaining in the list will be quited 
-    names = ["Observed Temp", "Smoothed", "Difference", "Deriv", "Deriv2"]
+
+    # only show the traces of items NOT in the list 
+    names = ["Observed Temp", "Smoothed", "Difference", "Deriv1", "Deriv2"]
     names.remove(current_trace_name)
-
-    for name in ["Observed Temp", "Difference", "Deriv1", "Deriv2"]:
+    for name in names:
         fig.update_traces(visible="legendonly", selector=dict(name=name))
+    
+    if showlegend==False:
+        fig.update_layout(showlegend=False)
 
-    fig.update_layout(autosize=False, width=1000, height=500,)
+
+    fig.update_layout(autosize=False, width=width, height=500,)
     return fig
 
 show_single_trace(s1, "Smoothed")

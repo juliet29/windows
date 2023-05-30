@@ -1,7 +1,7 @@
 # Analysis: Measurements 
 
 
-## back to reality -> 1. observed data 
+## Simulated vs Measured Results 
 <!-- TODO: real vs observed data   -->
 ```{python}
 
@@ -9,59 +9,53 @@ a00, a01 = h.import_desired_data("A", "15T")
 
 w1 = wd2.Window_Detect2(a01)
 w1.analyze_window_change(wd2.make_stl_smooth)
-fig = w1.plot_analysis()
+# fig = w1.plot_analysis()
 
-for name in ["Smoothed", "Difference", "Deriv1", "Deriv2"]:
-    fig.update_traces(visible="legendonly",selector=dict(name=name))
-fig.show()
+# for name in ["Smoothed", "Difference", "Deriv1", "Deriv2"]:
+#     fig.update_traces(visible="legendonly",selector=dict(name=name))
+# fig.show()
 
 ```
 
-## 2. smoothing: STL results 
+```{python}
+#| layout-ncol: 2
+
+def show_double_fig(trace, obj1=s1, obj2=w1):
+    fig1 = show_single_trace(obj1, trace, showlegend=False, width=480)
+    fig1.show()
+    fig2 = show_single_trace(obj2, trace, width=500)
+    fig2.show()
+
+show_double_fig("Observed Temp")
+```
+
+## Smoothing with STL
 <!-- TODO: STL figure-->
 
 
 ```{python}
+#| layout-ncol: 2
+show_double_fig("Smoothed")
+```
 
+## 3. Difference
+```{python}
+#| layout-ncol: 2
+show_double_fig("Difference")
+```
 
-fig = w1.plot_analysis()
-
-for name in ["Observed Temp", "Difference", "Deriv1", "Deriv2"]:
-    fig.update_traces(visible="legendonly",selector=dict(name=name))
-fig.show()
+## Derivatives 
+```{python}
+#| layout-ncol: 2
+show_double_fig("Deriv1")
 
 ```
 
-## 3. difference and derivatives 
-```{python}
-
-
-fig = w1.plot_analysis()
-
-for name in ["Observed Temp", "Smoothed", "Deriv1", "Deriv2"]:
-    fig.update_traces(visible="legendonly",selector=dict(name=name))
-fig.show()
-
-```
-
-## 3. difference and derivatives 
-```{python}
-fig = w1.plot_analysis()
-
-for name in ["Observed Temp","Smoothed", "Difference",  "Deriv2"]:
-    fig.update_traces(visible="legendonly",selector=dict(name=name))
-fig.show()
-
-```
-
-## 3. difference and derivatives 
+## Derivatives
 
 ```{python}
-fig = w1.plot_analysis()
-
-for name in ["Observed Temp","Smoothed", "Difference", "Deriv"]:
-    fig.update_traces(visible="legendonly",selector=dict(name=name))
-fig.show()
+#| layout-ncol: 2
+show_double_fig("Deriv2")
 
 ```
 
