@@ -66,7 +66,7 @@ show_double_fig("Deriv2")
 #| layout-ncol: 2
 #| output-location: fragment
 
-def show_double_result(func, obj1=s1, obj2=w1, width=500):
+def show_double_result(func, obj1=s1, obj2=w1, width=500, height=500):
     if func == "dist":
         fig1 = obj1.plot_distributions()
         fig2 = obj2.plot_distributions()
@@ -79,8 +79,8 @@ def show_double_result(func, obj1=s1, obj2=w1, width=500):
     else:
         fig1 = obj1.plot_guesses()
         fig2 = obj2.plot_guesses()
-    fig1.update_layout(autosize=False, width=width, height=500, showlegend=False)
-    fig2.update_layout(autosize=False, width=width, height=500,)
+    fig1.update_layout(autosize=False, width=width, height=height, showlegend=False)
+    fig2.update_layout(autosize=False, width=width, height=height,)
     fig1.show()
     fig2.show()
 
@@ -116,15 +116,55 @@ show_double_result("guess")
 
 
 
-## Other Smoothing Techniques 1 
+## Other Smoothing Techniques 
+- Fitting a sinusoid 
+- Modifying the STL technique?
+- Exponentially weighted mean function 
+
+## Other Smoothing Techniques Results
 <!-- TODO: othe rsmoothing technique figures -->
 
-## Other Smoothing Techniques 2 
-<!-- TODO: othe rsmoothing technique figures -->
+::: {.r-stack}
+```{python}
+
+w2 = wd2.Window_Detect2(a01)
+w2.analyze_window_change(wd2.make_sin_smooth)
+
+w3 = wd2.Window_Detect2(a01)
+w3.analyze_window_change(wd2.make_ewm_smooth)
+
+fig = make_subplots(rows=1, cols=2, shared_yaxes=True, subplot_titles=("Sinusoid", "EWM",))
+
+s2, s3 = [[obj.window_norm, obj.temp_norm, obj.smooth_series, obj.deriv] for obj in [w2, w3]]
+names = ["Window", "Observed", "Smoothed", "Deriv1"]
+opacities = [0.4, 1, 1,1]
+
+for ix, name, ser in zip(range(len(names)), names, s2):
+    fig.add_trace(go.Scatter(x=w2.time, y=ser, name=name, mode='lines', line_color=colorway[ix], opacity=opacities[ix],legendgroup=name,), row = 1, col = 1)
+
+for ix, name, ser in zip(range(len(names)), names, s3):
+    fig.add_trace(go.Scatter(x=w2.time, y=ser, name=name, mode='lines', line_color=colorway[ix], opacity=opacities[ix],legendgroup=name, showlegend=False), row = 1, col = 2)
+
+fig.update_traces(visible="legendonly", selector=dict(name="Deriv1"))
+fig.update_layout(autosize=False, width=1000, height=500,)
+fig.show()
+
+```
+
+::: {.fragment}
+```{python}
+fig.update_traces(visible="legendonly", selector=dict(name="Observed"))
+fig.update_traces(visible="legendonly", selector=dict(name="Smoothed"))
+fig.update_traces(visible=True, selector=dict(name="Deriv1"))
+```
+:::
 
 
-## Comparing Smoothing Techniques
-<!-- TODO: de raultin de roy metrics + compare to other ML methods on same data  -->
+:::
+
+
+## Comparing Results 
+<!-- table TODO: de raultin de roy metrics + compare to other ML methods on same data  -->
 
 
 ## reflections 

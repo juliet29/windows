@@ -1,6 +1,6 @@
 # Analysis: Building Energy Modeling 
 
-## Energy+ Model
+## Energy+ Simulation
 <!-- - can recreate real life scenario and simplify so don't have noise  -->
 :::: {.columns}
 
@@ -16,7 +16,7 @@
 ::::
 
 
-## Simulation Results  
+## Energy+ Simulation Results  
 ```{python}
 
 sim_data_path = "../../data/energy_model/230307_match.pkl"

@@ -71,8 +71,11 @@ and that didnt colelct for very long periods of time
 note that any combo of 2 and 3 could work... 
 :::
 
+## smoothing using stl 
+- how stl works  
+
 ## essentially, trying to seperate signal from noise 
-<!-- TODO: figure for all of these -->
+<!-- TODO: figure for all of these + show decompositions of the data -->
 - indoor temp, constant distortion from outside due to building materials
 - seasonality from day to night transition 
 - + noise from people doing stuff inside 
