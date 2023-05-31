@@ -123,15 +123,17 @@ class Window_Detect2:
         self.temp = df["Temp C"]
         self.temp_norm = h.normalize(self.temp)
 
-    def make_guesses(self, timedelta=15*2, z=1):
+    def make_guesses(self, timedelta=15, z=1):
         # normalized values for plaotting 
         self.zscore_norm = h.normalize(self.zscore)
         self.zscore2_norm = h.normalize(self.zscore2)
 
         if z==1:
+            # print("z1")
             zscore = self.zscore
             zscore_norm = self.zscore_norm
         else:
+            # print("z2")
             zscore = self.zscore2
             zscore_norm = self.zscore2_norm
 
