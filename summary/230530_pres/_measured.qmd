@@ -2,7 +2,7 @@
 
 
 ## Simulation vs Measurements  
-<!-- TODO: real vs observed data   -->
+
 ```{python}
 
 a00, a01 = h.import_desired_data("A", "15T")
@@ -20,15 +20,9 @@ all_traces = ["window_norm", "temp_norm", "smooth_series", "dif", "deriv", "deri
 fig, names = wd2.make_dual_plot_abstract(time=w1.time, objects=[s1, w1], names=all_names, traces=all_traces, title_arr=["Simulation", "Measurement"], )
 
 fig = wd2.update_dual_plot(fig,  names, ["Window", "Observed Temp"],)
+fig = fig.update_layout(autosize=False, width=1000, height=500,)
 fig.show()
 
-# def show_double_fig(trace, obj1=s1, obj2=w1):
-#     fig1 = show_single_trace(obj1, trace, showlegend=False, width=480)
-#     fig1.show()
-#     fig2 = show_single_trace(obj2, trace, width=500)
-#     fig2.show()
-
-# show_double_fig("Observed Temp")
 ```
 
 ## Smoothing with STL
@@ -36,39 +30,24 @@ fig.show()
 
 
 ```{python}
-
-
 fig = wd2.update_dual_plot(fig,  names, ["Window", "Smoothed"],)
 fig.show()
-# show_double_fig("Smoothed")
+
 ```
 
 ## Difference
 ```{python}
-
-# show_double_fig("Difference")
-
 fig = wd2.update_dual_plot(fig,  names, ["Window", "Difference"],)
 fig.show()
 ```
 
 ## Derivatives 
 ```{python}
-
-# show_double_fig("Deriv1")
-
 fig = wd2.update_dual_plot(fig,  names, ["Window", "Deriv1", "Deriv2"],)
 fig.show()
 
 ```
 
-<!-- ## Derivatives
-
-```{python}
-#| layout-ncol: 2
-show_double_fig("Deriv2")
-
-``` -->
 
 ## Making Predictions 
 ::: {.r-stack}
@@ -103,16 +82,13 @@ fig.show()
 ```
 :::
 
-
 ::: {.fragment}
 ```{python}
 #| output-location: fragment
-
 fig = wd2.update_dual_plot(fig,  names, ["Window", "Z-Score 1", "Z-Score 2", "Guesses ~ Z-Score 1 > 2"],)
 fig.show()
 ```
 :::
-
 
 
 :::
@@ -148,7 +124,16 @@ fig1.show()
 ::: {.fragment}
 ```{python}
 
-fig1 = wd2.update_dual_plot(fig,  names, ["Window", "Deriv1",],)
+fig1 = wd2.update_dual_plot(fig,  names, ["Window", "Deriv1"],)
+
+fig1.show()
+```
+:::
+
+::: {.fragment}
+```{python}
+
+fig1 = wd2.update_dual_plot(fig,  names, ["Window", "Deriv1", "Deriv2"],)
 
 fig1.show()
 ```

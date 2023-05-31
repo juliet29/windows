@@ -22,7 +22,6 @@
 sim_data_path = "../../data/energy_model/230307_match.pkl"
 sim_data = pd.read_pickle(sim_data_path)
 
-
 # smoothing on different time series than the observation 
 sim_smooth = wd2.make_stl_smooth(series=sim_data["Always Closed"], time=None, model="additive")
 
@@ -32,12 +31,14 @@ sim_data.rename(columns={"Varied": "Temp C"}, inplace=True)
 
 s1 = wd2.Window_Detect2(sim_data)
 s1.analyze_window_change(smooth_fx=None, sim_smooth=sim_smooth)
-fig = s1.plot_analysis()
 
-for name in ["Smoothed", "Difference", "Deriv1", "Deriv2"]:
-    fig.update_traces(visible=False,selector=dict(name=name))
+all_names = ["Window", "Observed Temp", "Smoothed", "Difference", "Deriv1", "Deriv2"]
+all_traces = ["window_norm", "temp_norm", "smooth_series", "dif", "deriv", "deriv2"]
+fig, names = wd2.make_dual_plot_abstract(time=s1.time, objects=[s1], names=all_names, traces=all_traces, title_arr=[""], )
 
 
+# want to look at the observed data and the counterfactual ~ always cloesed 
+fig = wd2.update_dual_plot(fig,  names, ["Window", "Observed Temp"],)
 fig.add_trace(go.Scatter(x=sim_data["DateTime"], y=h.normalize(sim_data["Always Closed"]), mode='lines', name="Control (Always Closed)"))
 
 fig.update_layout(autosize=False, width=1000, height=500,)
@@ -47,39 +48,28 @@ fig.show()
 
 ## Smoothing with STL
 ```{python}
+fig.update_traces(visible=False,selector=dict(name="Control (Always Closed)"))
 
-def show_single_trace(obj, current_trace_name, width=1000, showlegend=True):
-    fig = obj.plot_analysis()
-
-    # only show the traces of items NOT in the list 
-    names = ["Observed Temp", "Smoothed", "Difference", "Deriv1", "Deriv2"]
-    names.remove(current_trace_name)
-    for name in names:
-        fig.update_traces(visible="legendonly", selector=dict(name=name))
-    
-    if showlegend==False:
-        fig.update_layout(showlegend=False)
-
-
-    fig.update_layout(autosize=False, width=width, height=500,)
-    return fig
-
-show_single_trace(s1, "Smoothed")
+fig = wd2.update_dual_plot(fig,  names, ["Window", "Smoothed"],)
+fig.show()
 
 ```
 
 ## Difference
 ```{python}
-show_single_trace(s1, "Difference")
+fig = wd2.update_dual_plot(fig,  names, ["Window", "Difference"],)
+fig.show()
 ```
 
 ## Derivatives
 ```{python}
-show_single_trace(s1, "Deriv1")
+fig = wd2.update_dual_plot(fig,  names, ["Window", "Deriv1",],)
+fig.show()
 ```
 
 ## Derivatives
 ```{python}
-show_single_trace(s1, "Deriv2")
+fig = wd2.update_dual_plot(fig,  names, ["Window", "Deriv1", "Deriv2"])
+fig.show()
 ```
 
