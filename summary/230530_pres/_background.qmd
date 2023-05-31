@@ -39,7 +39,7 @@ between 80ºC (Australia) and 240ºC (Western Russia) of cumulative heat experie
 
 
 ::: aside
-@worldhealthorganizationHeatwaves
+@whoHeatwaves
 :::
 
 ::: {.notes}

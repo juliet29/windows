@@ -96,9 +96,18 @@ fig.show()
 
 
 ## Other Smoothing Techniques 
+
+
 - Fitting a sinusoid 
-- Modifying the STL technique?
-- Exponentially weighted mean function 
+
+
+- Exponentially weighted mean function
+
+::: {.fragment .semi-fade-out}
+- Modifying the STL technique
+:::
+
+
 
 ## Other Smoothing Techniques 
 <!-- TODO: othe rsmoothing technique figures -->

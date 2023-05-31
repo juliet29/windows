@@ -19,7 +19,7 @@
   - Measurment
   - Time series analysis 
   - Building energy modeling 
-  - Computational fluid dynamics 
+
 
 :::
 
@@ -60,12 +60,65 @@ highlight that sensors used are affordable, and many modern buildings already mo
 ![](figures/data_collection/data_collected.png){height=600 fig-align="center"}
 :::
 
-<!-- TODO: some inights about how much WOC helped over all -->
-
 ::: {.notes}
 highlight that predicting the window opening close data as a function of temperature 
 and that didnt colelct for very long periods of time 
 :::
+
+
+---
+
+
+
+![](figures/series_breakdown/temp_graph.png){.absolute top=0.5in left=-160px width=4in}
+
+:::{.fragment}
+![](figures/series_breakdown/seasonality.png){.absolute top=1in left=2.5in width=25%}
+![](figures/series_breakdown/noise.png){.absolute top=2.8in left=2.5in width=30%}
+![](figures/series_breakdown/signal.png){.absolute top=4.6in left=2.5in width=25%}
+:::
+
+
+
+
+:::{.fragment}
+![](figures/series_breakdown/diurnal.png){.absolute top=0.5in left=6in width=2in}
+![](figures/series_breakdown/acf_periodogram.png){.absolute top=0.5in left=9in width=3in}
+:::
+
+
+## Seasonal Trend Decomposition with LOESS (STL)
+
+::: {.r-stack}
+:::{.fragment .fade-out}
+![](figures/stl/fuzzy.png){width=40% margin="auto" fig-align="center" }
+:::
+
+:::{.fragment}
+![](figures/stl/fuzzy_break.png){width=40% margin="auto" fig-align="center"}
+:::
+
+:::
+
+
+:::{.fragment}
+![](figures/stl/breakdown.png){width=75% margin="auto" fig-align="center" margin-top=4in}
+
+
+:::
+
+:::{.aside}
+@clevelandCleveland1990Seasonal1990
+:::
+
+
+
+
+
+
+
+
+
 
 
 ## Predicting W/O/C at a High Level 
@@ -93,25 +146,7 @@ and that didnt colelct for very long periods of time
 
 
 
-
-<!-- 1. have observed time series, here indoor temperature 
-1. smooth out some way 
-2. make anomalies due to w/oc uniquely apparent
-   - subtracting smoothed data and 
-   - taking derivatives
-3. detect anaomalies using *likelihood estimation* -->
-<!-- TODO: not sure if this is actually likelihood estimation?? -->
-
 ::: {.notes}
 note that any combo of 2 and 3 could work... 
 :::
 
-## smoothing using stl 
-- how stl works  
-
-## essentially, trying to seperate signal from noise 
-<!-- TODO: figure for all of these + show decompositions of the data -->
-- indoor temp, constant distortion from outside due to building materials
-- seasonality from day to night transition 
-- + noise from people doing stuff inside 
-- + w/o/c

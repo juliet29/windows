@@ -27,13 +27,13 @@
 - Energy intensive 
 
   ::: {.small-bullet}
-  - AC + electric fan account for 20% of total energy use in buildings ^[@internationalenergyagencyFutureCoolingOpportunities2018]
+  - AC + electric fan account for 20% of total energy use in buildings ^[@ieaFutureCoolingOpportunities2018]
   :::
 
 - Inaccesible 
 
   ::: {.small-bullet}
-  - Ability to own an AC constrained by income ^[@internationalenergyagencyFutureCoolingOpportunities2018]
+  - Ability to own an AC constrained by income ^[@ieaFutureCoolingOpportunities2018]
     - 99% of private apartments in Singapore have AC
     - Closer to 4% of households in India 
   :::
@@ -56,7 +56,7 @@
 - Has worked well for some time 
 
   ::: {.small-bullet}
-  - Modern AC unit invented in 1900 and only became popular in the US in the 1950s ^[@internationalenergyagencyFutureCoolingOpportunities2018]
+  - Modern AC unit invented in 1900 and only became popular in the US in the 1950s ^[@ieaFutureCoolingOpportunities2018]
   :::
 :::
 
