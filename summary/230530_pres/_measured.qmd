@@ -121,7 +121,7 @@ show_double_result("guess")
 - Modifying the STL technique?
 - Exponentially weighted mean function 
 
-## Other Smoothing Techniques Results
+## Other Smoothing Techniques 
 <!-- TODO: othe rsmoothing technique figures -->
 
 ::: {.r-stack}
@@ -156,7 +156,36 @@ fig1.show()
 
 
 ## Comparing Results 
+```{python}
+#| layout-row: 2
+
+# triple plot for distributions 
+fig = make_subplots(rows=1, cols=3, shared_yaxes=True, subplot_titles=["STL", "Sinusoid", "EWM"])
+marker_width = 0.1 
+bin_size = 0.003
+
+for obj_ix, obj in enumerate([w1, w2, w3]):
+    leg = True if obj_ix == 0 else False
+    for ix, ser in enumerate([obj.deriv2, obj.deriv]):
+        opacity = 0.9 if ix == 0 else 1
+        color = '#702632' if ix == 0 else '#A4B494'
+        fig.add_trace(go.Histogram(
+        x=ser, histnorm='probability', name=f' Deriv{2 - ix}', opacity=opacity, marker_line=dict(width=marker_width ,color='black'), xbins=dict(size=bin_size), marker_color=color, showlegend=leg), row = 1, col = obj_ix+1)
+
+fig.update_layout(barmode="stack")
+fig = fig.update_layout(autosize=False, width=1000, height=300,)
+fig.show()
+
+fig1, names = wd2.make_dual_plot_abstract(time=w1.time, objects=[w1, w2, w3], names=["Window", "Z-Score", "Guesses"], traces=["window_norm", "zscore_norm", "guess_values"], title_arr=["", "", ""], mode=["lines", "lines", "markers"])
+fig1 = fig1.update_layout(autosize=False, width=1000, height=300)
+fig1.show()
+
+
+```
 <!-- table TODO: de raultin de roy metrics + compare to other ML methods on same data  -->
+
+
+## Metrics 
 
 
 ## reflections 

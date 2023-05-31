@@ -13,6 +13,8 @@ format:
       buttons: false
     preview-links: auto
     footer: Urban Informatics Lab
+execute:
+  cache: true
 
 ---
 

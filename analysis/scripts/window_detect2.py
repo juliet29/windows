@@ -56,6 +56,28 @@ def make_dual_plot(time, obj1, obj2, title_arr):
 
     return fig, names
 
+def make_dual_plot_abstract(time, objects, names, traces, title_arr, mode="lines"): 
+    fig = make_subplots(rows=1, cols=len(objects), shared_yaxes=True, subplot_titles=tuple(title_arr))
+    
+    series = [[getattr(obj, trace) for trace in traces] for obj in objects]
+
+
+    opacities = [0.4] + [1]*(len(series[0])-1)
+
+    for series_ix, s in enumerate(series):
+        leg = True if series_ix == 0 else False
+        for ix, name, ser in zip(range(len(names)), names, s):
+            if mode != "lines": 
+                # caveat for plotting guesses 
+                time_guess = time if ix+1 != len(s) else objects[series_ix].guess_times
+
+                fig.add_trace(go.Scatter(x=time_guess, y=ser, name=name, mode=mode[ix], line_color=h.colorway[ix], opacity=opacities[ix],legendgroup=name, showlegend=leg), row = 1, col = series_ix+1)
+            else:
+                fig.add_trace(go.Scatter(x=time, y=ser, name=name, mode=mode, line_color=h.colorway[ix], opacity=opacities[ix],legendgroup=name, showlegend=leg), row = 1, col = series_ix+1)
+
+    return fig, names
+
+
 def update_dual_plot(fig, names, show_arr, ):
     for name in names: 
         if name in show_arr:
@@ -63,6 +85,8 @@ def update_dual_plot(fig, names, show_arr, ):
         else:
             fig.update_traces(visible="legendonly", selector=dict(name=name))
     return fig
+
+
 
 
 
@@ -106,7 +130,6 @@ class Window_Detect2:
         self.guess_values = zscore_norm[self.guess_times.index] 
 
         
-
 
     def analyze_window_change(self, smooth_fx, sim_smooth=None, timedelta=15):
         if sim_smooth is not None:
