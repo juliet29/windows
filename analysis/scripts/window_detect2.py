@@ -86,6 +86,23 @@ def update_dual_plot(fig, names, show_arr, ):
             fig.update_traces(visible="legendonly", selector=dict(name=name))
     return fig
 
+def plot_many_dist(objects, title_arr):
+    # triple plot for distributions 
+    fig = make_subplots(rows=1, cols=len(objects), shared_yaxes=True, subplot_titles=title_arr)
+    marker_width = 0.1 
+    bin_size = 0.003
+
+    for obj_ix, obj in enumerate(objects):
+        leg = True if obj_ix == 0 else False
+        for ix, ser in enumerate([obj.deriv2, obj.deriv]):
+            opacity = 0.9 if ix == 0 else 1
+            color = '#702632' if ix == 0 else '#A4B494'
+            fig.add_trace(go.Histogram(
+            x=ser, histnorm='probability', name=f' Deriv{2 - ix}', opacity=opacity, marker_line=dict(width=marker_width ,color='black'), xbins=dict(size=bin_size), marker_color=color, showlegend=leg), row = 1, col = obj_ix+1)
+
+    fig.update_layout(barmode="stack")
+
+    return fig
 
 
 

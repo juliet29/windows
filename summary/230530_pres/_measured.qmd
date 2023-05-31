@@ -74,53 +74,45 @@ show_double_fig("Deriv2")
 ::: {.r-stack}
 
 ```{python}
-#| layout-ncol: 2
 #| output-location: fragment
 
-def show_double_result(func, obj1=s1, obj2=w1, width=500, height=500):
-    if func == "dist":
-        fig1 = obj1.plot_distributions()
-        fig2 = obj2.plot_distributions()
-    elif func == "z":
-        fig1 = obj1.plot_zscore()
-        fig2 = obj2.plot_zscore()
-    elif func == "guess_nofilter":
-        fig1 = obj1.plot_guesses(timedelta=1)
-        fig2 = obj2.plot_guesses(timedelta=1)
-    else:
-        fig1 = obj1.plot_guesses()
-        fig2 = obj2.plot_guesses()
-    fig1.update_layout(autosize=False, width=width, height=height, showlegend=False)
-    fig2.update_layout(autosize=False, width=width, height=height,)
-    fig1.show()
-    fig2.show()
+fig = wd2.plot_many_dist([s1, w1], ["Simulation", "Measuerement",])
+fig = fig.update_layout(autosize=False, width=1000, height=500,)
+fig.show()
 
-show_double_result("dist")
 ```
 
 ::: {.fragment}
 ```{python}
-#| layout-ncol: 2
 #| output-location: fragment
-show_double_result("z")
+
+fig, names = wd2.make_dual_plot_abstract(time=w1.time, objects=[s1, w1,], names=["Window", "Z-Score 1", "Z-Score 2", "Guesses ~ Z-Score 1 > 2"], traces=["window_norm", "zscore", "zscore2", "guess_values"], title_arr=["Simulation", "Measurement"], mode=["lines", "lines", "lines", "markers"])
+fig = fig.update_layout(autosize=False, width=1000, height=500)
+
+fig = wd2.update_dual_plot(fig,  names, ["Window", "Z-Score 1", ],)
+fig.show()
 ```
 :::
 
 ::: {.fragment}
 ```{python}
-#| layout-ncol: 2
 #| output-location: fragment
-show_double_result("guess_nofilter")
+
+fig = wd2.update_dual_plot(fig,  names, ["Window", "Z-Score 1", "Z-Score 2", ],)
+fig.show()
 ```
 :::
 
+
 ::: {.fragment}
 ```{python}
-#| layout-ncol: 2
 #| output-location: fragment
-show_double_result("guess")
+
+fig = wd2.update_dual_plot(fig,  names, ["Window", "Z-Score 1", "Z-Score 2", "Guesses ~ Z-Score 1 > 2"],)
+fig.show()
 ```
 :::
+
 
 
 :::
@@ -170,20 +162,7 @@ fig1.show()
 ```{python}
 #| layout-row: 2
 
-# triple plot for distributions 
-fig = make_subplots(rows=1, cols=3, shared_yaxes=True, subplot_titles=["STL", "Sinusoid", "EWM"])
-marker_width = 0.1 
-bin_size = 0.003
-
-for obj_ix, obj in enumerate([w1, w2, w3]):
-    leg = True if obj_ix == 0 else False
-    for ix, ser in enumerate([obj.deriv2, obj.deriv]):
-        opacity = 0.9 if ix == 0 else 1
-        color = '#702632' if ix == 0 else '#A4B494'
-        fig.add_trace(go.Histogram(
-        x=ser, histnorm='probability', name=f' Deriv{2 - ix}', opacity=opacity, marker_line=dict(width=marker_width ,color='black'), xbins=dict(size=bin_size), marker_color=color, showlegend=leg), row = 1, col = obj_ix+1)
-
-fig.update_layout(barmode="stack")
+fig = wd2.plot_many_dist([w1, w2, w3], ["STL", "Sinusoid", "EWM"])
 fig = fig.update_layout(autosize=False, width=1000, height=300,)
 fig.show()
 
