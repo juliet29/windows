@@ -19,6 +19,19 @@ $presentation-font-size-root: 35px; // normally 40px
     margin-top: 3em;
 }
 
+.styled-side-high{
+    margin-top: 1em;
+}
+
+// .flex-columns{
+//     display: flex;
+//     justify-content: space-around;
+// }
+
+.right-col-space{
+    margin-left: 4em;
+}
+
 .center{
     font-size: 130%;
     margin: auto;
@@ -29,8 +42,6 @@ $presentation-font-size-root: 35px; // normally 40px
         list-style-type: none;
         text-align: center;
     }
-    
-
 }
 
 // .footer{
@@ -41,3 +52,4 @@ $presentation-font-size-root: 35px; // normally 40px
 //   border-left: 3px solid $text-muted;
 //   padding-left: 0.5em;
 // }
+

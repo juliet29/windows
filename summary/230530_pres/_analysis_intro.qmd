@@ -1,35 +1,51 @@
 # Analysis
 
-## approach
-- problem statement: design an unsupervised method to predict window/open closing based on short periods of easily accesible data 
-<!-- TODO: wite a problem statement that involves the question -->
-<!-- TODO: instead of just listing tools, give a preview of what going to discuss -->
-- tools
-  - measurment
-  - time series analysis 
-  - building energy modeling 
-  - computational fluid dynamics 
+## Approach
+
+:::: {.columns }
+
+::: {.column width="40%" }
+
+:::{.styled-side .styled-side-high}
+*Design an unsupervised method to predict window/open closing based on short periods of easily accesible data*
+:::
+
+
+:::
+
+::: {.column width="40%" .incremental .fragment .right-col-space}
+**Tools**
+
+  - Measurment
+  - Time series analysis 
+  - Building energy modeling 
+  - Computational fluid dynamics 
+
+:::
+
+::::
+
+::: {.notes}
+TODO: instead of just listing tools, give a preview of what going to discuss
+::: {.notes}
 
 
 
 
-## measurement technique
-<!-- TODO: fix alignment of sensor  -->
-
-
+## Measurement Technique
 :::: {.columns}
 
 ::: {.column width="60%"}
-- Data collected in adjacent rooms
-- Affordable sensors 
+![Sensor Placement](figures/data_collection/sensor_placement.png){fig-align="left" width=6in height=4in}
+
+![](figures/data_collection/data_logger.png){.absolute top=442px left=350px width=2in}
+
 :::
 
 ::: {.column width="40%"}
-::: {layout-nrow=2}
-![Sensor Placement](figures/data_collection/sensor_placement.png){fig-align="left"}
-
-![Data Logger](figures/data_collection/data_logger.png){fig-align="left" height=70}
-:::
+- Data collected in adjacent rooms
+- Experimented with different window treatments 
+- Affordable sensors 
 :::
 
 ::::
