@@ -19,20 +19,20 @@
 
 - Susceptible to failure during heat waves 
 
-  ::: {.smaller}
+  ::: {.small-bullet}
   - Loads increase when power system most vulnerable, leading to blackouts 
   - In Shanghai, documented shortages greater than a 1 GWh ^[@liangHeatWaveElectricity2016]
   :::
 
 - Energy intensive 
 
-  ::: {.smaller}
+  ::: {.small-bullet}
   - AC + electric fan account for 20% of total energy use in buildings ^[@internationalenergyagencyFutureCoolingOpportunities2018]
   :::
 
 - Inaccesible 
 
-  ::: {.smaller}
+  ::: {.small-bullet}
   - Ability to own an AC constrained by income ^[@internationalenergyagencyFutureCoolingOpportunities2018]
     - 99% of private apartments in Singapore have AC
     - Closer to 4% of households in India 
@@ -55,7 +55,7 @@
 - Accessible 
 - Has worked well for some time 
 
-  ::: {.smaller}
+  ::: {.small-bullet}
   - Modern AC unit invented in 1900 and only became popular in the US in the 1950s ^[@internationalenergyagencyFutureCoolingOpportunities2018]
   :::
 :::
@@ -117,7 +117,7 @@
 
 - Understanding **when** windows are open, enables us to use to contextual information understand **why** they are open
 
-  :::{.smaller}
+  :::{.small-bullet}
   - D'Oca and Hong grouped occupants into 3-types: thermal-driven, time-driven, thermal+time driven ^[@docaDataminingApproachDiscover2014]
   :::
 

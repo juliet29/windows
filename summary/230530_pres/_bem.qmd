@@ -1,19 +1,18 @@
 # Analysis: Building Energy Modeling 
 
 ## Energy+ Simulation
-<!-- - can recreate real life scenario and simplify so don't have noise  -->
-:::: {.columns}
 
-::: {.column width="50%"}
-- info about E+ model
-- info 2 about E+ mode 
+::: { height="3in" fig-align="center"}
+![](figures/bem_01/model.png){ height="3in" fig-align="center"}
 :::
 
-::: {.column width="50%"}
-![Energy+ Model](figures/bem_01/model.png)
-:::
+- Adiabatic conditions where room intersects with other parts of the building
+- Air flow network used to simulate ventilation 
+- Representative, uncalibrated model 
 
-::::
+
+
+
 
 
 ## Energy+ Simulation Results  

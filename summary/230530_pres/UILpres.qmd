@@ -14,8 +14,8 @@ format:
     preview-links: auto
     footer: Urban Informatics Lab
     theme: [default, custom.scss]
-execute:
-  cache: true
+# execute:
+#   cache: true
 
 ---
 
@@ -44,10 +44,10 @@ pio.templates.default = 'plotly_white+cardinal'
 
 ```
 
-## Overview? 
+## Overview
 
 - Global warming in context 
-- Solutions
+- Solutions?
 - Analysis
 - Recap 
 
