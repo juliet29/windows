@@ -1,7 +1,10 @@
 ---
 title: "A socio-technical approach to increasing the use of natural cooling"
-subtitle: "Presentation for the Urban Informatics Lab, May 30, 2023"
 author: Juliet Nwagwu Ume-Ezeoke, Kopal Nihar, Catehrine Gorle, Rishee Jain 
+institute: Stanford University Urban Informatics Lab 
+date: May 30, 2023
+template-partials:
+      - title-block.html
 zotero:
   csl-style: author-date # pre-fill the style
 bibliography: http://127.0.0.1:23119/better-bibtex/export/collection?/1/DTLYMVAD.bibtex
@@ -12,7 +15,6 @@ format:
     chalkboard: 
       buttons: false
     preview-links: auto
-    footer: Urban Informatics Lab
     theme: [default, custom.scss]
 # execute:
 #   cache: true

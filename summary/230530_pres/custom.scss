@@ -8,7 +8,36 @@ $presentation-font-size-root: 35px; // normally 40px
 // $presentation-h3-font-size: 0.5em; //normally 1.3em
 // $presentation-font-smaller: 0.5;
 
+$presentation-h3-font-size: 0.5em; //normally 1.3em
+
+$presentation-h1-font-size: 90px;
+
+$body-bg: #fff;
+$body-color: #414042;
+$link-color: #C4161C;
+$code-color: #27A5A2;
+$code-block-border-color: #009491;
+
+$presentation-heading-color: #C4161C;
+$presentation-font-size-root: 30px;
+
+$font-family-sans-serif: 'Lato', sans-serif;
+
+$presentation-slide-text-align: left;
+
 /*-- scss:rules --*/
+
+// .title {
+//     $presentation-h1-font-size: 80px;
+// }
+
+.institute{
+    font-size: 70%;
+}
+
+.date{
+    font-size: 70%;
+}
 
 .small-bullet{
     font-size: 60%;
@@ -58,3 +87,5 @@ $presentation-font-size-root: 35px; // normally 40px
 //   padding-left: 0.5em;
 // }
 
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,700;0,900;1,300;1,400&display=swap');
