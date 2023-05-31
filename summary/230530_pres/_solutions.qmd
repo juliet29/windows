@@ -1,69 +1,72 @@
 # Solutions? 
 
-## mechanical cooling 
+<!-- ## Mechanical Cooling 
 :::: {.columns}
 
 ::: {.column width="40%"}
 - Pros
-  - easy to design for 
-  - accepted in industry 
-  - has supported development in warmer parts of the world
-  - reliable?
+::: {.incremental}
+  - Easy to design for 
+  - Accepted in industry 
+  - Enabled increased productivity 
+  - Reliable?
+::: {.incremental}
 :::
 
 ::: {.column width="60%"}
 - Cons 
-  - susceptible to failure during heat waves 
-    - loads increase when power system most vulnerable, leading to blackouts
-    - in Shanghai, documented shortages greater than a 1 GWh ^[@liangHeatWaveElectricity2016]
-  - energy intensive 
+  ::: {.incremental}
+  - Susceptible to failure during heat waves 
+    - Loads increase when power system most vulnerable, leading to blackouts
+    - In Shanghai, documented shortages greater than a 1 GWh ^[@liangHeatWaveElectricity2016]
+  - Energy intensive 
     - AC + electric fan account for 20% of total energy use in buildings ^[@internationalenergyagencyFutureCoolingOpportunities2018]
-  - inaccesible 
-    - ability to own an AC constrained by income ^[@internationalenergyagencyFutureCoolingOpportunities2018]
+  - Inaccesible 
+    - Ability to own an AC constrained by income ^[@internationalenergyagencyFutureCoolingOpportunities2018]
       - 99% of private apartments in Singapore have AC
       - Closer to 4% of households in India 
-    <!-- TODO figure of from IEA if desired and fits..  -->
+  ::: {.incremental}
 :::
 
 ::::
 
-## viscous cycle 
+## Viscous cycle 
 <!-- TODO figure of visous cycle  -->
 
 
-## natural cooling 
+## Natural Cooling 
 :::: {.columns}
 
 ::: {.column width="40%"}
 - Pros
-  - low operational energy 
-  - accessible 
-  - has worked well for some time 
+  - Low operational energy 
+  - Accessible 
+  - Has worked well for some time 
     - modern AC unit invented in 1900s, first popularized in the US in the 1950s ^[@internationalenergyagencyFutureCoolingOpportunities2018]
 :::
 
 ::: {.column width="60%"}
 - Cons 
-    - difficult to design for 
-    - industry skepticism 
-    - unreliable due to uncertainty 
-      - occupant behavior 
-      - outdoor climate 
+    - Difficult to design for 
+    - Industry skepticism 
+    - Unreliable due to uncertainty 
+      - Occupant behavior 
+      - Outdoor climate 
 
 :::
 
 ::::
 
 
-## cooling "tech"
+## Cooling "Tech"
 <!-- TODO zhang figure -->
 
 ::: aside
 @zhangResilientCoolingStrategies2021a
 :::
 
-## untitled 
-"Vernacular building traditions across the world display ... sophisticated thermal adaptation" - Lisa Heschong, Thermal delight in Architecture 
+---
+"Vernacular building traditions across the world display ... sophisticated thermal adaptation" - Lisa Heschong, Thermal Delight in Architecture 
 <!-- TODO zhang figure + lisa interventions  -->
 
 ::: aside
@@ -72,7 +75,7 @@
 <!-- TODO repeat and circle ventilation   -->
 
 
-## why windows?
+## Why Windows?
 :::: {.columns}
 
 ::: {.column width="40%"}
@@ -119,4 +122,4 @@
 
 ::: aside
 discussion of supervised vs not.
-:::
+::: -->
