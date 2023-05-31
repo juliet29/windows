@@ -1,21 +1,21 @@
 # Solutions? 
 
-<!-- ## Mechanical Cooling 
+## Mechanical Cooling 
 :::: {.columns}
 
 ::: {.column width="40%"}
 - Pros
-::: {.incremental}
   - Easy to design for 
   - Accepted in industry 
   - Enabled increased productivity 
-  - Reliable?
-::: {.incremental}
+  - Reliable
 :::
 
-::: {.column width="60%"}
+
+
+::: {.column width="60%" .fragment}
 - Cons 
-  ::: {.incremental}
+
   - Susceptible to failure during heat waves 
     - Loads increase when power system most vulnerable, leading to blackouts
     - In Shanghai, documented shortages greater than a 1 GWh ^[@liangHeatWaveElectricity2016]
@@ -25,7 +25,6 @@
     - Ability to own an AC constrained by income ^[@internationalenergyagencyFutureCoolingOpportunities2018]
       - 99% of private apartments in Singapore have AC
       - Closer to 4% of households in India 
-  ::: {.incremental}
 :::
 
 ::::
@@ -45,7 +44,7 @@
     - modern AC unit invented in 1900s, first popularized in the US in the 1950s ^[@internationalenergyagencyFutureCoolingOpportunities2018]
 :::
 
-::: {.column width="60%"}
+::: {.column width="60%" .fragment}
 - Cons 
     - Difficult to design for 
     - Industry skepticism 
@@ -85,21 +84,22 @@
 
 ::: {.column width="60%"}
 - Questions 
-    - what is the effect of opening and closing windows on indoor climate?
-    - how can we enable to practitioners to access this information in a fast enough way to be useful for decision making  in the early stages of the design process 
+    - What is the effect of window opening and closing (w/o/c) on indoor climate?
+    - How does this change with different building designs, occupant behavior, and outdoor climate?
+    - How can practitioners access and leverage this information in the early stages of the design process? 
 
 :::
 
 ::::
 
-## why predicting w/o/c is important 
+## Why Predicting W/O/C is Useful
 - uninvasive way of determining if windows open/closed 
 - can enable better understanding of occupant behavior 
 - understanding when windows are open, enables us to use to contextual information understand why they are open
   - D'Oca and Hong grouped occupants into 3-types: thermal-driven, time-driven, thermal+time driven ^[@docaDataminingApproachDiscover2014]
 - critical information for designers 
 
-## predicting w/o/c since 1990...
+## W/O/C Predictions since 1990...
 <!-- TODO timeline   -->
   - Dai 2020 Table 1 => popular methods + Fig 5 => frequency of ML methods used, 4.2.1 = prediction of window opening closing action 
     - fritsch, 1990 [54] Markov chain methods 
@@ -113,7 +113,7 @@
 @docaDataminingApproachDiscover2014
 :::
 
-## research gaps 
+## Research Gaps 
 <!-- TODO table with author, length of data collected, location, method, and supervised/not    -->
   - gaps:  
     - long data collection periods: shorter periods are needed for practical use
@@ -122,4 +122,4 @@
 
 ::: aside
 discussion of supervised vs not.
-::: -->
+::: 
