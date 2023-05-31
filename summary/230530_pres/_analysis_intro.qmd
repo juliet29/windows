@@ -26,8 +26,8 @@
 ::::
 
 ::: {.notes}
-TODO: instead of just listing tools, give a preview of what going to discuss
-::: {.notes}
+instead of just listing tools, give a preview of what going to discuss
+::: 
 
 
 
@@ -54,8 +54,12 @@ TODO: instead of just listing tools, give a preview of what going to discuss
 highlight that sensors used are affordable, and many modern buildings already monitor temperature as part of their operation 
 :::
 
-## collected data  
-![](figures/data_collection/data_collected.png){height=500}
+--- 
+
+:::{.center-div}
+![](figures/data_collection/data_collected.png){height=600 fig-align="center"}
+:::
+
 <!-- TODO: some inights about how much WOC helped over all -->
 
 ::: {.notes}
@@ -64,23 +68,38 @@ and that didnt colelct for very long periods of time
 :::
 
 
-## predicting w/o/c at a high level 
+## Predicting W/O/C at a High Level 
 <!-- TODO: figure for all of these -->
-::: {layout-nrow=2}
-![Observed](figures/predicting_at_high_level/observed.png){height=20}
 
-![Smoothed](figures/predicting_at_high_level/smoothed.png){height=20}
 
-![Difference](figures/predicting_at_high_level/differenced.png){height=20}
+::: {layout-nrow=2 }
 
-![Derivative](figures/predicting_at_high_level/derivative.png){height=250}
+
+![Observe](figures/predicting_at_high_level/observed.png){height="3in" width="3in"}
+
+::: {.fragment}
+![Smooth](figures/predicting_at_high_level/smoothed.png){height="3in" width="3in"}
 :::
-1. have observed time series, here indoor temperature 
-2. smooth out some way 
-3. make anomalies due to w/oc uniquely apparent
+
+::: {.fragment}
+![Difference](figures/predicting_at_high_level/differenced.png){height="3in" width="3in"}
+:::
+
+::: {.fragment}
+![Differentiate](figures/predicting_at_high_level/derivative.png){height="3in" width="3in"}
+:::
+
+:::
+
+
+
+
+<!-- 1. have observed time series, here indoor temperature 
+1. smooth out some way 
+2. make anomalies due to w/oc uniquely apparent
    - subtracting smoothed data and 
    - taking derivatives
-4. detect anaomalies using *likelihood estimation*
+3. detect anaomalies using *likelihood estimation* -->
 <!-- TODO: not sure if this is actually likelihood estimation?? -->
 
 ::: {.notes}

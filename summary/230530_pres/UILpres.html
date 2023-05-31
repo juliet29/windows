@@ -486,11 +486,9 @@
 </ul>
 </div>
 </div>
-<aside><ol class="aside-footnotes"><li id="fn1"><p><span class="citation" data-cites="liangHeatWaveElectricity2016">Liang et al. (<a href="#/citations" role="doc-biblioref" onclick="">2016</a>)</span></p></li><li id="fn2"><p><span class="citation" data-cites="internationalenergyagencyFutureCoolingOpportunities2018">Agency (<a href="#/citations" role="doc-biblioref" onclick="">2018</a>)</span></p></li><li id="fn3"><p><span class="citation" data-cites="internationalenergyagencyFutureCoolingOpportunities2018">Agency (<a href="#/citations" role="doc-biblioref" onclick="">2018</a>)</span></p></li></ol></aside></section>
-<section id="viscous-cycle" class="slide level2">
-<h2>Viscous Cycle</h2>
+<!-- ## Viscous Cycle  -->
 <!-- TODO figure of visous cycle  -->
-</section>
+<aside><ol class="aside-footnotes"><li id="fn1"><p><span class="citation" data-cites="liangHeatWaveElectricity2016">Liang et al. (<a href="#/citations" role="doc-biblioref" onclick="">2016</a>)</span></p></li><li id="fn2"><p><span class="citation" data-cites="internationalenergyagencyFutureCoolingOpportunities2018">Agency (<a href="#/citations" role="doc-biblioref" onclick="">2018</a>)</span></p></li><li id="fn3"><p><span class="citation" data-cites="internationalenergyagencyFutureCoolingOpportunities2018">Agency (<a href="#/citations" role="doc-biblioref" onclick="">2018</a>)</span></p></li></ol></aside></section>
 <section id="natural-cooling" class="slide level2">
 <h2>Natural Cooling</h2>
 <div class="columns">
@@ -634,12 +632,22 @@
 </ul>
 </div>
 </div>
-<!-- TODO: wite a problem statement that involves the question -->
-<!-- TODO: instead of just listing tools, give a preview of what going to discuss -->
+<aside class="notes">
+<p>instead of just listing tools, give a preview of what going to discuss</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="measurement-technique" class="slide level2">
 <h2>Measurement Technique</h2>
-<!-- TODO: fix alignment of sensor  -->
 <div class="columns">
 <div class="column" style="width:60%;">
 <div class="quarto-figure quarto-figure-left">
@@ -652,6 +660,7 @@
 </div><div class="column" style="width:40%;">
 <ul>
 <li>Data collected in adjacent rooms</li>
+<li>Experimented with different window treatments</li>
 <li>Affordable sensors</li>
 </ul>
 </div>
@@ -670,9 +679,16 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="collected-data" class="slide level2">
-<h2>collected data</h2>
-<p><img data-src="figures/data_collection/data_collected.png" height="500"> <!-- TODO: some inights about how much WOC helped over all --></p>
+<section class="slide level2">
+
+<div class="center-div">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/data_collection/data_collected.png" height="600"></p>
+</figure>
+</div>
+</div>
+<!-- TODO: some inights about how much WOC helped over all -->
 <aside class="notes">
 <p>highlight that predicting the window opening close data as a function of temperature and that didnt colelct for very long periods of time</p>
 <style type="text/css">
@@ -688,56 +704,53 @@
       }</style></aside>
 </section>
 <section id="predicting-woc-at-a-high-level" class="slide level2">
-<h2>predicting w/o/c at a high level</h2>
+<h2>Predicting W/O/C at a High Level</h2>
 <!-- TODO: figure for all of these -->
 <div class="quarto-layout-panel">
 <div class="quarto-layout-row quarto-layout-valign-top">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="figures/predicting_at_high_level/observed.png"></p>
-<p></p><figcaption>Observed</figcaption><p></p>
+<p><img data-src="figures/predicting_at_high_level/observed.png" style="width:3in"></p>
+<p></p><figcaption>Observe</figcaption><p></p>
 </figure>
 </div>
 </div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="fragment quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="figures/predicting_at_high_level/smoothed.png"></p>
-<p></p><figcaption>Smoothed</figcaption><p></p>
+<p><img data-src="figures/predicting_at_high_level/smoothed.png" style="width:3in"></p>
+<p></p><figcaption>Smooth</figcaption><p></p>
 </figure>
 </div>
 </div>
 </div>
 <div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="fragment quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="figures/predicting_at_high_level/differenced.png"></p>
+<p><img data-src="figures/predicting_at_high_level/differenced.png" style="width:3in"></p>
 <p></p><figcaption>Difference</figcaption><p></p>
 </figure>
 </div>
 </div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="fragment quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="figures/predicting_at_high_level/derivative.png"></p>
-<p></p><figcaption>Derivative</figcaption><p></p>
+<p><img data-src="figures/predicting_at_high_level/derivative.png" style="width:3in"></p>
+<p></p><figcaption>Differentiate</figcaption><p></p>
 </figure>
 </div>
 </div>
 </div>
 </div>
-<ol type="1">
-<li>have observed time series, here indoor temperature</li>
-<li>smooth out some way</li>
-<li>make anomalies due to w/oc uniquely apparent
-<ul>
-<li>subtracting smoothed data and</li>
-<li>taking derivatives</li>
-</ul></li>
-<li>detect anaomalies using <em>likelihood estimation</em> <!-- TODO: not sure if this is actually likelihood estimation?? --></li>
-</ol>
+<!-- 1. have observed time series, here indoor temperature 
+1. smooth out some way 
+2. make anomalies due to w/oc uniquely apparent
+   - subtracting smoothed data and 
+   - taking derivatives
+3. detect anaomalies using *likelihood estimation* -->
+<!-- TODO: not sure if this is actually likelihood estimation?? -->
 <aside class="notes">
 <p>note that any combo of 2 and 3 could work…</p>
 <style type="text/css">
