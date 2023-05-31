@@ -150,3 +150,18 @@ and that didnt colelct for very long periods of time
 note that any combo of 2 and 3 could work... 
 :::
 
+
+
+
+
+# Analysis: Building Energy Modeling 
+
+## Energy+ Simulation
+
+::: { height="3in" fig-align="center"}
+![](figures/bem_01/model.png){ height="3in" fig-align="center"}
+:::
+
+- Adiabatic conditions where room intersects with other parts of the building
+- Air flow network used to simulate ventilation 
+- Representative, uncalibrated model 

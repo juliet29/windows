@@ -124,7 +124,7 @@
 - Inform design of naturally cooled buildings
 :::
 
-## W/O/C Predictions since 1990...
+<!-- ## W/O/C Predictions since 1990...
 ```{mermaid}
 
 timeline
@@ -150,12 +150,31 @@ timeline
 @docaDataminingApproachDiscover2014
 :::
 
-## Research Gaps 
-<!-- TODO table with author, length of data collected, location, method, and supervised/not    -->
-  - gaps:  
-    - long data collection periods: shorter periods are needed for practical use
-    - only supervised models : unclear how coefficients/models transfer to radically different buildings in different climates
 
 
+## Predicting W/O/C Since 1990...  
 
-<!-- discussion of supervised vs not. -->
+:::: {.columns }
+
+::: {.column width="50%"  .incremental}
+
+**Previous work**
+
+- Fritsch (1990) Markov chain models 
+- Haldi and Robinson (2009) Markov chain and logistic regression 
+- Schweiker (2010) Tests reveal performance affected by cultural changes
+- Markovic (2017) Bayesian and random forest regression 
+- de Rautlin de Roy (2023) review of machine learning performance and clear
+
+:::
+
+::: {.column width="50%" .incremental}
+
+**Gaps**
+
+- No data collection periods ~ days
+- No discussion of unsupervised models 
+
+:::
+
+::::

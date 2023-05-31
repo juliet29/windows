@@ -1,14 +1,4 @@
-# Analysis: Building Energy Modeling 
 
-## Energy+ Simulation
-
-::: { height="3in" fig-align="center"}
-![](figures/bem_01/model.png){ height="3in" fig-align="center"}
-:::
-
-- Adiabatic conditions where room intersects with other parts of the building
-- Air flow network used to simulate ventilation 
-- Representative, uncalibrated model 
 
 
 
@@ -16,6 +6,7 @@
 
 
 ## Energy+ Simulation Results  
+::: {.r-stack}
 ```{python}
 
 sim_data_path = "../../data/energy_model/230307_match.pkl"
@@ -36,14 +27,28 @@ all_traces = ["window_norm", "temp_norm", "smooth_series", "dif", "deriv", "deri
 fig, names = wd2.make_dual_plot_abstract(time=s1.time, objects=[s1], names=all_names, traces=all_traces, title_arr=[""], )
 
 
-# want to look at the observed data and the counterfactual ~ always cloesed 
-fig = wd2.update_dual_plot(fig,  names, ["Window", "Observed Temp"],)
-fig.add_trace(go.Scatter(x=sim_data["DateTime"], y=h.normalize(sim_data["Always Closed"]), mode='lines', name="Control (Always Closed)"))
+
 
 fig.update_layout(autosize=False, width=1000, height=500,)
 
-fig.show()
+# fig.show()
 ```
+
+
+
+```{python}
+
+
+# want to look at the observed data and the counterfactual ~ always cloesed 
+fig1 = wd2.update_dual_plot(fig,  names, ["Window", "Observed Temp"],)
+fig1.add_trace(go.Scatter(x=sim_data["DateTime"], y=h.normalize(sim_data["Always Closed"]), mode='lines', name="Control (Always Closed)"))
+
+fig1.show()
+
+
+```
+
+:::
 
 ## Smoothing with STL
 ```{python}
