@@ -75,20 +75,11 @@
 
 
 ## Cooling "Tech"
-<!-- TODO zhang figure -->
+![](figures/background/cooling_strategies.png){height=500 fig-align="center"}
 
 ::: aside
 @zhangResilientCoolingStrategies2021a
 :::
-
----
-"Vernacular building traditions across the world display ... sophisticated thermal adaptation" - Lisa Heschong, Thermal Delight in Architecture 
-<!-- TODO zhang figure + lisa interventions  -->
-
-::: aside
-@heschongThermalDelightArchitecture1979
-:::
-<!-- TODO repeat and circle ventilation   -->
 
 
 ## Why Windows?
@@ -120,20 +111,39 @@
 ::::
 
 ## Why Predicting W/O/C is Useful
-- uninvasive way of determining if windows open/closed 
-- can enable better understanding of occupant behavior 
-- understanding when windows are open, enables us to use to contextual information understand why they are open
+
+::: {.incremental}
+- Less invasive way of determining occupant actions
+
+- Understanding **when** windows are open, enables us to use to contextual information understand **why** they are open
+
+  :::{.smaller}
   - D'Oca and Hong grouped occupants into 3-types: thermal-driven, time-driven, thermal+time driven ^[@docaDataminingApproachDiscover2014]
-- critical information for designers 
+  :::
+
+- Inform design of naturally cooled buildings
+:::
 
 ## W/O/C Predictions since 1990...
+```{mermaid}
+
+timeline
+    title History of Social Media Platform
+    1990 : Fritsch : Markov chain models 
+    1990 : Haldi and Robinson : Markov chain and logistic regression 
+    1990 : Schweiker : Tests reveal performance affected by cultural changes
+    1990 : Markovic : Bayesian and random forest regression 
+    2023 : de Rautlin de Roy : review of machine learning performance and new metrics
+
+```
+
 <!-- TODO timeline   -->
-  - Dai 2020 Table 1 => popular methods + Fig 5 => frequency of ML methods used, 4.2.1 = prediction of window opening closing action 
+  <!-- - Dai 2020 Table 1 => popular methods + Fig 5 => frequency of ML methods used, 4.2.1 = prediction of window opening closing action 
     - fritsch, 1990 [54] Markov chain methods 
     - Haldi and Robinson [78] markov chain + logistic regression 
     - Schweiker [79] tested this (also the source of external data!) => differences in culture meant different performance 
     - Markovic [80] Bayesian and random forest 
-    - de rautlin de roy, 2023, looked at different learning techniques 
+    - de rautlin de roy, 2023, looked at different learning techniques  -->
 
 
 ::: aside

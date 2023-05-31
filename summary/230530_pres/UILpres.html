@@ -358,6 +358,9 @@
           }
           </script>
           
+  <script src="UILpres_files/libs/quarto-diagram/mermaid.min.js"></script>
+  <script src="UILpres_files/libs/quarto-diagram/mermaid-init.js"></script>
+  <link href="UILpres_files/libs/quarto-diagram/mermaid.css" rel="stylesheet">
 </head>
 <body class="quarto-light">
   <div class="reveal">
@@ -519,18 +522,14 @@
 <aside><ol class="aside-footnotes"><li id="fn4"><p><span class="citation" data-cites="internationalenergyagencyFutureCoolingOpportunities2018">Agency (<a href="#/citations" role="doc-biblioref" onclick="">2018</a>)</span></p></li></ol></aside></section>
 <section id="cooling-tech" class="slide level2">
 <h2>Cooling “Tech”</h2>
-<!-- TODO zhang figure -->
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/background/cooling_strategies.png" height="500"></p>
+</figure>
+</div>
 
 <aside><div>
 <p><span class="citation" data-cites="zhangResilientCoolingStrategies2021a">Zhang et al. (<a href="#/citations" role="doc-biblioref" onclick="">2021</a>)</span></p>
-</div></aside></section>
-<section class="slide level2">
-
-<p>“Vernacular building traditions across the world display … sophisticated thermal adaptation” - Lisa Heschong, Thermal Delight in Architecture <!-- TODO zhang figure + lisa interventions  --></p>
-
-<!-- TODO repeat and circle ventilation   -->
-<aside><div>
-<p><span class="citation" data-cites="heschongThermalDelightArchitecture1979">Heschong (<a href="#/citations" role="doc-biblioref" onclick="">1979</a>)</span></p>
 </div></aside></section>
 <section id="why-windows" class="slide level2">
 <h2>Why Windows?</h2>
@@ -552,29 +551,48 @@
 </section>
 <section id="why-predicting-woc-is-useful" class="slide level2">
 <h2>Why Predicting W/O/C is Useful</h2>
+<div>
 <ul>
-<li>uninvasive way of determining if windows open/closed</li>
-<li>can enable better understanding of occupant behavior</li>
-<li>understanding when windows are open, enables us to use to contextual information understand why they are open
+<li class="fragment"><p>Less invasive way of determining occupant actions</p></li>
+<li class="fragment"><p>Understanding <strong>when</strong> windows are open, enables us to use to contextual information understand <strong>why</strong> they are open</p>
+<div class="smaller">
 <ul>
-<li>D’Oca and Hong grouped occupants into 3-types: thermal-driven, time-driven, thermal+time driven <sup>1</sup></li>
-</ul></li>
-<li>critical information for designers</li>
+<li class="fragment">D’Oca and Hong grouped occupants into 3-types: thermal-driven, time-driven, thermal+time driven <sup>1</sup></li>
 </ul>
+</div></li>
+<li class="fragment"><p>Inform design of naturally cooled buildings</p></li>
+</ul>
+</div>
 <aside><ol class="aside-footnotes"><li id="fn5"><p><span class="citation" data-cites="docaDataminingApproachDiscover2014">D’Oca and Hong (<a href="#/citations" role="doc-biblioref" onclick="">2014</a>)</span></p></li></ol></aside></section>
 <section id="woc-predictions-since-1990" class="slide level2">
 <h2>W/O/C Predictions since 1990…</h2>
+<div class="cell" data-reveal="true">
+<div class="cell-output-display">
+<div>
+<p>
+</p><pre class="mermaid" data-tooltip-selector="#mermaid-tooltip-1">timeline
+    title History of Social Media Platform
+    1990 : Fritsch : Markov chain models 
+    1990 : Haldi and Robinson : Markov chain and logistic regression 
+    1990 : Schweiker : Tests reveal performance affected by cultural changes
+    1990 : Markovic : Bayesian and random forest regression 
+    2023 : de Rautlin de Roy : review of machine learning performance and new metrics
+
+</pre>
+<div id="mermaid-tooltip-1" class="mermaidTooltip">
+
+</div>
+<p></p>
+</div>
+</div>
+</div>
 <!-- TODO timeline   -->
-<ul>
-<li>Dai 2020 Table 1 =&gt; popular methods + Fig 5 =&gt; frequency of ML methods used, 4.2.1 = prediction of window opening closing action
-<ul>
-<li>fritsch, 1990 [54] Markov chain methods</li>
-<li>Haldi and Robinson [78] markov chain + logistic regression</li>
-<li>Schweiker [79] tested this (also the source of external data!) =&gt; differences in culture meant different performance</li>
-<li>Markovic [80] Bayesian and random forest</li>
-<li>de rautlin de roy, 2023, looked at different learning techniques</li>
-</ul></li>
-</ul>
+<p><!-- - Dai 2020 Table 1 => popular methods + Fig 5 => frequency of ML methods used, 4.2.1 = prediction of window opening closing action 
+    - fritsch, 1990 [54] Markov chain methods 
+    - Haldi and Robinson [78] markov chain + logistic regression 
+    - Schweiker [79] tested this (also the source of external data!) => differences in culture meant different performance 
+    - Markovic [80] Bayesian and random forest 
+    - de rautlin de roy, 2023, looked at different learning techniques  --></p>
 
 <aside><div>
 <p><span class="citation" data-cites="docaDataminingApproachDiscover2014">D’Oca and Hong (<a href="#/citations" role="doc-biblioref" onclick="">2014</a>)</span></p>
@@ -1430,9 +1448,6 @@ Agency, International Energy. 2018. <span>“The <span>Future</span> of <span>Co
 </div>
 <div id="ref-docaDataminingApproachDiscover2014" class="csl-entry" role="doc-biblioentry">
 D’Oca, Simona, and Tianzhen Hong. 2014. <span>“A Data-Mining Approach to Discover Patterns of Window Opening and Closing Behavior in Offices.”</span> <em>Building and Environment</em> 82 (December): 726–39. <a href="https://doi.org/10.1016/j.buildenv.2014.10.021">https://doi.org/10.1016/j.buildenv.2014.10.021</a>.
-</div>
-<div id="ref-heschongThermalDelightArchitecture1979" class="csl-entry" role="doc-biblioentry">
-Heschong, Lisa. 1979. <em>Thermal <span>Delight</span> in <span>Architecture</span></em>. <span>Cambridge, Mass</span>: <span>The MIT Press</span>.
 </div>
 <div id="ref-liangHeatWaveElectricity2016" class="csl-entry" role="doc-biblioentry">
 Liang, Zhuoran, Zhan Tian, Laixiang Sun, Kuishuang Feng, Honglin Zhong, Tingting Gu, and Xiaochen Liu. 2016. <span>“Heat Wave, Electricity Rationing, and Trade-Offs Between Environmental Gains and Economic Losses: <span>The</span> Example of <span>Shanghai</span>.”</span> <em>Applied Energy</em> 184 (December): 951–59. <a href="https://doi.org/10.1016/j.apenergy.2016.06.045">https://doi.org/10.1016/j.apenergy.2016.06.045</a>.
