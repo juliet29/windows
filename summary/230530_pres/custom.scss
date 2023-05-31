@@ -1,0 +1,43 @@
+/*-- scss:defaults --*/
+
+// $body-bg: #191919;
+// $body-color: #fff;
+// $link-color: #42affa;
+
+$presentation-font-size-root: 35px; // normally 40px
+// $presentation-h3-font-size: 0.5em; //normally 1.3em
+// $presentation-font-smaller: 0.5;
+
+/*-- scss:rules --*/
+
+.smaller{
+    font-size: 60%;
+}
+
+.styled-side{
+    font-size: 130%;
+    margin-top: 3em;
+}
+
+.center{
+    font-size: 130%;
+    margin: auto;
+    width: 80%;
+    margin-top: 1em;
+    line-height: 170%;
+    ul{
+        list-style-type: none;
+        text-align: center;
+    }
+    
+
+}
+
+// .footer{
+//     font-size: 40%;
+// }
+
+// .reveal .slide blockquote {
+//   border-left: 3px solid $text-muted;
+//   padding-left: 0.5em;
+// }

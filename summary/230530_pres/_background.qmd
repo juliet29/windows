@@ -5,11 +5,15 @@
 :::: {.columns}
 
 ::: {.column width="60%"}
-![HeatWaves](figures/background/nature_figure.jpg)
+![](figures/background/nature_figure.jpg){height=5.5in}
 :::
 
-::: {.column width="40%"}
-"..increasing trends of historical heatwave frequency, duration and cumulative intensity.."
+::: {.column width="40%" }
+
+:::{.styled-side .relative top=50 right=5}
+*"..increasing trends of historical heatwave frequency, duration and cumulative intensity.."*
+:::
+
 :::
 
 ::::
@@ -17,8 +21,6 @@
 
 ::: aside
 @perkins-kirkpatrickIncreasingTrendsRegional2020
-  
-Comparison between 1950 and 2014
 :::
 
 ::: {.notes}
@@ -28,10 +30,12 @@ between 80ºC (Australia) and 240ºC (Western Russia) of cumulative heat experie
 
 ---
 
+::: {.center .incremental}
 - Heat exhaustion 
 - Stroke 
 - Increased risks for those with pre-existing conditions
 - 166,000 excess deaths between 1998 - 2017
+:::
 
 
 ::: aside

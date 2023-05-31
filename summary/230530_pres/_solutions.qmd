@@ -3,54 +3,71 @@
 ## Mechanical Cooling 
 :::: {.columns}
 
-::: {.column width="40%"}
-- Pros
-  - Easy to design for 
-  - Accepted in industry 
-  - Enabled increased productivity 
-  - Reliable
+::: {.column width="50%"}
+**Pros**
+
+- Easy to design for 
+- Accepted in industry 
+- Enabled increased productivity 
+- Reliable
 :::
 
 
 
-::: {.column width="60%" .fragment}
-- Cons 
+::: {.column width="50%" .fragment .incremental}
+**Cons** 
 
-  - Susceptible to failure during heat waves 
-    - Loads increase when power system most vulnerable, leading to blackouts
-    - In Shanghai, documented shortages greater than a 1 GWh ^[@liangHeatWaveElectricity2016]
-  - Energy intensive 
-    - AC + electric fan account for 20% of total energy use in buildings ^[@internationalenergyagencyFutureCoolingOpportunities2018]
-  - Inaccesible 
-    - Ability to own an AC constrained by income ^[@internationalenergyagencyFutureCoolingOpportunities2018]
-      - 99% of private apartments in Singapore have AC
-      - Closer to 4% of households in India 
+- Susceptible to failure during heat waves 
+
+  ::: {.smaller}
+  - Loads increase when power system most vulnerable, leading to blackouts 
+  - In Shanghai, documented shortages greater than a 1 GWh ^[@liangHeatWaveElectricity2016]
+  :::
+
+- Energy intensive 
+
+  ::: {.smaller}
+  - AC + electric fan account for 20% of total energy use in buildings ^[@internationalenergyagencyFutureCoolingOpportunities2018]
+  :::
+
+- Inaccesible 
+
+  ::: {.smaller}
+  - Ability to own an AC constrained by income ^[@internationalenergyagencyFutureCoolingOpportunities2018]
+    - 99% of private apartments in Singapore have AC
+    - Closer to 4% of households in India 
+  :::
 :::
 
 ::::
 
-## Viscous cycle 
+## Viscous Cycle 
 <!-- TODO figure of visous cycle  -->
 
 
 ## Natural Cooling 
 :::: {.columns}
 
-::: {.column width="40%"}
-- Pros
-  - Low operational energy 
-  - Accessible 
-  - Has worked well for some time 
-    - modern AC unit invented in 1900s, first popularized in the US in the 1950s ^[@internationalenergyagencyFutureCoolingOpportunities2018]
+::: {.column width="50%"}
+**Pros**
+
+- Low operational energy 
+- Accessible 
+- Has worked well for some time 
+
+  ::: {.smaller}
+  - Modern AC unit invented in 1900 and only became popular in the US in the 1950s ^[@internationalenergyagencyFutureCoolingOpportunities2018]
+  :::
 :::
 
-::: {.column width="60%" .fragment}
-- Cons 
-    - Difficult to design for 
-    - Industry skepticism 
-    - Unreliable due to uncertainty 
-      - Occupant behavior 
-      - Outdoor climate 
+::: {.column width="50%" .fragment}
+**Cons**
+
+- Difficult to design for 
+- Industry skepticism 
+- Unreliable due to uncertainty 
+  - Occupant behavior 
+  - Outdoor climate 
 
 :::
 
@@ -75,18 +92,28 @@
 
 
 ## Why Windows?
-:::: {.columns}
+:::: {.columns }
 
-::: {.column width="40%"}
-- Both climate and occupant uncertainty
+
+
+::: {.column width="50%"}
+
+:::{.styled-side}
+  *Climate and occupant uncertainty*
+:::
 
 :::
 
-::: {.column width="60%"}
-- Questions 
-    - What is the effect of window opening and closing (w/o/c) on indoor climate?
-    - How does this change with different building designs, occupant behavior, and outdoor climate?
-    - How can practitioners access and leverage this information in the early stages of the design process? 
+
+::: {.column width="50%"}
+
+:::{.incremental}
+
+  - What is the effect of window opening and closing on indoor climate?
+  - How does this change with different building designs, occupant behavior, and outdoor climate?
+  - How can practitioners access and leverage this information in the early stages of the design process? 
+
+:::
 
 :::
 

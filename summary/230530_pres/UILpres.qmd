@@ -13,6 +13,7 @@ format:
       buttons: false
     preview-links: auto
     footer: Urban Informatics Lab
+    theme: [default, custom.scss]
 execute:
   cache: true
 
