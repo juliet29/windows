@@ -1,4 +1,11 @@
 # Recap 
 
-## summmary + open questions addressed to group 
-<!-- TODO...  -->
+
+## Reflections 
+- Need better understanding the unique way that W/O/C appears in the time series
+  - How this differs 
+    - Based on time of day 
+    - Length of w/o/c
+  -  BEM + CFD for this?
+- What sort of smoothing method is truly best for this use case?
+- Test on larger external data set 

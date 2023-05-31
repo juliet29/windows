@@ -124,31 +124,8 @@
 - Inform design of naturally cooled buildings
 :::
 
-<!-- ## W/O/C Predictions since 1990...
-```{mermaid}
-
-timeline
-    title History of Social Media Platform
-    1990 : Fritsch : Markov chain models 
-    1990 : Haldi and Robinson : Markov chain and logistic regression 
-    1990 : Schweiker : Tests reveal performance affected by cultural changes
-    1990 : Markovic : Bayesian and random forest regression 
-    2023 : de Rautlin de Roy : review of machine learning performance and new metrics
-
-```
-
-<!-- TODO timeline   -->
-  <!-- - Dai 2020 Table 1 => popular methods + Fig 5 => frequency of ML methods used, 4.2.1 = prediction of window opening closing action 
-    - fritsch, 1990 [54] Markov chain methods 
-    - Haldi and Robinson [78] markov chain + logistic regression 
-    - Schweiker [79] tested this (also the source of external data!) => differences in culture meant different performance 
-    - Markovic [80] Bayesian and random forest 
-    - de rautlin de roy, 2023, looked at different learning techniques  -->
 
 
-::: aside
-@docaDataminingApproachDiscover2014
-:::
 
 
 
@@ -164,7 +141,7 @@ timeline
 - Haldi and Robinson (2009) Markov chain and logistic regression 
 - Schweiker (2010) Tests reveal performance affected by cultural changes
 - Markovic (2017) Bayesian and random forest regression 
-- de Rautlin de Roy (2023) review of machine learning performance and clear
+- de Rautlin de Roy (2023) review of machine learning performance and new metrics 
 
 :::
 

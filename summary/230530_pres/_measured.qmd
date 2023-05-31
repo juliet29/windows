@@ -171,13 +171,9 @@ fig1.show()
 
 ## Metrics 
 
+- TBD
+- Dependent on time intervals
+  - Collected 30s data, but analyzed 15 minutes
+- Dependent on first or second derivative
+- Dependent on filtering out noise
 
-## reflections 
-- better understanding the unique way that w/o/c appears in the time series
-  - how this differs 
-    - based on time of day 
-    - length of w/o/c
-  - can use BEM + CFD for this?
-- when sort of smoothing method is truly best for this use case?
-- test on larger external data set 
-<!-- TODO: progress on cfd so far?  -->
