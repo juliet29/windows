@@ -100,9 +100,9 @@
 
 :::{.incremental}
 
-  - What is the effect of window opening and closing on indoor climate?
-  - How does this change with different building designs, occupant behavior, and outdoor climate?
-  - How can practitioners access and leverage this information in the early stages of the design process? 
+  - What is the effect of window opening and closing on **indoor climate**?
+  - How does this change with different **building designs**, **occupant behavior**, and **outdoor climate**?
+  - How can **practitioners access** and **leverage** this information in the **early** stages of the design process? 
 
 :::
 
@@ -157,6 +157,5 @@ timeline
     - only supervised models : unclear how coefficients/models transfer to radically different buildings in different climates
 
 
-::: aside
-discussion of supervised vs not.
-::: 
+
+<!-- discussion of supervised vs not. -->
