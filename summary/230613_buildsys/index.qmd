@@ -1,0 +1,29 @@
+---
+title: "A socio-technical approach to increasing the use of natural cooling"
+author: Juliet Nwagwu Ume-Ezeoke, Kopal Nihar, Catehrine Gorle, Rishee Jain 
+institute: Stanford University Urban Informatics Lab 
+date: June 13, 2023
+template-partials:
+      - title-block.html
+zotero:
+  csl-style: author-date # pre-fill the style
+
+link-citations: true
+# execute:
+#   cache: true
+
+---
+
+# Introduction 
+
+<!-- 
+# TODO 
+- how much occupant behave changes energy predictions (Fritch, but more updated )
+- amount cooling windows could realize (Dorit paper)
+- integrating occupant behavior techniques into decision making process -->
+
+As the planet warms, there is an increased need for urgency in both mitigating and adapting the effects of climate change. This urgency is motinvated by the significant uptick in the frequency, duration and cumulative intensity of heat waves, which have climbed from #TODO X to X @perkins-kirkpatrickIncreasingTrendsRegional2020. The significant health risks posed by heat waves, including heat exhaustion, stroke, and increased risk for those with pre-existing conditions have resulted in over 160,00 excess deaths between 1998 and 2017 @whoHeatwaves2023. 
+
+To cope with increased heat, attention is often directed at air conditioners and other forms of mechanical cooling. These have the advantage of being relatively easy to design for – one simply has to estimate the cooling loads and traslate them into power requirements when sizing a system. The codes surrounding mechanical cooling are well established, and oweners and engineers alike take on little risk when integreating a mechanical cooling system into a building. Developments in mechanical cooling have made portable air conditioners readily available for people who occupy buildings (#TODO housing? need to discuss residential focus) that do not have pre-installed systems. 
+
+However, while mechanical cooling is often percieved as reliable, it is susceptible to failure when  it is most needed – during heatwaves. In a community that relies on mechanically cooled systems, electricity demand will increase markedly during heat waves. However, mechancial systems are also less efficient during heatwaves, and will consume more energy than normal. The result is increased demand at a time when the supply of end-use energy might be lower due to the effect that heat also has on transmission and distribution equipment. This effect has been documented in several studies (#TODO).
