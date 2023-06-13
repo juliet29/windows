@@ -1,8 +1,8 @@
 import pandas as pd
 import math
 import numpy as np
-from numpy import mean
 from numpy import var
+from numpy import mean
 from math import sqrt
 import json
 import plotly.graph_objects as go
@@ -133,6 +133,67 @@ def calc_win_change_dist(df, ix):
 
     # report performance 
     return exact, nearest, distance 
+
+
+def count_score(c, hits, near_miss, miss, near_miss_lim=2):
+    if c == 0:
+        hits+=1
+    elif c <= near_miss_lim:
+        near_miss+=1
+    else:
+        miss+=1
+    
+    return hits, near_miss, miss
+
+def calc_num_actions(data):
+    """ calculate number of actions - w/o/c occurences"""
+    return len(data[(data["Window Open"].shift() != data["Window Open"])])
+
+def report_score_ratios(obj, exp, near_miss_lim=2):
+    """ 
+    obj: window_detect2 object, see notebooks/230613_metrics2.ipynb and scripts/window_detect2.py, should have run analyze window change and made guesses 
+    exp: experiment object, a01 or b01 etc 
+    near_miss_lim: number of timesteps away that can be considered a near miss
+
+    returns:
+    score_sum: sum of a series that has actual values 
+    ratios: [correct, almost correct, incorrect]
+    """
+
+    hit = 0 
+    near_miss = 0 
+    miss = 0
+    
+
+    res = pd.DataFrame(obj.guess_times).apply(lambda x: calc_win_change_dist(exp, x.name), axis=1)
+
+    scores = res.apply(lambda x: count_score(np.abs(x[2]), hit, near_miss, miss, near_miss_lim))
+
+    score_sum = pd.DataFrame(scores.to_list(), columns=["hit", "near_hit", "miss"]).sum()
+
+    # consider the number of hits that were available to make 
+    actions = calc_num_actions(exp)
+
+    nice_results = {
+        "hits/guesses": score_sum["hit"] / len(scores),
+        "hits/actions": score_sum["hit"]/actions,
+        "(hits + near hits)/guesses": (score_sum["hit"] +  score_sum["near_hit"])/ len(scores),
+        "(hits + near hits)/actions": (score_sum["hit"] +  score_sum["near_hit"])/actions,
+        "misses/guesses": score_sum["miss"]/ len(scores),
+    }
+
+    nice_results = {k:100*np.round(v,3) for k,v in nice_results.items()}
+
+    nice_results.update({
+        "number of actions": actions,
+        "number of guesses": len(scores)
+    })
+
+    nice_results.update(score_sum.to_dict())
+
+    nice_res_df = pd.DataFrame.from_dict(nice_results, orient="index", columns=["results"])
+
+    return nice_results, nice_res_df
 
 ## ------------------------- ! End Metrics 
 
