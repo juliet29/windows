@@ -146,26 +146,15 @@ def count_score(c, hits, near_miss, miss, near_miss_lim=2):
     return hits, near_miss, miss
 
 def calc_num_actions(data):
-    """ calculate number of actions - w/o/c occurences"""
+    """ calculate number of actions - w/o/c occurences =
+    data: dataframe of experiment 
+    """
     return len(data[(data["Window Open"].shift() != data["Window Open"])])
 
-def report_score_ratios(obj, exp, near_miss_lim=2):
-    """ 
-    obj: window_detect2 object, see notebooks/230613_metrics2.ipynb and scripts/window_detect2.py, should have run analyze window change and made guesses 
-    exp: experiment object, a01 or b01 etc 
-    near_miss_lim: number of timesteps away that can be considered a near miss
-
-    returns:
-    score_sum: sum of a series that has actual values 
-    ratios: [correct, almost correct, incorrect]
-    """
-
+def calculate_score_ratios(res, exp, near_miss_lim=2):
     hit = 0 
     near_miss = 0 
     miss = 0
-    
-
-    res = pd.DataFrame(obj.guess_times).apply(lambda x: calc_win_change_dist(exp, x.name), axis=1)
 
     scores = res.apply(lambda x: count_score(np.abs(x[2]), hit, near_miss, miss, near_miss_lim))
 
@@ -194,6 +183,34 @@ def report_score_ratios(obj, exp, near_miss_lim=2):
     nice_res_df = pd.DataFrame.from_dict(nice_results, orient="index", columns=["results"])
 
     return nice_results, nice_res_df
+
+def report_score_ratios(obj, exp, near_miss_lim=2):
+    """ 
+    window+detect2 specific ...
+    obj: window_detect2 object, see notebooks/230613_metrics2.ipynb and scripts/window_detect2.py, should have run analyze window change and made guesses 
+    exp: experiment object, a01 or b01 etc 
+    near_miss_lim: number of timesteps away that can be considered a 
+    """
+
+    res = pd.DataFrame(obj.guess_times).apply(lambda x: calc_win_change_dist(exp, x.name), axis=1)
+
+    nice_results, nice_res_df = calculate_score_ratios(res, exp)
+
+    return nice_results, nice_res_df
+
+def report_score_ratios_general(guess_times, exp, near_miss_lim=2):
+    """ 
+    """
+
+    res = pd.DataFrame(guess_times).apply(lambda x: calc_win_change_dist(exp, x.name), axis=1)
+
+    nice_results, nice_res_df = calculate_score_ratios(res, exp)
+
+    return nice_results, nice_res_df
+
+    
+
+
 
 ## ------------------------- ! End Metrics 
 
