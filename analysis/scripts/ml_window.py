@@ -1,26 +1,35 @@
-import plotly.graph_objects as go
-import plotly.express as px
-# import kaleido
-from plotly.subplots import make_subplots
-import seaborn as sns
-import plotly.io as pio
 import pandas as pd
 import numpy as np
-import json
 
-from statsmodels.tsa.seasonal import seasonal_decompose
-import statsmodels.api as sm
-
-import scipy.optimize 
-from sklearn.model_selection import train_test_split
 from sklearn.svm import OneClassSVM
 from sklearn.metrics import classification_report
 
-import sys
-sys.path.insert(0, "../scripts")
-import helpers as h
-import window_detect2 as w
-
 
 class ML_Window_Detect:
+    """ pass in numpy arrays """
+    def __init__(self, ts_arr, truth):
+        self.ts_arr = ts_arr
+        self.truth = truth 
+
     
+    def create_features(self):
+        if len(self.ts_arr) == 1:
+            self.x = self.ts_arr[0] #.to_numpy()
+        elif len(self.ts_arr) == 2:
+            self.x = np.array(self.ts_arr).T
+
+        return 
+
+    
+    def fit_and_decide(self):
+        self.model = OneClassSVM().fit(self.x)
+        self.choices = self.model.decision_function(self.x)
+        self.standard_metrics = classification_report(self.truth, self.choices)
+
+        return 
+
+    def run_all(self):
+        self.create_features()
+        self.fit_and_decide()
+
+        return 
