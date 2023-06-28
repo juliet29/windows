@@ -43,7 +43,7 @@ def make_ewm_smooth(series, time, level=4):
 class Window_Detect2:
     def __init__(self, df):
         self.time = df["DateTime"]
-        # magnitude of time passed in seconds 
+        # magnitude of time passed in seconds, used for normalizing data 
         time_mag = self.time - self.time.min()
         self.time_seconds = time_mag.dt.total_seconds()
 
