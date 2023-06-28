@@ -6,8 +6,12 @@ from sklearn.metrics import classification_report
 
 
 class ML_Window_Detect:
-    """ pass in numpy arrays """
+    
     def __init__(self, ts_arr, truth):
+        """
+            ts_arr: has to be an arry of numpy arrays
+            truth: numpy array of true value -> window open schedule 
+        """
         self.ts_arr = ts_arr
         self.truth = truth 
 

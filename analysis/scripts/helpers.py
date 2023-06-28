@@ -182,7 +182,7 @@ def calculate_score_ratios(res, exp, near_miss_lim=2):
 
     nice_res_df = pd.DataFrame.from_dict(nice_results, orient="index", columns=["results"])
 
-    return nice_results, nice_res_df
+    return  nice_results, nice_res_df
 
 def report_score_ratios(obj, exp, near_miss_lim=2):
     """ 
@@ -196,7 +196,7 @@ def report_score_ratios(obj, exp, near_miss_lim=2):
 
     nice_results, nice_res_df = calculate_score_ratios(res, exp)
 
-    return nice_results, nice_res_df
+    return res, nice_results, nice_res_df
 
 def report_score_ratios_general(guess_times, exp, near_miss_lim=2):
     """ 
