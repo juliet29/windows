@@ -4,6 +4,8 @@ import numpy as np
 from sklearn.svm import OneClassSVM
 from sklearn.metrics import classification_report
 
+from itertools import groupby
+
 import sys
 sys.path.insert(0, "../scripts")
 import helpers as h
@@ -119,16 +121,57 @@ class Scores:
 
         return self.true_openings, self.false_openings
 
-    def calc_open_time(self, choices):
-        self.true_open_time = self.truth[self.truth.astype(bool)]  * self.timedelta
+    def calc_open_time(self, choices=None):
+        if choices:
+            self.choices = choices
+
+        self.true_open_time = self.truth[self.truth.astype(bool)]  * self.timedelta # need to sum up...
 
         self.true_close_time = self.truth[~self.truth.astype(bool)]  * self.timedelta
 
-        
+        self.predicted_open_times = self.choices[~self.choices.astype(bool)]  * self.timedelta
 
+    
+    
+    def determine_openings(self, series):
 
+        df = series.to_frame(name="Name")
+        grp = df.groupby("Name")
 
+        # openings have a value of 1, so will be the group at index 1 
+        assert (list(grp.indices.keys()) == [0,1])
+        lst = grp.indices[1]
 
+        # create lists for consecutive indices 
+        indices = []
+        for _, g in groupby(enumerate(lst), lambda x: x[0] - x[1]):
+            indices.append([v for _, v in g])
 
+        lengths = [len(i) for i in indices]
 
+        openings = [{"ix": i, "length": l} for i, l in zip(indices, lengths)]
 
+        return openings 
+
+    
+    def calc_open_accuracy_score(self, choices=None):
+        if choices:
+                self.choices = choices
+
+        # choices and truth need to have the same indices 
+        assert (self.choices.index == self.truth.index).all()
+
+        # identify all the openings and determine their length 
+        self.true_openings = self.determine_openings(self.truth)
+        self.predicted_openings = self.determine_openings(self.choices)
+    
+        for pred in self.predicted_openings:
+            ...
+            # does pred["times"] have overlap with any of the true openings? 
+            # if yes, 
+                # then for how many time steps does it overlap 
+                # if time steps overlap == length of opening 
+                    # score = 1
+                # if time steps overlap < length of opening 
+                    # score = 1 - ρ*(length of opening  - length of overlap )
+                
