@@ -10,9 +10,12 @@ import helpers as h
 
 
 class Scores:
-    def __init__(self, near_miss_lim=2):
+    def __init__(self, exp, near_miss_lim=2):
         """exp: a dataframe related to one of the experiments, result of h.import_desired_data  """
         self.near_miss_lim = near_miss_lim
+        self.exp = exp
+        self.timedelta = self.exp["DateTime"][1] - self.exp["DateTime"][0]
+        self.truth = self.exp["Window Open"]
 
     def calc_win_change_dist(self, df, ix):
         """
@@ -65,8 +68,7 @@ class Scores:
         self.near_miss = 0 
         self.miss = 0
 
-        self.exp = exp
-        self.num_actions = len(self.exp[(self.exp["Window Open"].shift() != self.exp["Window Open"])])
+        self.num_actions = len(self.exp[self.truth.shift() != self.truth])
 
         # see how far guess times are from actual times of window schedule change 
         self.res = pd.DataFrame(guess_times).apply(lambda x: self.calc_win_change_dist(self.exp, x.name), axis=1)
@@ -84,7 +86,7 @@ class Scores:
             "(hits + near hits)/guesses": (self.score_sum["hit"][0] +  self.score_sum["near_hit"][0])/ len(self.scores),
 
             "(hits + near hits)/actions": (self.score_sum["hit"][0] +  self.score_sum["near_hit"][0])/self.num_actions,
-            
+
             "misses/guesses": self.score_sum["miss"][0]/ len(self.scores),
         }
 
@@ -103,4 +105,30 @@ class Scores:
         self.nice_res_df = pd.DataFrame.from_dict(self.nice_results, orient="index", columns=["results"])
 
         return  self.nice_res_df
+
+    
+    def calc_open_number(self, choices):
+        """choices: as opposed to guess_times, which are the times at which switches are predicted, this looks at choice(t) ~ (0, 1)
+            - should be a pandas object 
+        """
+        self.choices = choices 
+        self.comparison = self.truth.compare(self.choices)
+        
+        self.false_openings = len(self.comparison)
+        self.true_openings = len(self.truth) - self.false_openings
+
+        return self.true_openings, self.false_openings
+
+    def calc_open_time(self, choices):
+        self.true_open_time = self.truth[self.truth.astype(bool)]  * self.timedelta
+
+        self.true_close_time = self.truth[~self.truth.astype(bool)]  * self.timedelta
+
+        
+
+
+
+
+
+
 
