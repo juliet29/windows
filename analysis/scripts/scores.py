@@ -1,14 +1,22 @@
 import pandas as pd
 import numpy as np
 
+import sys
+sys.path.insert(0, "../scripts")
+import helpers as h
+
 from sklearn.svm import OneClassSVM
 from sklearn.metrics import classification_report
 
 from itertools import groupby
 
-import sys
-sys.path.insert(0, "../scripts")
-import helpers as h
+def common_member(a, b):
+    a_set = set(a)
+    b_set = set(b)
+    len_intersect = len(a_set.intersection(b_set))
+    if len_intersect > 0:
+        return True, len_intersect
+    return False, 0 
 
 
 class Scores:
@@ -109,29 +117,7 @@ class Scores:
         return  self.nice_res_df
 
     
-    def calc_open_number(self, choices):
-        """choices: as opposed to guess_times, which are the times at which switches are predicted, this looks at choice(t) ~ (0, 1)
-            - should be a pandas object 
-        """
-        self.choices = choices 
-        self.comparison = self.truth.compare(self.choices)
-        
-        self.false_openings = len(self.comparison)
-        self.true_openings = len(self.truth) - self.false_openings
-
-        return self.true_openings, self.false_openings
-
-    def calc_open_time(self, choices=None):
-        if choices:
-            self.choices = choices
-
-        self.true_open_time = self.truth[self.truth.astype(bool)]  * self.timedelta # need to sum up...
-
-        self.true_close_time = self.truth[~self.truth.astype(bool)]  * self.timedelta
-
-        self.predicted_open_times = self.choices[~self.choices.astype(bool)]  * self.timedelta
-
-    
+# De Rautlin de Roy metrics 
     
     def determine_openings(self, series):
 
@@ -154,24 +140,73 @@ class Scores:
         return openings 
 
     
-    def calc_open_accuracy_score(self, choices=None):
-        if choices:
-                self.choices = choices
-
+    def calc_open_accuracy_score(self, debug=False):
         # choices and truth need to have the same indices 
         assert (self.choices.index == self.truth.index).all()
-
         # identify all the openings and determine their length 
         self.true_openings = self.determine_openings(self.truth)
         self.predicted_openings = self.determine_openings(self.choices)
+
+        self.true_open_instance = 0 
+        self.false_open_instance = 0
     
-        for pred in self.predicted_openings:
-            ...
-            # does pred["times"] have overlap with any of the true openings? 
-            # if yes, 
-                # then for how many time steps does it overlap 
-                # if time steps overlap == length of opening 
-                    # score = 1
-                # if time steps overlap < length of opening 
-                    # score = 1 - ρ*(length of opening  - length of overlap )
-                
+        scores = []
+        ρ = 0.33 # de rautlin 2023, two time step limit 
+        for pix, plst in enumerate(self.predicted_openings):
+            for tix, tlst in enumerate(self.true_openings):
+                bool_val, len_intersect = common_member(plst["ix"], tlst["ix"])
+                if bool_val:
+                    self.true_open_instance +=1
+                    difference = tlst['length'] - len_intersect
+                    if difference == 0:
+                        scores.append(1)
+                    else:
+                        scores.append(1 - ρ*(difference))
+
+                    if debug:
+                        print(f"po {pix} | to {tix} --- to len: {tlst['length']}, po len: {plst['length']}, diff = { difference}  \n")
+                else:
+                    self.false_open_instance +=1
+
+
+        self.open_accuracy_scores = scores
+        self.mean_open_accuracy_unbounded = np.round(np.mean(np.array(scores)),2)
+
+        # round scores < 0 to 0 
+        bound_scores = np.array(scores.copy())
+        bound_scores[bound_scores<0] = 0
+        self.bound_scores = bound_scores
+        self.mean_open_accuracy = np.round(np.mean(np.array(bound_scores)),5)
+
+        return self.mean_open_accuracy, self.mean_open_accuracy_unbounded
+
+
+    def calc_open_time(self):
+        """choices: as opposed to guess_times, which are the times at which switches are predicted, this looks at choice(t) ~ (0, 1)
+            - should be a pandas object 
+        """
+        self.comparison = self.truth.compare(self.choices)
+        
+        self.false_open_time = len(self.comparison) * self.timedelta
+        self.true_open_time = (len(self.truth) - len(self.comparison)) * self.timedelta
+
+        return self.true_open_time, self.false_open_time
+
+    
+    def calc_drdr_metrics(self, choices):
+        self.choices = choices 
+        self.calc_open_accuracy_score()
+        self.calc_open_time()
+
+        self.res = {
+            "# true open instance": self.true_open_instance,
+            "# false open instance": self.false_open_instance,
+            "true open time": self.true_open_time,
+            "false open time": self.false_open_time,
+            "bounded acc": self.mean_open_accuracy,
+            "unbounded acc": self.mean_open_accuracy_unbounded
+        }
+
+        return self.res
+
+
