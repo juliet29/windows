@@ -36,6 +36,70 @@ class Scores:
         self.choices = choices
         self.guess_times = guess_times 
 
+
+
+    def calc_hit_scores(self):
+        shift = self.exp["Window Open"].shift() != self.exp["Window Open"]
+        true_change_indices = np.where(shift==True)[0]
+
+        true_change = {change_ix: time_ix for  change_ix, time_ix in  enumerate(true_change_indices)}
+
+        pred_change = {change_ix: time_ix for  change_ix, time_ix in  enumerate(self.guess_times.index)}
+
+        res = {}
+        for k, v in pred_change.items():
+            nearest_ix = h.find_nearest(list(true_change.values()), v)
+            distance = v - nearest_ix
+            res[k] = {}
+            res[k]["match?"] = True if distance == 0 else False
+            res[k]["nearest_ix"] = nearest_ix
+            res[k]["distance"] = distance
+
+        
+        self.scores = {
+            "hits": 0, "near_hits": 0, "miss": 0
+        }
+
+        for k, v in res.items():
+            if v["match?"]:
+                self.scores["hits"]+=1
+            elif v["distance"] <=2:
+                self.scores["near_hits"]+=1
+            else:
+                self.scores["miss"]+=1
+
+        # calculate ratios 
+        self.nice_results = {
+            "hits/guesses": self.scores["hits"] / len(pred_change),
+
+            "hits/actions": self.scores["hits"]/len(true_change),
+
+            "(hits + near hits)/guesses": (self.scores["hits"] +  self.scores["near_hits"])/ len(pred_change),
+
+            "(hits + near hits)/actions": (self.scores["hits"] +  self.scores["near_hits"])/len(true_change),
+
+            "misses/guesses": self.scores["miss"]/ len(pred_change),
+        }
+
+        self.nice_results = {k:np.round(v,3) for k,v in self.nice_results.items()}
+
+        # add values that are not ratios 
+        self.nice_results.update({
+            "number of actions": len(true_change),
+            "number of guesses": len(pred_change)
+        })
+
+        # join the nice results and simple score sums in one dictionary 
+        self.nice_results.update(self.scores)
+
+        self.nice_res_df = pd.DataFrame.from_dict(self.nice_results, orient="index", columns=["results"])
+
+        return  self.nice_res_df
+
+
+        
+
+
     def calc_win_change_dist(self, df, ix):
         # ensure index is within the length of the data 
         assert ix <= len(df["Window Open"]) 
