@@ -19,6 +19,13 @@ def common_member(a, b):
     return False, 0 
 
 
+def identify_changed_ix(series):
+    assert type(series) == pd.core.series.Series
+
+    shift = series.shift() != series
+    changed_indices = np.where(shift==True)[0]
+    return changed_indices
+
 class Scores:
     def __init__(self, exp, choices, guess_times, near_miss_lim=2, ):
         """
@@ -36,15 +43,21 @@ class Scores:
         self.choices = choices
         self.guess_times = guess_times 
 
+    
+# standard metrics 
+    def calc_standard_metrics(self):
+        return classification_report(self.truth, self.choices, output_dict=True)
 
 
-    def calc_hit_scores(self):
-        shift = self.exp["Window Open"].shift() != self.exp["Window Open"]
-        true_change_indices = np.where(shift==True)[0]
+# my metrics
+    def calc_hit_scores(self, guess_times_ix=None):
+        true_change_indices  = identify_changed_ix(self.exp["Window Open"])
 
         true_change = {change_ix: time_ix for  change_ix, time_ix in  enumerate(true_change_indices)}
 
-        pred_change = {change_ix: time_ix for  change_ix, time_ix in  enumerate(self.guess_times.index)}
+        if guess_times_ix is None:
+            guess_times_ix = self.guess_times.index
+        pred_change = {change_ix: time_ix for  change_ix, time_ix in  enumerate(guess_times_ix)}
 
         res = {}
         for k, v in pred_change.items():
@@ -63,7 +76,7 @@ class Scores:
         for k, v in res.items():
             if v["match?"]:
                 self.scores["hits"]+=1
-            elif v["distance"] <=2:
+            elif v["distance"] < self.near_miss_lim:
                 self.scores["near_hits"]+=1
             else:
                 self.scores["miss"]+=1
@@ -85,8 +98,8 @@ class Scores:
 
         # add values that are not ratios 
         self.nice_results.update({
-            "number of actions": len(true_change),
-            "number of guesses": len(pred_change)
+            "actions": len(true_change),
+            "guesses": len(pred_change)
         })
 
         # join the nice results and simple score sums in one dictionary 
@@ -94,94 +107,7 @@ class Scores:
 
         self.nice_res_df = pd.DataFrame.from_dict(self.nice_results, orient="index", columns=["results"])
 
-        return  self.nice_res_df
-
-
-        
-
-
-    def calc_win_change_dist(self, df, ix):
-        # ensure index is within the length of the data 
-        assert ix <= len(df["Window Open"]) 
-
-        # ensure that the changes in window state where actually observed, should have 0s and 1s 
-        assert len(df["Window Open"].unique()) > 1 
-
-
-        # note where the value in Window Open series changes 
-        shift  = df["Window Open"].shift() != df["Window Open"] # boolean series 
-        flips = np.where(shift*1==1)[0] #[1:-1]
-        
-        # check if got the exact flip, this returns a bool 
-        exact = shift[ix]
-        
-        # drop the first entry which will always be true 
-        flips = flips[1:-1]
-
-        # find the distance between the nearest flip, and the ix 
-        nearest = h.find_nearest(flips, ix)
-        distance = h.find_nearest(flips, ix) - ix
-
-        # report performance 
-        return exact, nearest, distance 
-
-
-    def count_score(self, c):
-        if c == 0:
-            self.hits+=1
-        elif c <= self.near_miss_lim:
-            self.near_miss+=1
-        else:
-            self.miss+=1
-        
-        return self.hits, self.near_miss, self.miss
-
-
-    def report_scores(self):
-        # guess tims are the specific times at which guesses have been made 
-        self.hits = 0 
-        self.near_miss = 0 
-        self.miss = 0
-
-        self.num_actions = len(self.exp[self.truth.shift() != self.truth])
-
-        # see how far guess times are from actual times of window schedule change 
-        df = pd.DataFrame(self.guess_times)
-         
-        self.win_distances = df.apply(lambda x: self.calc_win_change_dist(self.exp, x.name), axis=1)
-
-        # calculate scores and sum up 
-        self.scores = self.res.apply(lambda x: self.count_score(np.abs(x[2]))) # TODO change to use name in df instead of index (nearest)
-        self.score_sum = pd.DataFrame(self.scores.iloc[-1], index=["hit", "near_hit", "miss"]).T
-
-        # calculate ratios 
-        self.nice_results = {
-            "hits/guesses": self.score_sum["hit"][0] / len(self.scores),
-
-            "hits/actions": self.score_sum["hit"][0]/self.num_actions,
-
-            "(hits + near hits)/guesses": (self.score_sum["hit"][0] +  self.score_sum["near_hit"][0])/ len(self.scores),
-
-            "(hits + near hits)/actions": (self.score_sum["hit"][0] +  self.score_sum["near_hit"][0])/self.num_actions,
-
-            "misses/guesses": self.score_sum["miss"][0]/ len(self.scores),
-        }
-
-        # convert ratios into percentages
-        self.nice_results = {k:1*np.round(v,3) for k,v in self.nice_results.items()}
-
-        # add values that are not ratios 
-        self.nice_results.update({
-            "number of actions": self.num_actions,
-            "number of guesses": len(self.scores)
-        })
-
-        # join the nice results and simple score sums in one dictionary 
-        self.nice_results.update(self.score_sum.T.to_dict()[0])
-
-        self.nice_res_df = pd.DataFrame.from_dict(self.nice_results, orient="index", columns=["results"])
-
-        return  self.nice_res_df
+        return self.nice_results, self.nice_res_df
 
     
 # De Rautlin de Roy metrics 
