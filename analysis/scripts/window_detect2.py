@@ -1,5 +1,4 @@
 import plotly.graph_objects as go
-# import kaleido
 from plotly.subplots import make_subplots
 import plotly.io as pio
 import seaborn as sns

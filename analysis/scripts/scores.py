@@ -27,7 +27,7 @@ def identify_changed_ix(series):
     return changed_indices
 
 class Scores:
-    def __init__(self, exp, choices, guess_times, near_miss_lim=2, ):
+    def __init__(self, exp, choices, guess_times_ix, near_miss_lim=2, ):
         """
         exp: a dataframe related to one of the experiments, result of h.import_desired_data  
 
@@ -41,7 +41,7 @@ class Scores:
         self.truth = self.exp["Window Open"]
 
         self.choices = choices
-        self.guess_times = guess_times 
+        self.guess_times_ix = guess_times_ix 
 
     
 # standard metrics 
@@ -56,7 +56,8 @@ class Scores:
         true_change = {change_ix: time_ix for  change_ix, time_ix in  enumerate(true_change_indices)}
 
         if guess_times_ix is None:
-            guess_times_ix = self.guess_times.index
+            guess_times_ix = self.guess_times_ix
+
         pred_change = {change_ix: time_ix for  change_ix, time_ix in  enumerate(guess_times_ix)}
 
         res = {}
@@ -92,6 +93,8 @@ class Scores:
             "(hits + near hits)/actions": (self.scores["hits"] +  self.scores["near_hits"])/len(true_change),
 
             "misses/guesses": self.scores["miss"]/ len(pred_change),
+
+            "guesses/actions": len(pred_change)/len(true_change),
         }
 
         self.nice_results = {k:np.round(v,3) for k,v in self.nice_results.items()}
@@ -107,7 +110,7 @@ class Scores:
 
         self.nice_res_df = pd.DataFrame.from_dict(self.nice_results, orient="index", columns=["results"])
 
-        return self.nice_results, self.nice_res_df
+        return self.nice_results
 
     
 # De Rautlin de Roy metrics 

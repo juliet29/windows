@@ -1,0 +1,132 @@
+{
+  "z=1": {
+    "standard": {
+      "0.0": {
+        "precision": 0.6608187134502924,
+        "recall": 0.710691823899371,
+        "f1-score": 0.6848484848484848,
+        "support": 159
+      },
+      "1.0": {
+        "precision": 0.7850467289719626,
+        "recall": 0.7433628318584071,
+        "f1-score": 0.7636363636363637,
+        "support": 226
+      },
+      "accuracy": 0.7298701298701299,
+      "macro avg": {
+        "precision": 0.7229327212111275,
+        "recall": 0.727027327878889,
+        "f1-score": 0.7242424242424242,
+        "support": 385
+      },
+      "weighted avg": {
+        "precision": 0.7337421719123638,
+        "recall": 0.7298701298701299,
+        "f1-score": 0.7310979929161748,
+        "support": 385
+      }
+    },
+    "drdr": {
+      "# true open instance": 4,
+      "# false open instance": 0,
+      "true open time": "2 days 22:15:00",
+      "false open time": "1 days 02:00:00",
+      "bounded acc": 0.5,
+      "unbounded acc": -2.19
+    },
+    "custom": {
+      "pre_interp": {
+        "hits/guesses": 0.094,
+        "hits/actions": 0.231,
+        "(hits + near hits)/guesses": 0.688,
+        "(hits + near hits)/actions": 1.692,
+        "misses/guesses": 0.312,
+        "guesses/actions": 2.462,
+        "actions": 13,
+        "guesses": 32,
+        "hits": 3,
+        "near_hits": 19,
+        "miss": 10
+      },
+      "post_interp": {
+        "hits/guesses": 0.333,
+        "hits/actions": 0.231,
+        "(hits + near hits)/guesses": 1.0,
+        "(hits + near hits)/actions": 0.692,
+        "misses/guesses": 0.0,
+        "guesses/actions": 0.692,
+        "actions": 13,
+        "guesses": 9,
+        "hits": 3,
+        "near_hits": 6,
+        "miss": 0
+      }
+    }
+  },
+  "z=2": {
+    "standard": {
+      "0.0": {
+        "precision": 0.6410256410256411,
+        "recall": 0.31446540880503143,
+        "f1-score": 0.4219409282700422,
+        "support": 159
+      },
+      "1.0": {
+        "precision": 0.6449511400651465,
+        "recall": 0.8761061946902655,
+        "f1-score": 0.7429643527204501,
+        "support": 226
+      },
+      "accuracy": 0.6441558441558441,
+      "macro avg": {
+        "precision": 0.6429883905453938,
+        "recall": 0.5952858017476484,
+        "f1-score": 0.5824526404952461,
+        "support": 385
+      },
+      "weighted avg": {
+        "precision": 0.6433299599423378,
+        "recall": 0.6441558441558441,
+        "f1-score": 0.6103858475578142,
+        "support": 385
+      }
+    },
+    "drdr": {
+      "# true open instance": 4,
+      "# false open instance": 1,
+      "true open time": "2 days 14:00:00",
+      "false open time": "1 days 10:15:00",
+      "bounded acc": 0.602,
+      "unbounded acc": -0.19
+    },
+    "custom": {
+      "pre_interp": {
+        "hits/guesses": 0.227,
+        "hits/actions": 0.385,
+        "(hits + near hits)/guesses": 0.727,
+        "(hits + near hits)/actions": 1.231,
+        "misses/guesses": 0.273,
+        "guesses/actions": 1.692,
+        "actions": 13,
+        "guesses": 22,
+        "hits": 5,
+        "near_hits": 11,
+        "miss": 6
+      },
+      "post_interp": {
+        "hits/guesses": 0.273,
+        "hits/actions": 0.231,
+        "(hits + near hits)/guesses": 0.636,
+        "(hits + near hits)/actions": 0.538,
+        "misses/guesses": 0.364,
+        "guesses/actions": 0.846,
+        "actions": 13,
+        "guesses": 11,
+        "hits": 3,
+        "near_hits": 4,
+        "miss": 4
+      }
+    }
+  }
+}

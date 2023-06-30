@@ -1,0 +1,1302 @@
+{
+  "dt_meas": {
+    "standard": {
+      "0.0": {
+        "precision": 0.5487179487179488,
+        "recall": 0.6729559748427673,
+        "f1-score": 0.6045197740112995,
+        "support": 159
+      },
+      "1.0": {
+        "precision": 0.7263157894736842,
+        "recall": 0.6106194690265486,
+        "f1-score": 0.6634615384615384,
+        "support": 226
+      },
+      "accuracy": 0.6363636363636364,
+      "macro avg": {
+        "precision": 0.6375168690958165,
+        "recall": 0.6417877219346579,
+        "f1-score": 0.633990656236419,
+        "support": 385
+      },
+      "weighted avg": {
+        "precision": 0.6529701877070299,
+        "recall": 0.6363636363636364,
+        "f1-score": 0.6391193552210501,
+        "support": 385
+      }
+    },
+    "drdr": {
+      "# true open instance": 18,
+      "# false open instance": 20,
+      "true open time": "2 days 13:15:00",
+      "false open time": "1 days 11:00:00",
+      "bounded acc": 0.0,
+      "unbounded acc": -14.53
+    },
+    "custom": {
+      "hits/guesses": 0.067,
+      "hits/actions": 0.385,
+      "(hits + near hits)/guesses": 0.493,
+      "(hits + near hits)/actions": 2.846,
+      "misses/guesses": 0.507,
+      "guesses/actions": 5.769,
+      "actions": 13,
+      "guesses": 75,
+      "hits": 5,
+      "near_hits": 32,
+      "miss": 38
+    }
+  },
+  "dt_sim": {
+    "standard": {
+      "0.0": {
+        "precision": 0.19270833333333334,
+        "recall": 0.23270440251572327,
+        "f1-score": 0.21082621082621084,
+        "support": 159
+      },
+      "1.0": {
+        "precision": 0.36787564766839376,
+        "recall": 0.3141592920353982,
+        "f1-score": 0.33890214797136037,
+        "support": 226
+      },
+      "accuracy": 0.2805194805194805,
+      "macro avg": {
+        "precision": 0.28029199050086356,
+        "recall": 0.27343184727556075,
+        "f1-score": 0.2748641793987856,
+        "support": 385
+      },
+      "weighted avg": {
+        "precision": 0.2955338217482,
+        "recall": 0.2805194805194805,
+        "f1-score": 0.2860084492542726,
+        "support": 385
+      }
+    },
+    "drdr": {
+      "# true open instance": 9,
+      "# false open instance": 5,
+      "true open time": "1 days 03:00:00",
+      "false open time": "2 days 21:15:00",
+      "bounded acc": 0.0,
+      "unbounded acc": -8.79
+    },
+    "custom": {
+      "hits/guesses": 0.148,
+      "hits/actions": 0.308,
+      "(hits + near hits)/guesses": 0.667,
+      "(hits + near hits)/actions": 1.385,
+      "misses/guesses": 0.333,
+      "guesses/actions": 2.077,
+      "actions": 13,
+      "guesses": 27,
+      "hits": 4,
+      "near_hits": 14,
+      "miss": 9
+    }
+  },
+  "dt_amb": {
+    "standard": {
+      "0.0": {
+        "precision": 0.408,
+        "recall": 0.9622641509433962,
+        "f1-score": 0.5730337078651685,
+        "support": 159
+      },
+      "1.0": {
+        "precision": 0.4,
+        "recall": 0.017699115044247787,
+        "f1-score": 0.033898305084745756,
+        "support": 226
+      },
+      "accuracy": 0.4077922077922078,
+      "macro avg": {
+        "precision": 0.404,
+        "recall": 0.489981632993822,
+        "f1-score": 0.30346600647495714,
+        "support": 385
+      },
+      "weighted avg": {
+        "precision": 0.4033038961038961,
+        "recall": 0.4077922077922078,
+        "f1-score": 0.25655422467458266,
+        "support": 385
+      }
+    },
+    "drdr": {
+      "# true open instance": 2,
+      "# false open instance": 3,
+      "true open time": "1 days 15:15:00",
+      "false open time": "2 days 09:00:00",
+      "bounded acc": 0.0,
+      "unbounded acc": -21.77
+    },
+    "custom": {
+      "hits/guesses": 0.091,
+      "hits/actions": 0.077,
+      "(hits + near hits)/guesses": 0.273,
+      "(hits + near hits)/actions": 0.231,
+      "misses/guesses": 0.727,
+      "guesses/actions": 0.846,
+      "actions": 13,
+      "guesses": 11,
+      "hits": 1,
+      "near_hits": 2,
+      "miss": 8
+    }
+  },
+  "dt_meas+dt_sim+dt_amb": {
+    "standard": {
+      "0.0": {
+        "precision": 0.5260416666666666,
+        "recall": 0.6352201257861635,
+        "f1-score": 0.5754985754985754,
+        "support": 159
+      },
+      "1.0": {
+        "precision": 0.6994818652849741,
+        "recall": 0.5973451327433629,
+        "f1-score": 0.6443914081145584,
+        "support": 226
+      },
+      "accuracy": 0.612987012987013,
+      "macro avg": {
+        "precision": 0.6127617659758204,
+        "recall": 0.6162826292647632,
+        "f1-score": 0.6099449918065669,
+        "support": 385
+      },
+      "weighted avg": {
+        "precision": 0.627853315725725,
+        "recall": 0.612987012987013,
+        "f1-score": 0.6159395629562693,
+        "support": 385
+      }
+    },
+    "drdr": {
+      "# true open instance": 21,
+      "# false open instance": 21,
+      "true open time": "2 days 11:00:00",
+      "false open time": "1 days 13:15:00",
+      "bounded acc": 0.0,
+      "unbounded acc": -14.86
+    },
+    "custom": {
+      "hits/guesses": 0.048,
+      "hits/actions": 0.308,
+      "(hits + near hits)/guesses": 0.482,
+      "(hits + near hits)/actions": 3.077,
+      "misses/guesses": 0.518,
+      "guesses/actions": 6.385,
+      "actions": 13,
+      "guesses": 83,
+      "hits": 4,
+      "near_hits": 36,
+      "miss": 43
+    }
+  },
+  "meas": {
+    "standard": {
+      "0.0": {
+        "precision": 0.45549738219895286,
+        "recall": 0.5471698113207547,
+        "f1-score": 0.4971428571428571,
+        "support": 159
+      },
+      "1.0": {
+        "precision": 0.6288659793814433,
+        "recall": 0.5398230088495575,
+        "f1-score": 0.580952380952381,
+        "support": 226
+      },
+      "accuracy": 0.5428571428571428,
+      "macro avg": {
+        "precision": 0.542181680790198,
+        "recall": 0.543496410085156,
+        "f1-score": 0.539047619047619,
+        "support": 385
+      },
+      "weighted avg": {
+        "precision": 0.5572670002852979,
+        "recall": 0.5428571428571428,
+        "f1-score": 0.5463401360544218,
+        "support": 385
+      }
+    },
+    "drdr": {
+      "# true open instance": 14,
+      "# false open instance": 5,
+      "true open time": "2 days 04:15:00",
+      "false open time": "1 days 20:00:00",
+      "bounded acc": 0.02429,
+      "unbounded acc": -14.51
+    },
+    "custom": {
+      "hits/guesses": 0.051,
+      "hits/actions": 0.154,
+      "(hits + near hits)/guesses": 0.615,
+      "(hits + near hits)/actions": 1.846,
+      "misses/guesses": 0.385,
+      "guesses/actions": 3.0,
+      "actions": 13,
+      "guesses": 39,
+      "hits": 2,
+      "near_hits": 22,
+      "miss": 15
+    }
+  },
+  "amb": {
+    "standard": {
+      "0.0": {
+        "precision": 0.4897959183673469,
+        "recall": 0.6037735849056604,
+        "f1-score": 0.5408450704225353,
+        "support": 159
+      },
+      "1.0": {
+        "precision": 0.6666666666666666,
+        "recall": 0.5575221238938053,
+        "f1-score": 0.6072289156626505,
+        "support": 226
+      },
+      "accuracy": 0.5766233766233766,
+      "macro avg": {
+        "precision": 0.5782312925170068,
+        "recall": 0.5806478543997329,
+        "f1-score": 0.5740369930425928,
+        "support": 385
+      },
+      "weighted avg": {
+        "precision": 0.5936213446417528,
+        "recall": 0.5766233766233766,
+        "f1-score": 0.5798132497063432,
+        "support": 385
+      }
+    },
+    "drdr": {
+      "# true open instance": 10,
+      "# false open instance": 6,
+      "true open time": "2 days 07:30:00",
+      "false open time": "1 days 16:45:00",
+      "bounded acc": 0.0,
+      "unbounded acc": -12.76
+    },
+    "custom": {
+      "hits/guesses": 0.097,
+      "hits/actions": 0.231,
+      "(hits + near hits)/guesses": 0.613,
+      "(hits + near hits)/actions": 1.462,
+      "misses/guesses": 0.387,
+      "guesses/actions": 2.385,
+      "actions": 13,
+      "guesses": 31,
+      "hits": 3,
+      "near_hits": 16,
+      "miss": 12
+    }
+  },
+  "sim": {
+    "standard": {
+      "0.0": {
+        "precision": 0.359375,
+        "recall": 0.4339622641509434,
+        "f1-score": 0.3931623931623932,
+        "support": 159
+      },
+      "1.0": {
+        "precision": 0.533678756476684,
+        "recall": 0.4557522123893805,
+        "f1-score": 0.49164677804295936,
+        "support": 226
+      },
+      "accuracy": 0.44675324675324674,
+      "macro avg": {
+        "precision": 0.446526878238342,
+        "recall": 0.444857238270162,
+        "f1-score": 0.44240458560267626,
+        "support": 385
+      },
+      "weighted avg": {
+        "precision": 0.4616935687369625,
+        "recall": 0.44675324675324674,
+        "f1-score": 0.450974006105271,
+        "support": 385
+      }
+    },
+    "drdr": {
+      "# true open instance": 12,
+      "# false open instance": 4,
+      "true open time": "1 days 19:00:00",
+      "false open time": "2 days 05:15:00",
+      "bounded acc": 0.0,
+      "unbounded acc": -11.9
+    },
+    "custom": {
+      "hits/guesses": 0.097,
+      "hits/actions": 0.231,
+      "(hits + near hits)/guesses": 0.613,
+      "(hits + near hits)/actions": 1.462,
+      "misses/guesses": 0.387,
+      "guesses/actions": 2.385,
+      "actions": 13,
+      "guesses": 31,
+      "hits": 3,
+      "near_hits": 16,
+      "miss": 12
+    }
+  },
+  "meas+amb+sim": {
+    "standard": {
+      "0.0": {
+        "precision": 0.45077720207253885,
+        "recall": 0.5471698113207547,
+        "f1-score": 0.4943181818181819,
+        "support": 159
+      },
+      "1.0": {
+        "precision": 0.625,
+        "recall": 0.5309734513274337,
+        "f1-score": 0.5741626794258374,
+        "support": 226
+      },
+      "accuracy": 0.5376623376623376,
+      "macro avg": {
+        "precision": 0.5378886010362695,
+        "recall": 0.5390716313240942,
+        "f1-score": 0.5342404306220097,
+        "support": 385
+      },
+      "weighted avg": {
+        "precision": 0.5530482470896979,
+        "recall": 0.5376623376623376,
+        "f1-score": 0.5411879388554031,
+        "support": 385
+      }
+    },
+    "drdr": {
+      "# true open instance": 13,
+      "# false open instance": 5,
+      "true open time": "2 days 03:45:00",
+      "false open time": "1 days 20:30:00",
+      "bounded acc": 0.0,
+      "unbounded acc": -16.46
+    },
+    "custom": {
+      "hits/guesses": 0.027,
+      "hits/actions": 0.077,
+      "(hits + near hits)/guesses": 0.405,
+      "(hits + near hits)/actions": 1.154,
+      "misses/guesses": 0.595,
+      "guesses/actions": 2.846,
+      "actions": 13,
+      "guesses": 37,
+      "hits": 1,
+      "near_hits": 14,
+      "miss": 22
+    }
+  },
+  "dt_meas+dt_sim": {
+    "standard": {
+      "0.0": {
+        "precision": 0.5,
+        "recall": 0.6037735849056604,
+        "f1-score": 0.5470085470085471,
+        "support": 159
+      },
+      "1.0": {
+        "precision": 0.6735751295336787,
+        "recall": 0.5752212389380531,
+        "f1-score": 0.6205250596658711,
+        "support": 226
+      },
+      "accuracy": 0.587012987012987,
+      "macro avg": {
+        "precision": 0.5867875647668394,
+        "recall": 0.5894974119218568,
+        "f1-score": 0.5837668033372091,
+        "support": 385
+      },
+      "weighted avg": {
+        "precision": 0.6018908552587309,
+        "recall": 0.587012987012987,
+        "f1-score": 0.5901636946983009,
+        "support": 385
+      }
+    },
+    "drdr": {
+      "# true open instance": 14,
+      "# false open instance": 11,
+      "true open time": "2 days 08:30:00",
+      "false open time": "1 days 15:45:00",
+      "bounded acc": 0.0,
+      "unbounded acc": -12.39
+    },
+    "custom": {
+      "hits/guesses": 0.102,
+      "hits/actions": 0.385,
+      "(hits + near hits)/guesses": 0.612,
+      "(hits + near hits)/actions": 2.308,
+      "misses/guesses": 0.388,
+      "guesses/actions": 3.769,
+      "actions": 13,
+      "guesses": 49,
+      "hits": 5,
+      "near_hits": 25,
+      "miss": 19
+    }
+  },
+  "dt_meas+dt_amb": {
+    "standard": {
+      "0.0": {
+        "precision": 0.5572916666666666,
+        "recall": 0.6729559748427673,
+        "f1-score": 0.6096866096866096,
+        "support": 159
+      },
+      "1.0": {
+        "precision": 0.7305699481865285,
+        "recall": 0.6238938053097345,
+        "f1-score": 0.6730310262529833,
+        "support": 226
+      },
+      "accuracy": 0.6441558441558441,
+      "macro avg": {
+        "precision": 0.6439308074265976,
+        "recall": 0.6484248900762508,
+        "f1-score": 0.6413588179697964,
+        "support": 385
+      },
+      "weighted avg": {
+        "precision": 0.659008268286118,
+        "recall": 0.6441558441558441,
+        "f1-score": 0.6468706048658316,
+        "support": 385
+      }
+    },
+    "drdr": {
+      "# true open instance": 25,
+      "# false open instance": 20,
+      "true open time": "2 days 14:00:00",
+      "false open time": "1 days 10:15:00",
+      "bounded acc": 0.0136,
+      "unbounded acc": -15.28
+    },
+    "custom": {
+      "hits/guesses": 0.079,
+      "hits/actions": 0.538,
+      "(hits + near hits)/guesses": 0.449,
+      "(hits + near hits)/actions": 3.077,
+      "misses/guesses": 0.551,
+      "guesses/actions": 6.846,
+      "actions": 13,
+      "guesses": 89,
+      "hits": 7,
+      "near_hits": 33,
+      "miss": 49
+    }
+  },
+  "dt_meas+meas": {
+    "standard": {
+      "0.0": {
+        "precision": 0.5885416666666666,
+        "recall": 0.710691823899371,
+        "f1-score": 0.6438746438746439,
+        "support": 159
+      },
+      "1.0": {
+        "precision": 0.7616580310880829,
+        "recall": 0.6504424778761062,
+        "f1-score": 0.7016706443914081,
+        "support": 226
+      },
+      "accuracy": 0.6753246753246753,
+      "macro avg": {
+        "precision": 0.6750998488773747,
+        "recall": 0.6805671508877387,
+        "f1-score": 0.672772644133026,
+        "support": 385
+      },
+      "weighted avg": {
+        "precision": 0.690163220846511,
+        "recall": 0.6753246753246753,
+        "f1-score": 0.6778016467753938,
+        "support": 385
+      }
+    },
+    "drdr": {
+      "# true open instance": 8,
+      "# false open instance": 7,
+      "true open time": "2 days 17:00:00",
+      "false open time": "1 days 07:15:00",
+      "bounded acc": 0.0,
+      "unbounded acc": -10.14
+    },
+    "custom": {
+      "hits/guesses": 0.097,
+      "hits/actions": 0.231,
+      "(hits + near hits)/guesses": 0.677,
+      "(hits + near hits)/actions": 1.615,
+      "misses/guesses": 0.323,
+      "guesses/actions": 2.385,
+      "actions": 13,
+      "guesses": 31,
+      "hits": 3,
+      "near_hits": 18,
+      "miss": 10
+    }
+  },
+  "dt_meas+amb": {
+    "standard": {
+      "0.0": {
+        "precision": 0.5233160621761658,
+        "recall": 0.6352201257861635,
+        "f1-score": 0.5738636363636362,
+        "support": 159
+      },
+      "1.0": {
+        "precision": 0.6979166666666666,
+        "recall": 0.5929203539823009,
+        "f1-score": 0.6411483253588517,
+        "support": 226
+      },
+      "accuracy": 0.6103896103896104,
+      "macro avg": {
+        "precision": 0.6106163644214162,
+        "recall": 0.6140702398842321,
+        "f1-score": 0.607505980861244,
+        "support": 385
+      },
+      "weighted avg": {
+        "precision": 0.6258088845524078,
+        "recall": 0.6103896103896104,
+        "f1-score": 0.6133606226309575,
+        "support": 385
+      }
+    },
+    "drdr": {
+      "# true open instance": 11,
+      "# false open instance": 16,
+      "true open time": "2 days 10:45:00",
+      "false open time": "1 days 13:30:00",
+      "bounded acc": 0.0,
+      "unbounded acc": -10.13
+    },
+    "custom": {
+      "hits/guesses": 0.094,
+      "hits/actions": 0.385,
+      "(hits + near hits)/guesses": 0.642,
+      "(hits + near hits)/actions": 2.615,
+      "misses/guesses": 0.358,
+      "guesses/actions": 4.077,
+      "actions": 13,
+      "guesses": 53,
+      "hits": 5,
+      "near_hits": 29,
+      "miss": 19
+    }
+  },
+  "dt_meas+sim": {
+    "standard": {
+      "0.0": {
+        "precision": 0.43523316062176165,
+        "recall": 0.5283018867924528,
+        "f1-score": 0.4772727272727273,
+        "support": 159
+      },
+      "1.0": {
+        "precision": 0.609375,
+        "recall": 0.5176991150442478,
+        "f1-score": 0.5598086124401914,
+        "support": 226
+      },
+      "accuracy": 0.522077922077922,
+      "macro avg": {
+        "precision": 0.5223040803108808,
+        "recall": 0.5230005009183503,
+        "f1-score": 0.5185406698564594,
+        "support": 385
+      },
+      "weighted avg": {
+        "precision": 0.5374566819191172,
+        "recall": 0.522077922077922,
+        "f1-score": 0.5257223637606413,
+        "support": 385
+      }
+    },
+    "drdr": {
+      "# true open instance": 13,
+      "# false open instance": 13,
+      "true open time": "2 days 02:15:00",
+      "false open time": "1 days 22:00:00",
+      "bounded acc": 0.07692,
+      "unbounded acc": -13.06
+    },
+    "custom": {
+      "hits/guesses": 0.115,
+      "hits/actions": 0.462,
+      "(hits + near hits)/guesses": 0.558,
+      "(hits + near hits)/actions": 2.231,
+      "misses/guesses": 0.442,
+      "guesses/actions": 4.0,
+      "actions": 13,
+      "guesses": 52,
+      "hits": 6,
+      "near_hits": 23,
+      "miss": 23
+    }
+  },
+  "dt_sim+dt_amb": {
+    "standard": {
+      "0.0": {
+        "precision": 0.3697916666666667,
+        "recall": 0.44654088050314467,
+        "f1-score": 0.40455840455840464,
+        "support": 159
+      },
+      "1.0": {
+        "precision": 0.5440414507772021,
+        "recall": 0.4646017699115044,
+        "f1-score": 0.5011933174224344,
+        "support": 226
+      },
+      "accuracy": 0.45714285714285713,
+      "macro avg": {
+        "precision": 0.4569165587219344,
+        "recall": 0.4555713252073246,
+        "f1-score": 0.45287586099041954,
+        "support": 385
+      },
+      "weighted avg": {
+        "precision": 0.47207855292376016,
+        "recall": 0.45714285714285713,
+        "f1-score": 0.46128435340845847,
+        "support": 385
+      }
+    },
+    "drdr": {
+      "# true open instance": 31,
+      "# false open instance": 28,
+      "true open time": "1 days 20:00:00",
+      "false open time": "2 days 04:15:00",
+      "bounded acc": 0.0,
+      "unbounded acc": -15.67
+    },
+    "custom": {
+      "hits/guesses": 0.026,
+      "hits/actions": 0.231,
+      "(hits + near hits)/guesses": 0.504,
+      "(hits + near hits)/actions": 4.538,
+      "misses/guesses": 0.496,
+      "guesses/actions": 9.0,
+      "actions": 13,
+      "guesses": 117,
+      "hits": 3,
+      "near_hits": 56,
+      "miss": 58
+    }
+  },
+  "dt_sim+meas": {
+    "standard": {
+      "0.0": {
+        "precision": 0.4293193717277487,
+        "recall": 0.5157232704402516,
+        "f1-score": 0.4685714285714286,
+        "support": 159
+      },
+      "1.0": {
+        "precision": 0.6030927835051546,
+        "recall": 0.5176991150442478,
+        "f1-score": 0.557142857142857,
+        "support": 226
+      },
+      "accuracy": 0.5168831168831168,
+      "macro avg": {
+        "precision": 0.5162060776164517,
+        "recall": 0.5167111927422496,
+        "f1-score": 0.5128571428571428,
+        "support": 385
+      },
+      "weighted avg": {
+        "precision": 0.5313266212386415,
+        "recall": 0.5168831168831168,
+        "f1-score": 0.5205640074211502,
+        "support": 385
+      }
+    },
+    "drdr": {
+      "# true open instance": 14,
+      "# false open instance": 6,
+      "true open time": "2 days 01:45:00",
+      "false open time": "1 days 22:30:00",
+      "bounded acc": 0.0,
+      "unbounded acc": -14.09
+    },
+    "custom": {
+      "hits/guesses": 0.098,
+      "hits/actions": 0.308,
+      "(hits + near hits)/guesses": 0.659,
+      "(hits + near hits)/actions": 2.077,
+      "misses/guesses": 0.341,
+      "guesses/actions": 3.154,
+      "actions": 13,
+      "guesses": 41,
+      "hits": 4,
+      "near_hits": 23,
+      "miss": 14
+    }
+  },
+  "dt_sim+amb": {
+    "standard": {
+      "0.0": {
+        "precision": 0.35602094240837695,
+        "recall": 0.4276729559748428,
+        "f1-score": 0.38857142857142857,
+        "support": 159
+      },
+      "1.0": {
+        "precision": 0.5309278350515464,
+        "recall": 0.4557522123893805,
+        "f1-score": 0.49047619047619045,
+        "support": 226
+      },
+      "accuracy": 0.44415584415584414,
+      "macro avg": {
+        "precision": 0.4434743887299617,
+        "recall": 0.4417125841821117,
+        "f1-score": 0.43952380952380954,
+        "support": 385
+      },
+      "weighted avg": {
+        "precision": 0.45869355990800365,
+        "recall": 0.44415584415584414,
+        "f1-score": 0.4483908472479901,
+        "support": 385
+      }
+    },
+    "drdr": {
+      "# true open instance": 12,
+      "# false open instance": 7,
+      "true open time": "1 days 18:45:00",
+      "false open time": "2 days 05:30:00",
+      "bounded acc": 0.00083,
+      "unbounded acc": -15.42
+    },
+    "custom": {
+      "hits/guesses": 0.054,
+      "hits/actions": 0.154,
+      "(hits + near hits)/guesses": 0.649,
+      "(hits + near hits)/actions": 1.846,
+      "misses/guesses": 0.351,
+      "guesses/actions": 2.846,
+      "actions": 13,
+      "guesses": 37,
+      "hits": 2,
+      "near_hits": 22,
+      "miss": 13
+    }
+  },
+  "dt_sim+sim": {
+    "standard": {
+      "0.0": {
+        "precision": 0.3229166666666667,
+        "recall": 0.389937106918239,
+        "f1-score": 0.35327635327635337,
+        "support": 159
+      },
+      "1.0": {
+        "precision": 0.49740932642487046,
+        "recall": 0.4247787610619469,
+        "f1-score": 0.4582338902147971,
+        "support": 226
+      },
+      "accuracy": 0.4103896103896104,
+      "macro avg": {
+        "precision": 0.4101629965457686,
+        "recall": 0.40735793399009296,
+        "f1-score": 0.40575512174557526,
+        "support": 385
+      },
+      "weighted avg": {
+        "precision": 0.42534612408317074,
+        "recall": 0.4103896103896104,
+        "f1-score": 0.4148877905441152,
+        "support": 385
+      }
+    },
+    "drdr": {
+      "# true open instance": 12,
+      "# false open instance": 7,
+      "true open time": "1 days 15:30:00",
+      "false open time": "2 days 08:45:00",
+      "bounded acc": 0.0,
+      "unbounded acc": -13.19
+    },
+    "custom": {
+      "hits/guesses": 0.135,
+      "hits/actions": 0.385,
+      "(hits + near hits)/guesses": 0.676,
+      "(hits + near hits)/actions": 1.923,
+      "misses/guesses": 0.324,
+      "guesses/actions": 2.846,
+      "actions": 13,
+      "guesses": 37,
+      "hits": 5,
+      "near_hits": 20,
+      "miss": 12
+    }
+  },
+  "dt_amb+meas": {
+    "standard": {
+      "0.0": {
+        "precision": 0.5625,
+        "recall": 0.6792452830188679,
+        "f1-score": 0.6153846153846154,
+        "support": 159
+      },
+      "1.0": {
+        "precision": 0.7357512953367875,
+        "recall": 0.6283185840707964,
+        "f1-score": 0.6778042959427207,
+        "support": 226
+      },
+      "accuracy": 0.6493506493506493,
+      "macro avg": {
+        "precision": 0.6491256476683938,
+        "recall": 0.6537819335448322,
+        "f1-score": 0.646594455663668,
+        "support": 385
+      },
+      "weighted avg": {
+        "precision": 0.6642007603795168,
+        "recall": 0.6493506493506493,
+        "f1-score": 0.6520257785174253,
+        "support": 385
+      }
+    },
+    "drdr": {
+      "# true open instance": 27,
+      "# false open instance": 20,
+      "true open time": "2 days 14:30:00",
+      "false open time": "1 days 09:45:00",
+      "bounded acc": 0.0,
+      "unbounded acc": -15.9
+    },
+    "custom": {
+      "hits/guesses": 0.042,
+      "hits/actions": 0.308,
+      "(hits + near hits)/guesses": 0.589,
+      "(hits + near hits)/actions": 4.308,
+      "misses/guesses": 0.411,
+      "guesses/actions": 7.308,
+      "actions": 13,
+      "guesses": 95,
+      "hits": 4,
+      "near_hits": 52,
+      "miss": 39
+    }
+  },
+  "dt_amb+amb": {
+    "standard": {
+      "0.0": {
+        "precision": 0.47619047619047616,
+        "recall": 0.5660377358490566,
+        "f1-score": 0.5172413793103449,
+        "support": 159
+      },
+      "1.0": {
+        "precision": 0.6479591836734694,
+        "recall": 0.5619469026548672,
+        "f1-score": 0.6018957345971564,
+        "support": 226
+      },
+      "accuracy": 0.5636363636363636,
+      "macro avg": {
+        "precision": 0.5620748299319728,
+        "recall": 0.5639923192519619,
+        "f1-score": 0.5595685569537506,
+        "support": 385
+      },
+      "weighted avg": {
+        "precision": 0.577020938245428,
+        "recall": 0.5636363636363636,
+        "f1-score": 0.5669345852709147,
+        "support": 385
+      }
+    },
+    "drdr": {
+      "# true open instance": 28,
+      "# false open instance": 25,
+      "true open time": "2 days 06:15:00",
+      "false open time": "1 days 18:00:00",
+      "bounded acc": 0.0,
+      "unbounded acc": -15.38
+    },
+    "custom": {
+      "hits/guesses": 0.038,
+      "hits/actions": 0.308,
+      "(hits + near hits)/guesses": 0.552,
+      "(hits + near hits)/actions": 4.462,
+      "misses/guesses": 0.448,
+      "guesses/actions": 8.077,
+      "actions": 13,
+      "guesses": 105,
+      "hits": 4,
+      "near_hits": 54,
+      "miss": 47
+    }
+  },
+  "dt_amb+sim": {
+    "standard": {
+      "0.0": {
+        "precision": 0.39267015706806285,
+        "recall": 0.4716981132075472,
+        "f1-score": 0.42857142857142855,
+        "support": 159
+      },
+      "1.0": {
+        "precision": 0.5670103092783505,
+        "recall": 0.48672566371681414,
+        "f1-score": 0.5238095238095238,
+        "support": 226
+      },
+      "accuracy": 0.4805194805194805,
+      "macro avg": {
+        "precision": 0.4798402331732067,
+        "recall": 0.47921188846218066,
+        "f1-score": 0.47619047619047616,
+        "support": 385
+      },
+      "weighted avg": {
+        "precision": 0.4950100905733226,
+        "recall": 0.4805194805194805,
+        "f1-score": 0.48447742733457017,
+        "support": 385
+      }
+    },
+    "drdr": {
+      "# true open instance": 36,
+      "# false open instance": 28,
+      "true open time": "1 days 22:15:00",
+      "false open time": "2 days 02:00:00",
+      "bounded acc": 0.00028,
+      "unbounded acc": -17.55
+    },
+    "custom": {
+      "hits/guesses": 0.039,
+      "hits/actions": 0.385,
+      "(hits + near hits)/guesses": 0.512,
+      "(hits + near hits)/actions": 5.0,
+      "misses/guesses": 0.488,
+      "guesses/actions": 9.769,
+      "actions": 13,
+      "guesses": 127,
+      "hits": 5,
+      "near_hits": 60,
+      "miss": 62
+    }
+  },
+  "meas+amb": {
+    "standard": {
+      "0.0": {
+        "precision": 0.5208333333333334,
+        "recall": 0.6289308176100629,
+        "f1-score": 0.5698005698005698,
+        "support": 159
+      },
+      "1.0": {
+        "precision": 0.694300518134715,
+        "recall": 0.5929203539823009,
+        "f1-score": 0.639618138424821,
+        "support": 226
+      },
+      "accuracy": 0.6077922077922078,
+      "macro avg": {
+        "precision": 0.6075669257340242,
+        "recall": 0.610925585796182,
+        "f1-score": 0.6047093541126953,
+        "support": 385
+      },
+      "weighted avg": {
+        "precision": 0.6226608236323262,
+        "recall": 0.6077922077922078,
+        "f1-score": 0.6107843893046757,
+        "support": 385
+      }
+    },
+    "drdr": {
+      "# true open instance": 8,
+      "# false open instance": 10,
+      "true open time": "2 days 10:30:00",
+      "false open time": "1 days 13:45:00",
+      "bounded acc": 0.0,
+      "unbounded acc": -11.66
+    },
+    "custom": {
+      "hits/guesses": 0.027,
+      "hits/actions": 0.077,
+      "(hits + near hits)/guesses": 0.568,
+      "(hits + near hits)/actions": 1.615,
+      "misses/guesses": 0.432,
+      "guesses/actions": 2.846,
+      "actions": 13,
+      "guesses": 37,
+      "hits": 1,
+      "near_hits": 20,
+      "miss": 16
+    }
+  },
+  "meas+sim": {
+    "standard": {
+      "0.0": {
+        "precision": 0.45077720207253885,
+        "recall": 0.5471698113207547,
+        "f1-score": 0.4943181818181819,
+        "support": 159
+      },
+      "1.0": {
+        "precision": 0.625,
+        "recall": 0.5309734513274337,
+        "f1-score": 0.5741626794258374,
+        "support": 226
+      },
+      "accuracy": 0.5376623376623376,
+      "macro avg": {
+        "precision": 0.5378886010362695,
+        "recall": 0.5390716313240942,
+        "f1-score": 0.5342404306220097,
+        "support": 385
+      },
+      "weighted avg": {
+        "precision": 0.5530482470896979,
+        "recall": 0.5376623376623376,
+        "f1-score": 0.5411879388554031,
+        "support": 385
+      }
+    },
+    "drdr": {
+      "# true open instance": 14,
+      "# false open instance": 3,
+      "true open time": "2 days 03:45:00",
+      "false open time": "1 days 20:30:00",
+      "bounded acc": 0.0,
+      "unbounded acc": -14.56
+    },
+    "custom": {
+      "hits/guesses": 0.029,
+      "hits/actions": 0.077,
+      "(hits + near hits)/guesses": 0.714,
+      "(hits + near hits)/actions": 1.923,
+      "misses/guesses": 0.286,
+      "guesses/actions": 2.692,
+      "actions": 13,
+      "guesses": 35,
+      "hits": 1,
+      "near_hits": 24,
+      "miss": 10
+    }
+  },
+  "amb+sim": {
+    "standard": {
+      "0.0": {
+        "precision": 0.48704663212435234,
+        "recall": 0.5911949685534591,
+        "f1-score": 0.5340909090909091,
+        "support": 159
+      },
+      "1.0": {
+        "precision": 0.6614583333333334,
+        "recall": 0.5619469026548672,
+        "f1-score": 0.6076555023923444,
+        "support": 226
+      },
+      "accuracy": 0.574025974025974,
+      "macro avg": {
+        "precision": 0.5742524827288429,
+        "recall": 0.5765709356041632,
+        "f1-score": 0.5708732057416268,
+        "support": 385
+      },
+      "weighted avg": {
+        "precision": 0.589428565821053,
+        "recall": 0.574025974025974,
+        "f1-score": 0.5772742807431802,
+        "support": 385
+      }
+    },
+    "drdr": {
+      "# true open instance": 13,
+      "# false open instance": 4,
+      "true open time": "2 days 07:15:00",
+      "false open time": "1 days 17:00:00",
+      "bounded acc": 0.07692,
+      "unbounded acc": -13.24
+    },
+    "custom": {
+      "hits/guesses": 0.029,
+      "hits/actions": 0.077,
+      "(hits + near hits)/guesses": 0.471,
+      "(hits + near hits)/actions": 1.231,
+      "misses/guesses": 0.529,
+      "guesses/actions": 2.615,
+      "actions": 13,
+      "guesses": 34,
+      "hits": 1,
+      "near_hits": 15,
+      "miss": 18
+    }
+  },
+  "amb_minus_meas": {
+    "standard": {
+      "0.0": {
+        "precision": 0.40414507772020725,
+        "recall": 0.49056603773584906,
+        "f1-score": 0.4431818181818182,
+        "support": 159
+      },
+      "1.0": {
+        "precision": 0.578125,
+        "recall": 0.4911504424778761,
+        "f1-score": 0.5311004784688995,
+        "support": 226
+      },
+      "accuracy": 0.4909090909090909,
+      "macro avg": {
+        "precision": 0.4911350388601036,
+        "recall": 0.4908582401068626,
+        "f1-score": 0.4871411483253588,
+        "support": 385
+      },
+      "weighted avg": {
+        "precision": 0.5062735515779557,
+        "recall": 0.4909090909090909,
+        "f1-score": 0.4947912135711179,
+        "support": 385
+      }
+    },
+    "drdr": {
+      "# true open instance": 19,
+      "# false open instance": 14,
+      "true open time": "1 days 23:15:00",
+      "false open time": "2 days 01:00:00",
+      "bounded acc": 0.0,
+      "unbounded acc": -14.61
+    },
+    "custom": {
+      "hits/guesses": 0.06,
+      "hits/actions": 0.308,
+      "(hits + near hits)/guesses": 0.612,
+      "(hits + near hits)/actions": 3.154,
+      "misses/guesses": 0.388,
+      "guesses/actions": 5.154,
+      "actions": 13,
+      "guesses": 67,
+      "hits": 4,
+      "near_hits": 37,
+      "miss": 26
+    }
+  },
+  "meas_minus_amb": {
+    "standard": {
+      "0.0": {
+        "precision": 0.40414507772020725,
+        "recall": 0.49056603773584906,
+        "f1-score": 0.4431818181818182,
+        "support": 159
+      },
+      "1.0": {
+        "precision": 0.578125,
+        "recall": 0.4911504424778761,
+        "f1-score": 0.5311004784688995,
+        "support": 226
+      },
+      "accuracy": 0.4909090909090909,
+      "macro avg": {
+        "precision": 0.4911350388601036,
+        "recall": 0.4908582401068626,
+        "f1-score": 0.4871411483253588,
+        "support": 385
+      },
+      "weighted avg": {
+        "precision": 0.5062735515779557,
+        "recall": 0.4909090909090909,
+        "f1-score": 0.4947912135711179,
+        "support": 385
+      }
+    },
+    "drdr": {
+      "# true open instance": 19,
+      "# false open instance": 14,
+      "true open time": "1 days 23:15:00",
+      "false open time": "2 days 01:00:00",
+      "bounded acc": 0.0,
+      "unbounded acc": -14.61
+    },
+    "custom": {
+      "hits/guesses": 0.06,
+      "hits/actions": 0.308,
+      "(hits + near hits)/guesses": 0.612,
+      "(hits + near hits)/actions": 3.154,
+      "misses/guesses": 0.388,
+      "guesses/actions": 5.154,
+      "actions": 13,
+      "guesses": 67,
+      "hits": 4,
+      "near_hits": 37,
+      "miss": 26
+    }
+  },
+  "abs_amb_meas_diff": {
+    "standard": {
+      "0.0": {
+        "precision": 0.375,
+        "recall": 0.4528301886792453,
+        "f1-score": 0.4102564102564103,
+        "support": 159
+      },
+      "1.0": {
+        "precision": 0.5492227979274611,
+        "recall": 0.4690265486725664,
+        "f1-score": 0.5059665871121718,
+        "support": 226
+      },
+      "accuracy": 0.4623376623376623,
+      "macro avg": {
+        "precision": 0.46211139896373055,
+        "recall": 0.4609283686759058,
+        "f1-score": 0.458111498684291,
+        "support": 385
+      },
+      "weighted avg": {
+        "precision": 0.47727104501715895,
+        "recall": 0.4623376623376623,
+        "f1-score": 0.4664395270600521,
+        "support": 385
+      }
+    },
+    "drdr": {
+      "# true open instance": 22,
+      "# false open instance": 19,
+      "true open time": "1 days 20:30:00",
+      "false open time": "2 days 03:45:00",
+      "bounded acc": 0.01545,
+      "unbounded acc": -13.67
+    },
+    "custom": {
+      "hits/guesses": 0.049,
+      "hits/actions": 0.308,
+      "(hits + near hits)/guesses": 0.556,
+      "(hits + near hits)/actions": 3.462,
+      "misses/guesses": 0.444,
+      "guesses/actions": 6.231,
+      "actions": 13,
+      "guesses": 81,
+      "hits": 4,
+      "near_hits": 41,
+      "miss": 36
+    }
+  }
+}
