@@ -61,6 +61,8 @@ class Window_Detect2:
         self.temp = df["Temp C"]
         self.temp_norm = h.normalize(self.temp)   
 
+
+
     def analyze_window_change(self, smooth_fx, sim_smooth=None):
         if sim_smooth is not None:
             self.smooth_series = h.normalize(sim_smooth)
@@ -86,7 +88,6 @@ class Window_Detect2:
             zscore = self.zscore2
             zscore_norm = self.zscore2_norm
 
-
         guess_mask = (zscore >= 2) | (zscore <= -2)
         guess_times = self.time[guess_mask]
 
@@ -99,7 +100,6 @@ class Window_Detect2:
 
 
     def interpolate_guesses(self):
-
         self.round_guesses = np.where(self.guess_values > 0.5, 1, 0)
 
         # construct a series with rounded guesses that covers entire time period 
@@ -124,7 +124,6 @@ class Window_Detect2:
     def run_guess(self, timedelta=DEFAULT_TIMEDELTA, z=1):
         self.make_guesses(timedelta, z)
         self.interpolate_guesses()
-
 
 
     def plot_analysis(self):
