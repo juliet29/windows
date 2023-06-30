@@ -2,6 +2,9 @@ import plotly.graph_objects as go
 # import kaleido
 from plotly.subplots import make_subplots
 import plotly.io as pio
+import seaborn as sns
+
+
 import pandas as pd
 import numpy as np
 import json
@@ -14,7 +17,8 @@ import scipy.optimize
 import sys
 sys.path.insert(0, "../scripts")
 import helpers as h
-import seaborn as sns
+from wd_summary_plots import * 
+
 
 
 # ============================================================================ #
@@ -41,46 +45,23 @@ def make_ewm_smooth(series, time, level=4):
 # Window detection class 
 
 class Window_Detect2:
+
+    DEFAULT_TIMEDELTA = 15
+
     def __init__(self, df):
         self.time = df["DateTime"]
         # magnitude of time passed in seconds, used for normalizing data 
         time_mag = self.time - self.time.min()
         self.time_seconds = time_mag.dt.total_seconds()
 
+
         self.window = df["Window Open"]
         self.window_norm = h.normalize(self.window)
 
         self.temp = df["Temp C"]
-        self.temp_norm = h.normalize(self.temp)
+        self.temp_norm = h.normalize(self.temp)   
 
-    def make_guesses(self, timedelta=15, z=1):
-        # normalized values for plaotting 
-        self.zscore_norm = h.normalize(self.zscore)
-        self.zscore2_norm = h.normalize(self.zscore2)
-
-        if z==1:
-            # print("z1")
-            zscore = self.zscore
-            zscore_norm = self.zscore_norm
-        else:
-            # print("z2")
-            zscore = self.zscore2
-            zscore_norm = self.zscore2_norm
-
-
-        guess_mask = (zscore >= 2) | (zscore <= -2)
-        guess_times = self.time[guess_mask]
-
-        # remove guesses that are due to bouncing
-        clean_mask = guess_times.diff() >= pd.Timedelta(minutes=timedelta) 
-        self.guess_times = guess_times[clean_mask]
-
-        
-        self.guess_values = zscore_norm[self.guess_times.index] 
-
-        
-
-    def analyze_window_change(self, smooth_fx, sim_smooth=None, timedelta=15):
+    def analyze_window_change(self, smooth_fx, sim_smooth=None):
         if sim_smooth is not None:
             self.smooth_series = h.normalize(sim_smooth)
         else:
@@ -92,7 +73,58 @@ class Window_Detect2:
         self.std, self.std2 = self.deriv.std(), self.deriv2.std()
         self.zscore, self.zscore2 = h.calc_zscore(self.deriv), h.calc_zscore(self.deriv2)
 
-        self.make_guesses(timedelta)
+    
+    def make_guesses(self, timedelta=DEFAULT_TIMEDELTA, z=1):
+        # normalized values for plaotting 
+        self.zscore_norm = h.normalize(self.zscore)
+        self.zscore2_norm = h.normalize(self.zscore2)
+
+        if z==1:
+            zscore = self.zscore
+            zscore_norm = self.zscore_norm
+        else:
+            zscore = self.zscore2
+            zscore_norm = self.zscore2_norm
+
+
+        guess_mask = (zscore >= 2) | (zscore <= -2)
+        guess_times = self.time[guess_mask]
+
+        # remove guesses that are due to bouncing
+        clean_mask = guess_times.diff() >= pd.Timedelta(minutes=timedelta) 
+        self.guess_times = guess_times[clean_mask]
+
+        self.guess_values = zscore_norm[self.guess_times.index] 
+
+
+
+    def interpolate_guesses(self):
+
+        self.round_guesses = np.where(self.guess_values > 0.5, 1, 0)
+
+        # construct a series with rounded guesses that covers entire time period 
+        guess_series = pd.Series(data=self.round_guesses ,index=self.guess_times)
+        start =  pd.Series(data=[0], index=[self.time.iloc[0]]) 
+        end = pd.Series(data=[0], index=[self.time.iloc[-1]])
+        full_guess_series = pd.concat(objs=[start, guess_series, end])
+
+        # flash fill
+        self.interp_guess = full_guess_series.resample("15T").ffill()
+
+        fig = go.Figure()
+        fig.add_trace(go.Scatter(x=self.time, y=self.window_norm, name="Window", mode='lines'))
+        fig.add_trace(go.Scatter(x=self.interp_guess.index, y=self.interp_guess, name="Interpolated Guess", mode='lines'))
+
+    
+    def run_analyis_and_guess(self, smooth_fx, timedelta=DEFAULT_TIMEDELTA, z=1):
+        self.analyze_window_change(smooth_fx)
+        self.make_guesses(timedelta, z)
+        self.interpolate_guesses()
+    
+    def run_guess(self, timedelta=DEFAULT_TIMEDELTA, z=1):
+        self.make_guesses(timedelta, z)
+        self.interpolate_guesses()
+
 
 
     def plot_analysis(self):
@@ -128,13 +160,22 @@ class Window_Detect2:
 
 
 
-
-    def plot_guesses(self, timedelta=15*2):
-        self.make_guesses(timedelta)
+    def plot_guesses(self, make_guesses=False, timedelta=DEFAULT_TIMEDELTA, z=1):
+        if make_guesses:
+            self.run_guess(timedelta, z)
 
         fig = go.Figure()
-        fig.add_trace(go.Scatter(x=self.time, y=self.window_norm, name="Window", mode='lines'))
-        fig.add_trace(go.Scatter(x=self.guess_times, y=self.guess_values, name="Guess ~ Z-Score 2", mode='markers'))
+        fig.add_trace(go.Scatter(x=self.time, y=self.window_norm, name="Window", mode='lines', opacity=0.5))
+
+        fig.add_trace(go.Scatter(x=self.interp_guess.index, y=self.interp_guess, name="Interpolated Guess", mode='lines'))
+
+        fig.add_trace(go.Scatter(x=self.guess_times, y=self.guess_values, name=f"Guess ~ Z-Score {z}, TD={timedelta}", mode='markers'))
+
+        fig.add_trace(go.Scatter(x=self.guess_times, y=self.round_guesses, name=f"Rounded Guesses", mode='markers'))
+
+
+        
+
         return fig
 
 
@@ -146,76 +187,7 @@ class Window_Detect2:
         fig2.show()
 
 
-# ============================================================================ #
 
-
-
-# Window detect specific plotting functions that operacte across objects 
-
-def make_dual_plot(time, obj1, obj2, title_arr): 
-    fig = make_subplots(rows=1, cols=2, shared_yaxes=True, subplot_titles=(title_arr[0], title_arr[1],))
-
-    s2, s3 = [[obj.window_norm, obj.temp_norm, obj.smooth_series, obj.dif, obj.deriv, obj.deriv2] for obj in [obj1, obj2]]
-
-    names = ["Window", "Observed Temp", "Smoothed", "Difference", "Deriv1", "Deriv2"]
-    
-    opacities = [0.4] + [1]*(len(s2)-1)
-
-    for ix, name, ser in zip(range(len(names)), names, s2):
-        fig.add_trace(go.Scatter(x=time, y=ser, name=name, mode='lines', line_color=h.colorway[ix], opacity=opacities[ix],legendgroup=name,), row = 1, col = 1)
-
-    for ix, name, ser in zip(range(len(names)), names, s3):
-        fig.add_trace(go.Scatter(x=time, y=ser, name=name, mode='lines', line_color=h.colorway[ix], opacity=opacities[ix],legendgroup=name, showlegend=False), row = 1, col = 2)
-
-    return fig, names
-
-def make_dual_plot_abstract(time, objects, names, traces, title_arr, mode="lines"): 
-    fig = make_subplots(rows=1, cols=len(objects), shared_yaxes=True, subplot_titles=tuple(title_arr))
-    
-    series = [[getattr(obj, trace) for trace in traces] for obj in objects]
-
-
-    opacities = [0.4] + [1]*(len(series[0])-1)
-
-    for series_ix, s in enumerate(series):
-        leg = True if series_ix == 0 else False
-        for ix, name, ser in zip(range(len(names)), names, s):
-            if mode != "lines": 
-                # caveat for plotting guesses 
-                time_guess = time if ix+1 != len(s) else objects[series_ix].guess_times
-
-                fig.add_trace(go.Scatter(x=time_guess, y=ser, name=name, mode=mode[ix], line_color=h.colorway[ix], opacity=opacities[ix],legendgroup=name, showlegend=leg), row = 1, col = series_ix+1)
-            else:
-                fig.add_trace(go.Scatter(x=time, y=ser, name=name, mode=mode, line_color=h.colorway[ix], opacity=opacities[ix],legendgroup=name, showlegend=leg), row = 1, col = series_ix+1)
-
-    return fig, names
-
-
-def update_dual_plot(fig, names, show_arr, ):
-    for name in names: 
-        if name in show_arr:
-            fig.update_traces(visible=True, selector=dict(name=name))
-        else:
-            fig.update_traces(visible="legendonly", selector=dict(name=name))
-    return fig
-
-def plot_many_dist(objects, title_arr):
-    # triple plot for distributions 
-    fig = make_subplots(rows=1, cols=len(objects), shared_yaxes=True, subplot_titles=title_arr)
-    marker_width = 0.1 
-    bin_size = 0.003
-
-    for obj_ix, obj in enumerate(objects):
-        leg = True if obj_ix == 0 else False
-        for ix, ser in enumerate([obj.deriv2, obj.deriv]):
-            opacity = 0.9 if ix == 0 else 1
-            color = '#702632' if ix == 0 else '#A4B494'
-            fig.add_trace(go.Histogram(
-            x=ser, histnorm='probability', name=f' Deriv{2 - ix}', opacity=opacity, marker_line=dict(width=marker_width ,color='black'), xbins=dict(size=bin_size), marker_color=color, showlegend=leg), row = 1, col = obj_ix+1)
-
-    fig.update_layout(barmode="stack")
-
-    return fig
 
 
 
