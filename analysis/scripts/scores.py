@@ -20,35 +20,35 @@ def common_member(a, b):
 
 
 class Scores:
-    def __init__(self, exp, near_miss_lim=2):
-        """exp: a dataframe related to one of the experiments, result of h.import_desired_data  """
+    def __init__(self, exp, choices, guess_times, near_miss_lim=2, ):
+        """
+        exp: a dataframe related to one of the experiments, result of h.import_desired_data  
+
+        choices: numerically indexed *Series* with 0s and 1s 
+        guess_times: (non-consecutive) numerically indexed *Series* with DateTimes that reflect times when predict window state changes 
+        
+        """
         self.near_miss_lim = near_miss_lim
         self.exp = exp
         self.timedelta = self.exp["DateTime"][1] - self.exp["DateTime"][0]
         self.truth = self.exp["Window Open"]
 
+        self.choices = choices
+        self.guess_times = guess_times 
+
     def calc_win_change_dist(self, df, ix):
-        """
-        Report if the index (ix) returned by an algorithm is what the data (df) recognizes as a window flip 
+        # ensure index is within the length of the data 
+        assert ix <= len(df["Window Open"]) 
 
-        Returns
-        exact: if ix reported by the algo is spot on 
-        nearest: the nearest ix to what was reported 
-        distance: the distance (# of indices) between the ix and the nearest found value 
-        """
+        # ensure that the changes in window state where actually observed, should have 0s and 1s 
+        assert len(df["Window Open"].unique()) > 1 
+
+
         # note where the value in Window Open series changes 
-        shift  = df["Window Open"].shift() != df["Window Open"]
-
-        # return if ix > lenght of data 
-        if ix > len(shift):
-            return "Passed index larger than it should be"
-        
-        # some of the experiments did not have any shifts 
+        shift  = df["Window Open"].shift() != df["Window Open"] # boolean series 
         flips = np.where(shift*1==1)[0] #[1:-1]
-        if len(flips) < 2:
-            return "No Flip Happened!"
         
-        # check if got the exact flip 
+        # check if got the exact flip, this returns a bool 
         exact = shift[ix]
         
         # drop the first entry which will always be true 
@@ -73,7 +73,7 @@ class Scores:
         return self.hits, self.near_miss, self.miss
 
 
-    def report_scores(self, guess_times, exp):
+    def report_scores(self):
         # guess tims are the specific times at which guesses have been made 
         self.hits = 0 
         self.near_miss = 0 
@@ -82,10 +82,12 @@ class Scores:
         self.num_actions = len(self.exp[self.truth.shift() != self.truth])
 
         # see how far guess times are from actual times of window schedule change 
-        self.res = pd.DataFrame(guess_times).apply(lambda x: self.calc_win_change_dist(self.exp, x.name), axis=1)
+        df = pd.DataFrame(self.guess_times)
+         
+        self.win_distances = df.apply(lambda x: self.calc_win_change_dist(self.exp, x.name), axis=1)
 
         # calculate scores and sum up 
-        self.scores = self.res.apply(lambda x: self.count_score(np.abs(x[2])))
+        self.scores = self.res.apply(lambda x: self.count_score(np.abs(x[2]))) # TODO change to use name in df instead of index (nearest)
         self.score_sum = pd.DataFrame(self.scores.iloc[-1], index=["hit", "near_hit", "miss"]).T
 
         # calculate ratios 
@@ -102,7 +104,7 @@ class Scores:
         }
 
         # convert ratios into percentages
-        self.nice_results = {k:100*np.round(v,3) for k,v in self.nice_results.items()}
+        self.nice_results = {k:1*np.round(v,3) for k,v in self.nice_results.items()}
 
         # add values that are not ratios 
         self.nice_results.update({
@@ -199,8 +201,7 @@ class Scores:
         return self.true_open_time, self.false_open_time
 
     
-    def calc_drdr_metrics(self, choices):
-        self.choices = choices 
+    def calc_drdr_metrics(self,):
         self.calc_open_accuracy_score()
         self.calc_open_instances()
         self.calc_open_time()
