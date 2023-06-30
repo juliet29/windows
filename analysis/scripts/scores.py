@@ -74,6 +74,7 @@ class Scores:
 
 
     def report_scores(self, guess_times, exp):
+        # guess tims are the specific times at which guesses have been made 
         self.hits = 0 
         self.near_miss = 0 
         self.miss = 0
@@ -141,44 +142,49 @@ class Scores:
 
     
     def calc_open_accuracy_score(self, debug=False):
-        # choices and truth need to have the same indices 
+        # choices and truth need to have the same indices -> ie need numerical indices, and values should be 0s or 1s 
         assert (self.choices.index == self.truth.index).all()
         # identify all the openings and determine their length 
         self.true_openings = self.determine_openings(self.truth)
         self.predicted_openings = self.determine_openings(self.choices)
 
-        self.true_open_instance = 0 
-        self.false_open_instance = 0
+        self.overlap_counter = {}
     
         scores = []
         ρ = 0.33 # de rautlin 2023, two time step limit 
         for pix, plst in enumerate(self.predicted_openings):
+            self.overlap_counter [pix] = {}
             for tix, tlst in enumerate(self.true_openings):
                 bool_val, len_intersect = common_member(plst["ix"], tlst["ix"])
+                self.overlap_counter[pix][tix] = bool_val
                 if bool_val:
-                    self.true_open_instance +=1
                     difference = tlst['length'] - len_intersect
                     if difference == 0:
                         scores.append(1)
                     else:
                         scores.append(1 - ρ*(difference))
-
-                    if debug:
-                        print(f"po {pix} | to {tix} --- to len: {tlst['length']}, po len: {plst['length']}, diff = { difference}  \n")
-                else:
-                    self.false_open_instance +=1
-
-
-        self.open_accuracy_scores = scores
-        self.mean_open_accuracy_unbounded = np.round(np.mean(np.array(scores)),2)
+        
+        self.open_accuracy_scores = np.array(scores)
+        self.mean_open_accuracy_unbounded = np.round(np.mean(self.open_accuracy_scores),2)
 
         # round scores < 0 to 0 
-        bound_scores = np.array(scores.copy())
+        bound_scores = self.open_accuracy_scores.copy()
         bound_scores[bound_scores<0] = 0
         self.bound_scores = bound_scores
-        self.mean_open_accuracy = np.round(np.mean(np.array(bound_scores)),5)
+        self.mean_open_accuracy = np.round(np.mean(bound_scores),5)
 
         return self.mean_open_accuracy, self.mean_open_accuracy_unbounded
+
+    def calc_open_instances(self):
+        self.true_open_instance = 0 
+        self.false_open_instance = 0
+
+        for k, v in self.overlap_counter.items():
+            if True in list(v.values()):
+                self.true_open_instance +=1
+                # print(k)
+
+        self.false_open_instance = len(self.predicted_openings) - self.true_open_instance
 
 
     def calc_open_time(self):
@@ -196,6 +202,7 @@ class Scores:
     def calc_drdr_metrics(self, choices):
         self.choices = choices 
         self.calc_open_accuracy_score()
+        self.calc_open_instances()
         self.calc_open_time()
 
         self.res = {
