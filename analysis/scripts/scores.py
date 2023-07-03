@@ -210,4 +210,12 @@ class Scores:
 
         return self.res
 
+    def calc_all_metrics(self):
+        self.metrics = {}
+        self.metrics["standard"] = self.calc_standard_metrics()
+        self.metrics["drdr"] = self.calc_drdr_metrics()
+        self.metrics["custom"] = self.calc_hit_scores()
+
+        return self.metrics
+
 
