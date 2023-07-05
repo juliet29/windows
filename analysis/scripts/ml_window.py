@@ -10,6 +10,7 @@ import scores as s
 import helpers as h
 
 from icecream import ic 
+import copy
 
 
 def create_features_arr(arr):
@@ -79,7 +80,11 @@ class ML_Window_Detect_Many:
 
             s1 = s.Scores(exp=self.exp, choices=choices)
             s1.calc_all_metrics()
-            self.all_results[ix]["metrics"] = s1.short_metrics
+            self.all_results[ix]["metrics"] =  s1.short_metrics 
+
+
+            self.complete_results = copy.deepcopy(self.all_results)
+            self.complete_results[ix]["metrics"] = 2
 
         return self.all_results
 
