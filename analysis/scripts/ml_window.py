@@ -63,9 +63,13 @@ class ML_Window_Detect_Many:
 
     def fit_and_score_many(self):
         self.all_results = {}
+        self.complete_results = {}
         for ix, set in enumerate(self.test_set):
             self.all_results[ix] = {}
             self.all_results[ix]["name"] = set
+
+            self.complete_results[ix] = {}
+            self.complete_results[ix]["name"] = set
             # ic(self.all_results[ix]["name"])
 
             # pull the data and run the model 
@@ -79,12 +83,10 @@ class ML_Window_Detect_Many:
             choices = pd.Series([1 if i >= 0 else 0 for i in choices])
 
             s1 = s.Scores(exp=self.exp, choices=choices)
+
             s1.calc_all_metrics()
             self.all_results[ix]["metrics"] =  s1.short_metrics 
-
-
-            self.complete_results = copy.deepcopy(self.all_results)
-            self.complete_results[ix]["metrics"] = 2
+            self.complete_results[ix]["metrics"] = s1.metrics
 
         return self.all_results
 
