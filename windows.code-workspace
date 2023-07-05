@@ -4,7 +4,7 @@
       "path": "."
     },
     {
-      "path": "../../mylocalenvs"
+      "path": "../overleaf"
     }
   ],
   "settings": {}

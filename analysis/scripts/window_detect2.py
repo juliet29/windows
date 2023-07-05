@@ -17,6 +17,7 @@ import sys
 sys.path.insert(0, "../scripts")
 import helpers as h
 from wd_summary_plots import * 
+import scores as s
 
 
 
@@ -59,6 +60,7 @@ class Window_Detect2:
 
         self.temp = df["Temp C"]
         self.temp_norm = h.normalize(self.temp)   
+        self.exp = df # the experiments dataframe 
 
 
 
@@ -110,9 +112,15 @@ class Window_Detect2:
         # flash fill
         self.interp_guess = full_guess_series.resample("15T").ffill()
 
+        # make appropriate output for scoring 
+        reset_interp = self.interp_guess.reset_index()
+        self.choices = reset_interp[0]
+
         fig = go.Figure()
         fig.add_trace(go.Scatter(x=self.time, y=self.window_norm, name="Window", mode='lines'))
         fig.add_trace(go.Scatter(x=self.interp_guess.index, y=self.interp_guess, name="Interpolated Guess", mode='lines'))
+
+        return fig
 
     
     def run_analyis_and_guess(self, smooth_fx, timedelta=DEFAULT_TIMEDELTA, z=1):
@@ -171,9 +179,6 @@ class Window_Detect2:
 
         fig.add_trace(go.Scatter(x=self.guess_times, y=self.round_guesses, name=f"Rounded Guesses", mode='markers'))
 
-
-        
-
         return fig
 
 
@@ -183,6 +188,27 @@ class Window_Detect2:
         fig2 = self.plot_distributions()
         fig1.show()
         fig2.show()
+
+    def calc_scores(self, z=1):
+        self.run_guess(z=z)
+        s1 = s.Scores(exp=self.exp, choices=self.choices)
+        s1.calc_all_metrics()
+        self.metrics = s1.metrics
+        self.short_metrics = s1.short_metrics
+
+    def compare_scores(self, z=1):
+        self.compare_metrics = {}
+        self.compare_short_metrics = {}
+
+        for z in [1,2]:
+            self.run_guess(z=z)
+            s1 = s.Scores(exp=self.exp, choices=self.choices)
+            s1.calc_all_metrics()
+            self.compare_metrics[f"z={z}"] = s1.metrics
+            self.compare_short_metrics[f"z={z}"] = s1.short_metrics
+
+
+    
 
 
 

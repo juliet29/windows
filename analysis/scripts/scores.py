@@ -27,7 +27,7 @@ def identify_changed_ix(series):
     return changed_indices
 
 class Scores:
-    def __init__(self, exp, choices, guess_times_ix, near_miss_lim=2, ):
+    def __init__(self, exp, choices, guess_times_ix=None, near_miss_lim=2, ):
         """
         exp: a dataframe related to one of the experiments, result of h.import_desired_data  
 
@@ -41,7 +41,7 @@ class Scores:
         self.truth = self.exp["Window Open"]
 
         self.choices = choices
-        self.guess_times_ix = guess_times_ix 
+        # self.guess_times_ix = guess_times_ix 
 
     
 # standard metrics 
@@ -56,7 +56,7 @@ class Scores:
         true_change = {change_ix: time_ix for  change_ix, time_ix in  enumerate(true_change_indices)}
 
         if guess_times_ix is None:
-            guess_times_ix = self.guess_times_ix
+            guess_times_ix = identify_changed_ix(self.choices) #self.guess_times_ix
 
         pred_change = {change_ix: time_ix for  change_ix, time_ix in  enumerate(guess_times_ix)}
 
@@ -216,6 +216,22 @@ class Scores:
         self.metrics["drdr"] = self.calc_drdr_metrics()
         self.metrics["custom"] = self.calc_hit_scores()
 
+
+        metrics_copy = self.metrics.copy()
+        self.short_metrics = {k:{} for k in metrics_copy.keys()}
+
+        self.short_metrics["standard"]["macro avg f1-score"] = np.round(self.metrics["standard"]["macro avg"]["f1-score"],3)
+
+        self.short_metrics["custom"]["(hits + near hits)/guesses"] = self.metrics["custom"]["(hits + near hits)/guesses"]
+
+        self.short_metrics["custom"]["guesses/actions"] = self.metrics["custom"]["guesses/actions"]
+
+        self.short_metrics["drdr"]["unbounded acc"] = self.metrics["drdr"]["unbounded acc"]
+
+        self.short_metrics["drdr"]["bounded acc"] = self.metrics["drdr"]["bounded acc"]
+
+
         return self.metrics
+
 
 

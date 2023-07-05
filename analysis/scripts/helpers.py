@@ -7,6 +7,7 @@ from math import sqrt
 import json
 import plotly.graph_objects as go
 import scipy.optimize
+from pprint import pprint
 
 ## typical imports 
 
@@ -21,6 +22,9 @@ import scipy.optimize
 
 
 ## ------------------------- ! Tools 
+colorway = ['#702632', '#A4B494', '#495867', '#912F40', "#81909E", "#F4442E", "#DB7C26", "#BB9BB0"]
+
+
 def str2dt(date):
     """Convert a string to a pandas timestamp object 
     Format should be: '2022, 07, 24, 07, 20' """
@@ -41,7 +45,11 @@ def find_nearest(array, value):
     idx = (np.abs(array - value)).argmin()
     return array[idx]
 
-colorway = ['#702632', '#A4B494', '#495867', '#912F40', "#81909E", "#F4442E", "#DB7C26", "#BB9BB0"]
+def def_pprint(dictionary, width=20, sort_dicts=False):
+    pprint(dictionary, width=width, sort_dicts=sort_dicts)
+
+
+
 
 
 
