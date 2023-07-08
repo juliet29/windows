@@ -77,10 +77,15 @@ class Paper_Data:
             window_vals = self.window_sched[ixes[i][0]:ixes[i][1]]
             assert window_vals.all() # all the values should be 1 
             lens.append(len(window_vals))
+            
+        lens = np.array(lens)
 
-        avg_len = np.mean(np.array((lens)))
+        avg_len = np.mean(lens)
+        median_len = np.median(lens)
         
         self.avg_len_time = avg_len*timedelta
+        self.median_len_time = median_len*timedelta
+
 
     def calc_opening_percentage(self):
         win_open_group =  self.exp.groupby("Window Open").count()
@@ -100,7 +105,8 @@ class Paper_Data:
             "Data Length": self.datetime.iloc[-1] - self.datetime[0],
             "Room": self.exp["Room"][0],
             "Opening Percentage": self.perc_time_open,
-            "Average Open Time": self.avg_len_time
+            # "Average Open Time": self.avg_len_time
+            "Median Open Time": self.median_len_time
         }
 
         return self.data 

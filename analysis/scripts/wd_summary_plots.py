@@ -1,3 +1,25 @@
+import plotly.graph_objects as go
+from plotly.subplots import make_subplots
+import plotly.io as pio
+import seaborn as sns
+
+
+import pandas as pd
+import numpy as np
+import json
+
+from statsmodels.tsa.seasonal import seasonal_decompose
+import statsmodels.api as sm
+
+import scipy.optimize
+
+import sys
+sys.path.insert(0, "../scripts")
+import helpers as h
+from wd_summary_plots import * 
+import scores as s
+
+
 # ============================================================================ #
 # Window detect specific plotting functions that operacte across objects --> see summary/230530_pres and 230529_summary2.ipynb for use cases 
 

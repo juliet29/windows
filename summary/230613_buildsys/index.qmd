@@ -1,5 +1,5 @@
 ---
-title: "A socio-technical approach to increasing the use of natural cooling"
+title: Notes paper - A data-driven and scalable approach for window operation detection in multi-family residential buildings
 author: Juliet Nwagwu Ume-Ezeoke, Kopal Nihar, Catehrine Gorle, Rishee Jain 
 institute: Stanford University Urban Informatics Lab 
 date: June 13, 2023
@@ -8,11 +8,12 @@ link-citations: true
 pdf-engine: pdflatex
 format:
   pdf:
-    toc: true
+    toc: false
     number-sections: true
     colorlinks: true
-    template: mytemplate.tex
 ---
+
+{{< include _abstract.qmd >}}
 
 {{< include _intro.qmd >}}
 {{< include _lit-review.qmd >}}

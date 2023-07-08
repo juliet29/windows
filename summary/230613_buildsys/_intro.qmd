@@ -1,31 +1,5 @@
 # Introduction 
 
-<!-- 
-# TODO 
-- how much occupant behave changes energy predictions (Fritch, but more updated )
-- amount cooling windows could realize (Dorit paper)
-- integrating occupant behavior techniques into decision making process -->
-
-
-* Motivation 
-    * Designing naturally cooled buildings demands better understanding of effect of environmental factors on indoor contributors to thermal comfort 
-    * Create a model to predict window state based on environmental factors..
-        * As opposed to standard ml, we use a method that helps to develop a better understanding the effect of w/o/c can help, and have multiple benefits 
-
-
-As the planet warms, there is an increased need for urgency in both mitigating and adapting the effects of climate change. This urgency is motinvated by the significant uptick in the frequency, duration and cumulative intensity of heat waves, which have climbed from #TODO X to X @perkins-kirkpatrickIncreasingTrendsRegional2020. The significant health risks posed by heat waves, including heat exhaustion, stroke, and increased risk for those with pre-existing conditions have resulted in over 160,00 excess deaths between 1998 and 2017 @whoHeatwaves2023. 
-
-To cope with increased heat, attention is often directed at air conditioners and other forms of mechanical cooling. These have the advantage of being relatively easy to design for – one simply has to estimate the cooling loads and translate them into power requirements when sizing a system. The codes surrounding mechanical cooling are well established, and owners and engineers alike take on little risk when integreating a mechanical cooling system into a building. Developments in mechanical cooling have made portable air conditioners readily available for people who occupy buildings (#TODO housing? need to discuss residential focus) that do not have pre-installed systems. 
-
-However, while mechanical cooling is often perceived as reliable, it is susceptible to failure when  it is most needed – during heatwaves. In a community that relies on mechanically cooled systems, electricity demand will increase markedly during heat waves. However, mechanical systems are also less efficient during heatwaves, and will consume more energy than normal. The result is increased demand at a time when the supply of end-use energy might be lower due to the effect that heat also has on transmission and distribution equipment. This effect has been documented in several studies (#TODO). 
-
-Further mechanical cooling is extremely energy intensive. This can be seen be observing the notable spike in energy use that occurs in nations across the globe during the cooling months. According to the IEA, air conditioners and electic fans account for about 20 percent of energy use builings (#TODO check this), where buildings account for #TODO percentage of global cooling loads @ieaFutureCoolingOpportunities2018. This number is expected to rapidly incraese to #TODO as more populations gain access to mechanical cooling. 
-
-Yet the size of the population that does not have access to mechanical cooling, mainly left out because of income, is quite notable. According to the International Energy Agency, in warm climates with long and intense cooling seasons, access to mechanical cooling has a strong correlation with income, and #TODO % of people who would benefit from mechanical cooling do not have access to it because of costs. (#TODO phrase this better)
-
-The numerous problems associated with mechanical cooling have led researchers to further investgate opportunities provided by natural cooling. Following the creation of the air conditioner in the 1950s and its popularization in the United States in the 1990s, / rise of modernism and "the international style" (#TODO more research here), designing for naturally cooled buildings became less prevalent. Building codes moved toward designs that prioritized the efficiency of heating, ventilation, and cooling systems at the expense of operable windows and infiltration. This turn is understandable, given the myriad uncertainties associated with natural cooling. This includes uncertainty related to occupant behavior and outdoor climate. Where as mechanically cooled buildings enable engineers to guarantee a certain temperature up to single digits of accuracy, naturally cooled buildings rely on the peculiarities of outdoor temperature and correct operation by occupants to achieve comfort. This dependence opens the door to extremely uncomfortable buildings and potential financial losses for building owners and engineers alike. 
-
-Despite these faults, developing mechanisms by which practictioners can accurately evaluate and potentially integrate natural cooling techniques into the fast-moving design process is critical (#TODO explain why!)
 
 
 <!-- find a way to quote lisa heschong or someone else -->
