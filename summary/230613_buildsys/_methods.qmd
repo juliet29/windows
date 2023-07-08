@@ -33,14 +33,42 @@ The smoothing technique proceeds as follows. The goal is to identify $W(t)$, win
 
 ![Smoothing Technique in Action ]{#fig-smoothing-tech}
 
-
-
 [^2]: this assumes that the ewm function is perfectly able to capture seasonality, which in reality it isn't...=> need to write down assumptipns => that the instantaneous change in indoor temp due to window opening is greater than any other potential source of instantanous temperature change. 
 [^3]: TODO: include this part: We anticipate that creating a physical model to more explicitly determine the response of the indoor temperature based on the ambient temperature and the building makeup could be an interesting approach to capture the "truth", or at least approximate it Also need some discussion about the emphasis identifying where the window state changes...
 [^4]: TODO: i think the previous 2 paragraphs can be condensed or removed entirely
 [^5]: is hypothesis test the right word?, should i use vocabulary like the null hypothesis and the alternative hypothesis??
 
 ### Machine Learning Method
+
+*Why we chose to use this method*
+
+We used a seperate method in order to compare the efficacy of the smoothing technique that we developed. We chose to use an SVM, as it has been shown in litereature (de Rautlin de Roy) to have robust performance across a wide range of features. SVMs are straightforward to implement with relatively few hyperparameters, as compared to other methods that have been recently shown to have high performce on the window detection problem. [^6]
+
+*How this method works*
+
+SVMs extend simple linear[^7] regressions. In a similar way to a linear regression, SVMs approximate a line of best fit using the features and labels provided [^8]. However, with the use of kernel functions that can map high dimensionanal feature spaces to ones of lower dimensions, SVMs also effectively create hyperplanes of best fit  in order to classify datasets. The use of a kernel function also enables the introduction of mappings that may be a better fit for a given data set.
+
+*How we implemented it* 
+
+Our focus was trying to get the best performance from the SVM using an optimal data set with optimal pre-processing functions applied[^9]. We therefore came up with combinations of the various features we had access to, as well as their derivatives and differences from one another. The base features were: ambient temperature, measured temperature, the differnece between ambient tempaerature and measured temperature, the difference between measured temperature and the derivative of measured temperature. We also had the same features for telative humidity. After creating combinations of these base features, we had a test set of 113[^10] combinations as shown in @fig-feature-combos. 
+
+![Combinations of Features for SVM  ]{#fig-feature-combos}
+
+For each data set we collected, we created an SVM for each of the combinations in the test set, which resulted in 3x113 [^10]. We chose not to perform hyperparameter tuning for the SVMs, and used the default parameters defined by sklearn [^11] which consists of a radial basis function kernel. As we are interested in the developing an unsupervised detection method, we used the One-Class SVM implementation also from sklearn, which makes decisions by essentially using clustering to create the hyperplanes for classification. [^12]
+
+*How it compares to the previous method* 
+
+The SVM approach differs from the smoothing technique that we have developed, and is similar to other window techniques in that it is a highly generalizable method that is not developed with window detection in mind. A wide array of input features can be tested in order to get an acceptable prediction accuracy. However, this might not be acceptable in practice, as different scenarios/ window operation behaviors,  will demand different sets of input features. In the event the true window detection pattern is unknown, it will be difficult to know which input features are giving a trustworthy restult. 
+
+[^6]: SVMs also have an unsupervised implementation, not sure if this exists for other ML models...
+[^7]: could also say logistic regression to reinforce the SVM logistic regression similarity
+[^8]: https://developers.google.com/machine-learning/glossary#f
+[^9]: better way to say this? 
+[^10]: program this...
+[^11]: need to cite this and include version.., and include the other default settings.
+[^12]: need to double check this...
+
+
 
 ## Evaluation Metrics
 
