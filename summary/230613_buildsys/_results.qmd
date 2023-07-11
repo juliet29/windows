@@ -1,3 +1,28 @@
 # Results 
 
-![Results...](temp_figs/exp_res.jpg){#exp-results}
+![Results...](temp_figs/exp_res.jpg){#fig-exp-results}
+
+In @fig-exp-results, the results comparing the smoothing technique [^0] to the perfomance of the SVM across the metrics of interest are shown. While the smoothing technique represents one model, each of the SVM models shown in each of the subplots represnts a model that performed unsupervised classification using different datasets [^1]. The performance of the models is considered across the three empirical datasets that were collected. [^1*]
+
+In figure-a [^2], We see that the EWM performs better than the best perfroming SVMs on experiments A and B, but has considerably worse performance on experiment C. The range of f1-scores displayed in figure-a are comprable to those shown in [^4]. The low values across all models for experimwnts B and C can be attributed to the rather unbalanced nature of the datasets, which a macro average f1-score penalizes.  
+
+The EWM has less accuracy in exactly detecting when windows are open or closed in experiments B and C compared to the best performing SVMs, as shown in figure-b. However, as figure-c highlights, the SVMs take far more guesses per recorded action of window state change, while the EWM takes on the order of 1 guess per recorded action. This suggests that the SVMs superior performance on the hits/guesses metric is due to probability, rather than an embedding[^3] of the underlying physical dynamics.  
+
+Figure-d and figure-e display the perfmance on the opening and unbounded opening accuracy metrics. We observe that the EWM has a far higher performance for experiment A, a slightly better performance for experiment C, and a score of 0 for experiment B. The unbounded opening accuracy allows us to compare just how "off" models are. We see that the EWM performs "less poorly" than the SVM across all experiments. This suggests that the EWM predictions of when window states change are, on average, closer in time to reality than the predictions of the SVM models. 
+
+The true time and false time metrics, shown in figure-f and figure-g operate as an analog to a weighted average f1-score, in that the the imbalance between window open and close is inherently taken into account. The EWM is true more often and false less often for experiments A and B.  [^5]
+
+ *TODO: Some discussion here about poor performance on experiments C that can be attributed to similarity between indoor and outdoor temperatures*
+
+Overall, EWM shows comprable performance to the SVMs across all metrics and experiments. This is significant, given that the SVMs shown in the graphs have made unsupervised classification decisions a wide range fof combinations of time series, and then sorted based on performance to reveal the optimal time series. [^6] The EWM method thus shows potential as a powerful teqhnique with robust performance across both favorable and unfavorable datasets.
+
+
+
+[^0]: going to call this EWM from now on and fix when editing/ come up with a better name
+[^1]: TODO include tables underneath the graphs or annotate the graphs showing the best performing metrics..
+[^2]: need to have subfigure labels, figures a - g...
+[^3]: understanding? 
+[^4]: drdr 
+[^1*]: A is kind of like an favorable case, B is less ideal (less balanced window open/close), and C is even less ideal due to lack of strong differences in internal/external temperatures => include in methods
+[^5]: for false time, need to reverse the order of ranking 
+[^6]: have been "tested" on a wide range of combinations of time series, and then sorted based on performance
