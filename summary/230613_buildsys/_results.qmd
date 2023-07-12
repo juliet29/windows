@@ -1,6 +1,5 @@
 # Results 
 
-<!-- ![Results...](temp_figs/exp_res.jpg){#fig-exp-results} -->
 
 ::: {#fig-exp-results layout-nrow=4 layout-ncol=2}
 

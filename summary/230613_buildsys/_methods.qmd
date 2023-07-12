@@ -27,11 +27,19 @@ Markdown(tdf_md)
 
 ```
 
-<!-- ![Data Collected](temp_figs/data_collected_table.png){#tbl-data-collected} -->
 
 To develop an understanding of how temperature and relative humidity, the quantities that were measured, changed across the different experiments, we examined the distributions of the data in @fig-data-collected. We observe that experiment B had the widest distribution of internal temperatures. Experiment C had internal temperatures that were higher and closer to the mean/median** of the external temperatures. This was due to observed higher temperatures during this time period, which makes for a particularly interesting edge case. The internal relative humidity was higher than the ambient relative humidity across experiments. 
 
-![Distributions of Temperature and Relative Humididty Across Experiments](temp_figs/data_collected.jpg){#fig-data-collected}
+::: {#fig-data-collected layout-ncol=3}
+
+![](figs/dist_expa.png){#fig-dexpa}
+
+![](figs/dist_expb.png){#fig-dexpb}
+
+![](figs/dist_expc.png){#fig-dexpc}
+
+Distributions of temperature across experiments
+:::
 
 
 

@@ -28,15 +28,36 @@ class Paper_Data:
     def create_in_out_df(self, col1="Temp C", col2="Ambient Temp"):
         in_val = {
             "val": self.exp[col1],
-            "area": pd.Series(["in"]*len(self.exp))
+            "Location": pd.Series(["Indoor"]*len(self.exp))
         }
         out_val  = {
             "val": self.exp[col2],
-            "area": ["out"]*len(self.exp)
+            "Location": ["Ambient"]*len(self.exp)
         }
 
         res = pd.concat([pd.DataFrame(in_val), pd.DataFrame(out_val)])
         return res 
+
+    def plot_temperatures(self, title, hidelegend=False):
+        temps=self.create_in_out_df()
+        rhs = self.create_in_out_df("RH %", "Ambient RH" ) 
+
+        fig, axs = plt.subplots(1, 1,figsize=(2.5, 3))
+        sns.kdeplot(data=temps,  x="val", hue="Location",  fill=True, ax=axs)
+        axs.set_title(title)
+        axs.set_xlabel("Temperature [ºC]")
+        if hidelegend:
+            axs.get_legend().remove()
+            axs.set_ylabel("")
+
+        self.temp_fig = fig 
+        self.temp_fig.show()
+
+        # save image 
+        assert "Experiment" in title
+        save_name = title.replace("Experiment", "exp").replace(" ", "").lower()
+
+        plt.savefig(f"../../summary/230613_buildsys/figs/dist_{save_name}.png", bbox_inches="tight")
 
     def plot_distributions(self):
         temps=self.create_in_out_df()
@@ -45,7 +66,7 @@ class Paper_Data:
         fig, axs = plt.subplots(1, 2,figsize=(12, 3))
         sns.kdeplot(data=temps,  x="val", hue="area",  fill=True, ax=axs[0])
         axs[0].set_title("Temperature")
-        sns.kdeplot(data=rhs,  x="val", hue="area",  fill=True, ax=axs[1])
+        sns.kdeplot(data=rhs,  x="val", hue="Location",  fill=True, ax=axs[1])
         axs[1].set_title("Relative Humidity")
 
         self.dist_fig = fig 
