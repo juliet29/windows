@@ -106,7 +106,7 @@ class Paper_Data:
             "Room": self.exp["Room"][0],
             "Opening Percentage": self.perc_time_open,
             # "Average Open Time": self.avg_len_time
-            "Median Open Time": self.median_len_time
+            # "Median Open Time": self.median_len_time
         }
 
         return self.data 

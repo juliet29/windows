@@ -12,7 +12,22 @@ Descriptions of the data are provided in @tbl-data-collected. The experiments ar
 [^1]: *TODO: check this => i think opening percentage for b should be much higher?? Or maybe include plots of the real data*
 [^0]: TODO not sure if really need to discuss the average opening time...
 
-![Data Collected](temp_figs/data_collected_table.png){#tbl-data-collected}
+```{python}
+#| label: tbl-data-collected
+#| tbl-cap: Data Collected
+#| echo: false
+
+import pandas as pd
+from IPython.display import Markdown
+from tabulate import tabulate
+
+tdf = pd.read_pickle("variables/measurements_df.pkl")
+tdf_md = tdf.to_markdown(floatfmt=".4f")
+Markdown(tdf_md)
+
+```
+
+<!-- ![Data Collected](temp_figs/data_collected_table.png){#tbl-data-collected} -->
 
 To develop an understanding of how temperature and relative humidity, the quantities that were measured, changed across the different experiments, we examined the distributions of the data in @fig-data-collected. We observe that experiment B had the widest distribution of internal temperatures. Experiment C had internal temperatures that were higher and closer to the mean/median** of the external temperatures. This was due to observed higher temperatures during this time period, which makes for a particularly interesting edge case. The internal relative humidity was higher than the ambient relative humidity across experiments. 
 
