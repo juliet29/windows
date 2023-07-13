@@ -4,13 +4,9 @@ TODO brief overview here...
 
 ## Data Collection 
 
-We collected data for short periods of time over three months in the summer. We placed HOBO sensors [^00] temperature/ relative humidity sensors in two adjacent rooms in a multi-family residential building. The opening and closing schedules were not determined beforehand but were allowed to proceed naturally. This created three distinct scenarios for testing the efficacy of the model we developed. 
+We collected data for short periods of time over three months in the summer. We placed HOBO® Temp-RH 2.5% Data Logger (UX100-011) (CITE) sensors in two adjacent rooms in a multi-family residential building, and measured indoor temperatures, $T_{meas}(t)$ and relative humidity, $RH_{meas}(t)$. We also collected data on the ambient temperature, $T_{amb}(t)$ and relative humidity $RH_{amb}(t)$ from a local weather station (CITE). In one room, the window state, $W(t)$, was held constant. In the adjacent room, window state was allowed to vary between open and closed. 
 
-Descriptions of the data are provided in @tbl-data-collected. The experiments are labeled as experiments A, B, and C, corresponding to data recorded at the beginning on July 20, July 27, and September 8 respectively. Experiment B was much longer than the other experiments, about 14 days vs experiments A and C were collected over 3 and 4 days each. Experiment B also had a much shorter period of the window being open, with the window open around 5 percent of the time, vs experiments A and C which had the window open for at least 20 percent of the time. [^0] [^1]
-
-[^00]: sensor name 
-[^1]: *TODO: check this => i think opening percentage for b should be much higher?? Or maybe include plots of the real data*
-[^0]: TODO not sure if really need to discuss the average opening time...
+Descriptions of the data in the rooms where the window state varied are provided in @tbl-data-collected. The experiments are labeled as experiments A, B, and C, corresponding to data recorded at the beginning on July 20, July 27, and September 8 respectively. Experiment B was much longer than the other experiments, spanning 14 days. Data for experiments A and C were collected for less than 4 days. The window was open for 5 percent of time recorded time in experiment B, which is shorter than the the 20 percent or greater recorded for other experiments (FIX).
 
 ```{python}
 #| label: tbl-data-collected
@@ -27,8 +23,7 @@ Markdown(tdf_md)
 
 ```
 
-
-To develop an understanding of how temperature and relative humidity, the quantities that were measured, changed across the different experiments, we examined the distributions of the data in @fig-data-collected. We observe that experiment B had the widest distribution of internal temperatures. Experiment C had internal temperatures that were higher and closer to the mean/median** of the external temperatures. This was due to observed higher temperatures during this time period, which makes for a particularly interesting edge case. The internal relative humidity was higher than the ambient relative humidity across experiments. 
+To develop an understanding of how the indoor and ambient quantities of interest changed across the different experiments, we examined the distributions of the data. The internal relative humidity was higher than the ambient relative humidity across experiments. The temperature distributions, which had distinctive fluctiations across experiments, are shown in @fig-data-collected. We observe that experiment B had the widest distribution of indoor temperatures. Experiment C had internal temperatures that were higher and closer to the mean of the ambient temperatures. This can be attributed to higher ambient temperatures that were recorded during this time period, which makes for a particularly interesting edge case. 
 
 ::: {#fig-data-collected layout-ncol=3}
 
@@ -41,6 +36,8 @@ To develop an understanding of how temperature and relative humidity, the quanti
 Distributions of temperature across experiments
 :::
 
+In summary, the three receorded datasets present various degrees of difficulty for a detection algorithm. Experiment A presents the most favorable case for window state detection, as it has a fairly even amount of opening and closed states, as well as distinct indoor and ambient measured temperatures and relative humidities. Although experiment B also has noteable distinctions in terms of temperature and relative humidity, the window states are extremely unbalanced. Experiment C has both unbalanced window states and little distincition between indoor and outdoor temperature. 
+
 
 
 ## Detection Methods
@@ -49,7 +46,7 @@ some intro here [^3]
 
 ### Smoothing Technique
 
-*Why we chose to develop this method*
+<!-- *Why we chose to develop this method* -->
 
 Our approach relies on an intuitive understanding of window operation detection. We expect a typical time series recording of a quantity of interest, such as temperature or relative humidity, to contain information that reflects the seasonality of ambient quantities, noise due to occurrences within the space where measurements are being taken, and the desired signal of due to a change in the window state. The way in which these three components of a measurement are combined is unknown, and, the noise component in particular cannot be known based on the measurements we have collected. Therefore, our task is to attempt to extricate the seasonality that is due to ambient processes from the measured data, which will ideally reveal the window detection and a bit of noise.
 
@@ -78,19 +75,15 @@ SVMs extend simple linear[^7] regressions. In a similar way to a linear regressi
 
 *How we implemented it* 
 
-Our focus was trying to get the best performance from the SVM using an optimal data set with optimal pre-processing functions applied[^9]. We therefore came up with combinations of the various features we had access to, as well as their derivatives and differences from one another. The base features were: ambient temperature, measured temperature, the difference between ambient temperature and measured temperature, the difference between measured temperature and the derivative of measured temperature. We also had the same features for relative humidity. After creating combinations of these base features, we had a test set of 113[^10] combinations as shown in @fig-feature-combos. 
+Our focus was trying to get the best performance from the SVM using an optimal data set with optimal pre-processing functions applied[^9]. We therefore came up with combinations of the various features we had access to, as well as their derivatives and differences from one another. The base features were: ambient temperature, measured temperature, the difference between ambient temperature and measured temperature, the difference between measured temperature and the derivative of measured temperature. We also had the same features for relative humidity. After creating combinations of these base features, we had a test set of 113[^10] combinations as shown in TODO. 
 
-![Combinations of Features for SVM  ]{#fig-feature-combos}
+For each data set we collected, we created an SVM for each of the combinations in the test set, which resulted in 3x113 [^10]. We chose not to perform hyperparameter tuning for the SVMs, and used the default parameters defined by sklearn [^11] which consists of a radial basis function kernel. As we are interested in the developing an unsupervised detection method, we used the One-Class SVM implementation also from sklearn, which makes decisions by essentially using clustering to create the hyperplanes for classification [^12]. 
 
-For each data set we collected, we created an SVM for each of the combinations in the test set, which resulted in 3x113 [^10]. We chose not to perform hyperparameter tuning for the SVMs, and used the default parameters defined by sklearn [^11] which consists of a radial basis function kernel. As we are interested in the developing an unsupervised detection method, we used the One-Class SVM implementation also from sklearn, which makes decisions by essentially using clustering to create the hyperplanes for classification. [^12]
-
-*How it compares to the previous method* 
-
-The SVM approach differs from the smoothing technique that we have developed, and is similar to other window techniques in that it is a highly generalizable method that is not developed with window detection in mind. A wide array of input features can be tested in order to get an acceptable prediction accuracy. However, this might not be acceptable in practice, as different scenarios/ window operation behaviors,  will demand different sets of input features. In the event the true window detection pattern is unknown, it will be difficult to know which input features are giving a trustworthy resresulttult. 
+The SVM approach differs from the smoothing technique that we have developed, and is similar to other window techniques in that it is a highly generalizable method that is not developed with window detection in mind. A wide array of input features can be tested in order to get an acceptable prediction accuracy. However, this might not be acceptable in practice, as different scenarios or window operation behaviors,  will demand different sets of input features. In the event the true window detection pattern is unknown, it will be difficult to know which input features are giving a trustworthy resresulttult. 
 
 [^6]: SVMs also have an unsupervised implementation, not sure if this exists for other ML models...
 [^7]: could also say logistic regression to reinforce the SVM logistic regression similarity
-[^8]: https://developers.google.com/machine-learning/glossary#f
+[^8]: ... see notes 
 [^9]: better way to say this? 
 [^10]: program this...
 [^11]: need to cite this and include version.., and include the other default settings.
@@ -114,16 +107,16 @@ The following metrics were introduced by [^13], and represent novel window detec
 
 **Opening Accuracy**: The opening accuracy gives a score to each opening instance predicted by the window detection algorithm. An opening instance is an interval on $t$, such as $t_{nk} =  t_n,  t_{n+1}, \dots , t_k$, where $I(t_{nk}) = 1$. An opening receives a score of 0 if it does not correspond to a a true opening: $I(t_{nk}) = 1, W(t_{nk} = 0)$, and a score of 1 it perfectly corresponds to a true opening: $I(t_{nk}) = 1, W(t_{nk} = 1)$. The score for a given predicted opening interval decreases by a penalty of 0.33 for each time step that does not align to a true opening. Therefore, a predicted opening interval $I(t_{nk}) = 1$ that aligns a true opening interval can have a score of not less than 0 if it extends for more than two times [^15] steps away from a true value. The value for each opening interval are averaged to get the opening accuracy for a given instance of a model. An unbounded metric is also computed when the penalty applied to a given interval's score does not stop at 0 but is allowed to further decrement. This provides an unbounded opening accuracy that gives a clearer indication of  how "off" models are, given that many models we examining actually had a bounded opening accuracy of 0.
 
-**True/False Opening Time**: This true opening time reflects the total amount of time when $I(t) = W(t) = 1$. The false opening time is when $I(t) = 1, W(t) = 0$. The metric is somewhat similar to the F-1 score in that rather than looking at specifically at change points, it provides information the entire time period. 
+**True or False Opening Time**: This true opening time reflects the total amount of time when $I(t) = W(t) = 1$. The false opening time is when $I(t) = 1, W(t) = 0$. The metric is somewhat similar to the F-1 score in that rather than looking at specifically at change points, it provides information the entire time period. 
 
 ### Custom Metrics 
 
 We developed the final set of metrics based on the intuition that if a model is perfectly able to capture the times when a window state changes, then it is performing extremely well. We classify a "guess", as any value of $I(t)$, and an "action" as any value of $W(t)$. A "hit" occurs when  $I(t) = W(t)$ Like [^13] we consider a prediction accurate if it is withing at most 2 timestamps of the true occurrence. Therefore, a "near hit" occurs when $I(t) = W(t \pm 1)$. The metrics we examine are given below. 
 
-**Hits + Near Hits/ Guesses**: This metric accounts for the variability in guesses. A ratio of 1 indicates that all guesses taken by the model were accurate within two timestamps. A ratio close to 0 indicates that a lot of guesses were taken, but relatively few were close to where change occurred in the true window state.
+**Hits + Near Hits Over Guesses**: This metric accounts for the variability in guesses. A ratio of 1 indicates that all guesses taken by the model were accurate within two timestamps. A ratio close to 0 indicates that a lot of guesses were taken, but relatively few were close to where change occurred in the true window state.
 
-**Guesses/Actions**: This metric implicitly accounts for the ability of the model to capture the pattern of the changes in window state. If the true window state changed only 10 times, but the model predicts changes on the order of 100, then the model is not performing well. A perfect score is 1. 
+**Guesses Over Actions**: This metric implicitly accounts for the ability of the model to capture the pattern of the changes in window state. If the true window state changed only 10 times, but the model predicts changes on the order of 100, then the model is not performing well. A perfect score is 1. 
 
 [^13]: dRdR
 [^14]: include equation for F1 score
-[^15]: check drdr math/logic here
+[^15]: check drdr math or logic here
