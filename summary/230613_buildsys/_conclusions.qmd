@@ -1,1 +1,3 @@
 # Conclusions 
+
+<!-- [^3]: TODO: include this part in conclusion We anticipate that creating a physical model to more explicitly determine the response of the indoor temperature based on the ambient temperature and the building makeup could be an interesting approach to capture the "truth", or at least approximate it Also need some discussion about the emphasis identifying where the window state changes... -->
