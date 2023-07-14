@@ -38,17 +38,18 @@ class Paper_Data:
         res = pd.concat([pd.DataFrame(in_val), pd.DataFrame(out_val)])
         return res 
 
-    def plot_temperatures(self, title, hidelegend=False):
+    def plot_temperatures(self, title, hidelegend=False, last=False):
         temps=self.create_in_out_df()
         rhs = self.create_in_out_df("RH %", "Ambient RH" ) 
 
-        fig, axs = plt.subplots(1, 1,figsize=(2.5, 3))
+        fig, axs = plt.subplots(1, 1,figsize=(3.5, 2))
         sns.kdeplot(data=temps,  x="val", hue="Location",  fill=True, ax=axs)
         axs.set_title(title)
-        axs.set_xlabel("Temperature [ºC]")
+        axs.set_xlabel("")
         if hidelegend:
             axs.get_legend().remove()
-            axs.set_ylabel("")
+        if last:
+            axs.set_xlabel("Temperature [ºC]")
 
         self.temp_fig = fig 
         self.temp_fig.show()

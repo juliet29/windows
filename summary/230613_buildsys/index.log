@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.7.4)  12 JUL 2023 22:58
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.7.4)  12 JUL 2023 23:02
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**/Users/julietnwagwuume-ezeoke/_UILCode/windows/summary/230613_buildsys/custom_template
-(/Users/julietnwagwuume-ezeoke/_UILCode/windows/summary/230613_buildsys/custom_template.tex
+**/Users/julietnwagwuume-ezeoke/_UILCode/windows/summary/230613_buildsys/index
+(/Users/julietnwagwuume-ezeoke/_UILCode/windows/summary/230613_buildsys/index.tex
 LaTeX2e <2022-11-01> patch level 1
 L3 programming layer <2023-02-22> (/usr/local/texlive/2023/texmf-dist/tex/latex/acmart/acmart.cls
 Document Class: acmart 2022/10/24 v1.88 Typesetting articles for the Association for Computing Machinery
@@ -632,12 +632,13 @@ Package: balance 1999/02/23 4.3 (PWD)
 File: l3backend-pdftex.def 2023-01-16 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count318
 \l__pdf_internal_box=\box66
-) (./custom_template.aux)
-\openout1 = `custom_template.aux'.
+)
+No file index.aux.
+\openout1 = `index.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/nxlmi/m/it on input line 126.
 LaTeX Font Info:    Trying to load font information for OML+nxlmi on input line 126.
- (/usr/local/texlive/2023/texmf-dist/tex/latex/newtx/omlnxlmi.fd
+(/usr/local/texlive/2023/texmf-dist/tex/latex/newtx/omlnxlmi.fd
 File: omlnxlmi.fd 2013/11/19 Fontinst v1.933 font definitions for OML/nxlmi.
 )
 LaTeX Font Info:    ... okay on input line 126.
@@ -728,9 +729,8 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 Package hyperref Info: Link coloring OFF on input line 126.
- (./custom_template.out) (./custom_template.out)
 \@outlinefile=\write4
-\openout4 = `custom_template.out'.
+\openout4 = `index.out'.
 
  (/usr/local/texlive/2023/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -797,8 +797,22 @@ Package caption Info: longtable package is loaded.
 Package: ltcaption 2021/01/08 v1.4c longtable captions (AR)
 )
 Package caption Info: End \AtBeginDocument code.
+LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/b/n' will be
+(Font)              scaled to size 9.0pt on input line 156.
+LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/b/n' will be
+(Font)              scaled to size 10.95pt on input line 156.
+LaTeX Font Info:    Trying to load font information for TS1+LinuxLibertineT-TLF on input line 252.
+ (/usr/local/texlive/2023/texmf-dist/tex/latex/libertine/TS1LinuxLibertineT-TLF.fd
+File: TS1LinuxLibertineT-TLF.fd 2017/03/20 (autoinst) Font definitions for TS1/LinuxLibertineT-TLF.
+)
+LaTeX Font Info:    Font shape `TS1/LinuxLibertineT-TLF/m/n' will be
+(Font)              scaled to size 9.0pt on input line 252.
+Package microtype Info: Loading generic protrusion settings for font family
+(microtype)             `LinuxLibertineT-TLF' (encoding: TS1).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
 LaTeX Font Info:    Font shape `OT1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 9.0pt on input line 155.
+(Font)              scaled to size 9.0pt on input line 254.
 Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `LinuxLibertineT-TLF' (encoding: OT1).
 (microtype)             For optimal results, create family-specific settings.
@@ -808,29 +822,241 @@ File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 ) (/usr/local/texlive/2023/texmf-dist/tex/latex/microtype/mt-msb.cfg
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
+
+LaTeX Warning: Reference `tbl-data-collected' on page 1 undefined on input line 264.
+
+
+Underfull \vbox (badness 3428) has occurred while \output is active []
+
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 6.0pt on input line 156.
- (/usr/local/texlive/2023/texmf-dist/tex/generic/stringenc/se-pdfdoc.def
+(Font)              scaled to size 6.0pt on input line 272.
+ [1.1{/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/libertine/lbtn_nh77jq.enc}{/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/libertine/lbtn_76gpa5.enc}{/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/libertine/lbtn_naooyc.enc}]
+
+Package longtable Warning: Column widths have changed
+(longtable)                in table 1 on input line 289.
+
+
+LaTeX Warning: Reference `fig-data-collected' on page 2 undefined on input line 296.
+
+<figs/dist_expa.png, id=28, 193.6836pt x 230.5413pt>
+File: figs/dist_expa.png Graphic file (type png)
+<use figs/dist_expa.png>
+Package pdftex.def Info: figs/dist_expa.png  used on input line 315.
+(pdftex.def)             Requested size: 193.6831pt x 230.54074pt.
+
+Overfull \hbox (31.10484pt too wide) in paragraph at lines 311--316
+ [][] 
+ []
+
+LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
+(Font)              scaled to size 8.0pt on input line 319.
+LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/b/n' will be
+(Font)              scaled to size 8.0pt on input line 319.
+<figs/dist_expb.png, id=30, 185.0112pt x 230.5413pt>
+File: figs/dist_expb.png Graphic file (type png)
+<use figs/dist_expb.png>
+Package pdftex.def Info: figs/dist_expb.png  used on input line 330.
+(pdftex.def)             Requested size: 185.01074pt x 230.54074pt.
+
+Overfull \hbox (22.43248pt too wide) in paragraph at lines 326--331
+ [][] 
+ []
+
+<figs/dist_expc.png, id=31, 185.0112pt x 230.5413pt>
+File: figs/dist_expc.png Graphic file (type png)
+<use figs/dist_expc.png>
+Package pdftex.def Info: figs/dist_expc.png  used on input line 345.
+(pdftex.def)             Requested size: 185.01074pt x 230.54074pt.
+
+Overfull \hbox (22.43248pt too wide) in paragraph at lines 341--346
+ [][] 
+ []
+
+
+Class acmart Warning: A possible image without description on input line 355.
+
+LaTeX Font Info:    Trying to load font information for T1+LinuxBiolinumT-TLF on input line 379.
+(/usr/local/texlive/2023/texmf-dist/tex/latex/libertine/T1LinuxBiolinumT-TLF.fd
+File: T1LinuxBiolinumT-TLF.fd 2017/03/20 (autoinst) Font definitions for T1/LinuxBiolinumT-TLF.
+)
+LaTeX Font Info:    Font shape `T1/LinuxBiolinumT-TLF/m/n' will be
+(Font)              scaled to size 9.0pt on input line 379.
+Package microtype Info: Loading generic protrusion settings for font family
+(microtype)             `LinuxBiolinumT-TLF' (encoding: T1).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
+LaTeX Font Info:    Font shape `T1/LinuxBiolinumT-TLF/m/it' will be
+(Font)              scaled to size 9.0pt on input line 379.
+LaTeX Font Info:    Font shape `T1/LinuxBiolinumT-TLF/m/n' will be
+(Font)              scaled to size 7.0pt on input line 392.
+ [2.2{/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/libertine/lbtn_25tcsq.enc} <./figs/dist_expa.png> <./figs/dist_expb.png> <./figs/dist_expc.png>]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+/Users/julietnwagwuume-ezeoke/_UILCode/windows/summary/230613_buildsys/index.tex:502: Undefined control sequence.
+\f@nch@olh ...necountL \@headfootfont \shorttitle 
+                                                  \strut 
+l.502 ...ation Metrics}\label{evaluation-metrics}}
+                                                  
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[3.3{/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/libertine/lbtn_oexx6f.enc}]
+
+LaTeX Warning: Reference `tbl-data-collected' on page 4 undefined on input line 520.
+
+<figs/f1.png, id=56, 2810.5pt x 2007.5pt>
+File: figs/f1.png Graphic file (type png)
+<use figs/f1.png>
+Package pdftex.def Info: figs/f1.png  used on input line 599.
+(pdftex.def)             Requested size: 2810.49318pt x 2007.49512pt.
+
+Overfull \hbox (2647.91492pt too wide) in paragraph at lines 595--600
+ [][] 
+ []
+
+<figs/hits_guesses_ratio.png, id=57, 2810.5pt x 2007.5pt>
+File: figs/hits_guesses_ratio.png Graphic file (type png)
+<use figs/hits_guesses_ratio.png>
+Package pdftex.def Info: figs/hits_guesses_ratio.png  used on input line 614.
+(pdftex.def)             Requested size: 2810.49318pt x 2007.49512pt.
+
+Overfull \hbox (2647.91492pt too wide) in paragraph at lines 610--615
+ [][] 
+ []
+
+<figs/guesses_actions_ratio.png, id=58, 2810.5pt x 2007.5pt>
+File: figs/guesses_actions_ratio.png Graphic file (type png)
+<use figs/guesses_actions_ratio.png>
+Package pdftex.def Info: figs/guesses_actions_ratio.png  used on input line 629.
+(pdftex.def)             Requested size: 2810.49318pt x 2007.49512pt.
+
+Overfull \hbox (2647.91492pt too wide) in paragraph at lines 625--630
+ [][] 
+ []
+
+<figs/opening_acc.png, id=59, 2810.5pt x 2007.5pt>
+File: figs/opening_acc.png Graphic file (type png)
+<use figs/opening_acc.png>
+Package pdftex.def Info: figs/opening_acc.png  used on input line 644.
+(pdftex.def)             Requested size: 2810.49318pt x 2007.49512pt.
+
+Overfull \hbox (2647.91492pt too wide) in paragraph at lines 640--645
+ [][] 
+ []
+
+<figs/unbounded_opening_acc.png, id=60, 2810.5pt x 2007.5pt>
+File: figs/unbounded_opening_acc.png Graphic file (type png)
+<use figs/unbounded_opening_acc.png>
+Package pdftex.def Info: figs/unbounded_opening_acc.png  used on input line 659.
+(pdftex.def)             Requested size: 2810.49318pt x 2007.49512pt.
+
+Overfull \hbox (2647.91492pt too wide) in paragraph at lines 655--660
+ [][] 
+ []
+
+<figs/true_time.png, id=61, 2810.5pt x 2007.5pt>
+File: figs/true_time.png Graphic file (type png)
+<use figs/true_time.png>
+Package pdftex.def Info: figs/true_time.png  used on input line 674.
+(pdftex.def)             Requested size: 2810.49318pt x 2007.49512pt.
+
+Overfull \hbox (2647.91492pt too wide) in paragraph at lines 670--675
+ [][] 
+ []
+
+
+Class acmart Warning: A possible image without description on input line 684.
+
+
+LaTeX Warning: Float too large for page by 3444.99023pt on input line 684.
+
+
+LaTeX Warning: Reference `fig-exp-results' on page 4 undefined on input line 686.
+
+
+LaTeX Warning: Reference `fig-f1' on page 4 undefined on input line 694.
+
+
+LaTeX Warning: Reference `fig-f1' on page 4 undefined on input line 697.
+
+
+LaTeX Warning: Reference `fig-hg' on page 4 undefined on input line 704.
+
+
+LaTeX Warning: Reference `fig-ga' on page 4 undefined on input line 704.
+
+
+LaTeX Warning: Reference `fig-oa' on page 4 undefined on input line 713.
+
+
+LaTeX Warning: Reference `fig-uoa' on page 4 undefined on input line 713.
+
+[4.4]
+/Users/julietnwagwuume-ezeoke/_UILCode/windows/summary/230613_buildsys/index.tex:722: Undefined control sequence.
+\f@nch@olh ...necountL \@headfootfont \shorttitle 
+                                                  \strut 
+l.722 
+      
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[5.5 <./figs/f1.png> <./figs/hits_guesses_ratio.png> <./figs/guesses_actions_ratio.png> <./figs/opening_acc.png> <./figs/unbounded_opening_acc.png> <./figs/true_time.png>]
+
+LaTeX Warning: Reference `fig-tt' on page 6 undefined on input line 723.
+
+
+Class acmart Warning: Some images may lack descriptions.
+
+[6.6]
+
+Package longtable Warning: Table widths have changed. Rerun LaTeX.
+
+(/usr/local/texlive/2023/texmf-dist/tex/generic/stringenc/se-pdfdoc.def
 File: se-pdfdoc.def 2019/11/29 v1.12 stringenc: PDFDocEncoding
 ) (/usr/local/texlive/2023/texmf-dist/tex/generic/stringenc/se-utf8.def
 File: se-utf8.def 2019/11/29 v1.12 stringenc: UTF-8
-) [1.1{/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/libertine/lbtn_76gpa5.enc}] (./custom_template.aux)
-Package rerunfilecheck Info: File `custom_template.out' has not changed.
-(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
+)
+LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
+(Font)              scaled to size 7.3pt on input line 812.
+ [7.6] (./index.aux)
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+
+LaTeX Warning: Temporary extra page added at the end. Rerun to get it removed.
+
+
+Package rerunfilecheck Warning: File `index.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `index.out':
+(rerunfilecheck)             Before: <no file>
+(rerunfilecheck)             After:  BE571763F8CF9FA05646E2636CE70D6F;1376.
  ) 
 Here is how much of TeX's memory you used:
- 20789 strings out of 476025
- 335035 string characters out of 5790018
- 1850388 words of memory out of 5000000
- 40688 multiletter control sequences out of 15000+600000
- 545923 words of font info for 83 fonts, out of 8000000 for 9000
+ 21301 strings out of 476025
+ 347096 string characters out of 5790018
+ 1873388 words of memory out of 5000000
+ 40894 multiletter control sequences out of 15000+600000
+ 610987 words of font info for 246 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
- 85i,5n,131p,1079b,613s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2023/texmf-dist/fonts/type1/public/newtx/LibertineMathMI.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/libertine/LinLibertineT.pfb>
-Output written on custom_template.pdf (1 page, 32973 bytes).
+ 85i,12n,131p,1069b,711s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2023/texmf-dist/fonts/type1/public/newtx/LibertineMathMI.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/newtx/LibertineMathMI7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/libertine/LinBiolinumT.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/libertine/LinBiolinumTI.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/libertine/LinLibertineT.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/libertine/LinLibertineTB.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/newtx/txmiaX.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/newtx/txsys.pfb>
+Output written on index.pdf (7 pages, 1205195 bytes).
 PDF statistics:
- 28 PDF objects out of 1000 (max. 8388607)
- 16 compressed objects within 1 object stream
- 2 named destinations out of 1000 (max. 500000)
- 12305 words of extra memory for PDF output out of 14400 (max. 10000000)
+ 156 PDF objects out of 1000 (max. 8388607)
+ 105 compressed objects within 2 object streams
+ 41 named destinations out of 1000 (max. 500000)
+ 53310 words of extra memory for PDF output out of 61914 (max. 10000000)
 

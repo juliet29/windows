@@ -11,12 +11,10 @@ format:
     toc: false
     number-sections: true
     colorlinks: true
-    
-    
+    template: custom_template.tex  
 ---
 
-<!-- add back in when ready to work on format again.. -->
-<!-- template: custom_template.tex -->
+
 {{< include _abstract.qmd >}}
 {{< include _intro.qmd >}}
 {{< include _lit-review.qmd >}}
