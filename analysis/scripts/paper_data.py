@@ -10,6 +10,7 @@ import seaborn.objects as so
 # Apply the default theme
 sns.set_theme()
 import matplotlib.pyplot as plt
+from scipy import stats
 
 
 
@@ -24,6 +25,7 @@ class Paper_Data:
         self.exp = exp 
         self.window_sched = self.exp["Window Open"]
         self.datetime = self.exp["DateTime"]
+        self.timedelta = self.datetime[1] - self.datetime[0]
 
     def create_in_out_df(self, col1="Temp C", col2="Ambient Temp"):
         in_val = {
@@ -110,25 +112,27 @@ class Paper_Data:
 
 
     def calc_opening_percentage(self):
-        win_open_group =  self.exp.groupby("Window Open").count()
-        
-        total_time_periods = win_open_group.iloc[1]["DateTime"] + win_open_group.iloc[0]["DateTime"]
-        
-        open_time_periods = win_open_group.iloc[0]["DateTime"]
+        self.open_df = open_df = self.exp.loc[self.exp["Window Open"] == 1]
+        self.open_time  = len(open_df)*self.timedelta
+        self.perc_time_open = self.open_time/(len(self.exp)*self.timedelta)
 
-        self.perc_time_open = open_time_periods/total_time_periods
+        # self.perc_time_open = open_time_periods/total_time_periods
 
     def calc_table_data(self):
         self.calc_opening_percentage()
         self.cal_avg_window_time_open()
 
         self.data = {
-            "Starting Day": self.datetime[0],
+            "Room": int(self.exp["Room"][0]),
+            "Starting Day": self.datetime[0].strftime('%b %d'),
             "Data Length": self.datetime.iloc[-1] - self.datetime[0],
-            "Room": self.exp["Room"][0],
-            "Opening Percentage": self.perc_time_open,
-            # "Average Open Time": self.avg_len_time
-            # "Median Open Time": self.median_len_time
+            "Opening Percentage": np.round(self.perc_time_open, 3) * 100,
+            "Hours Open": np.round(self.open_time / np.timedelta64(1, 'h'),1),
+            "Median Indoor Temp. [ºC]": np.round(self.exp["Temp C"].median(),2),
+            "Median In/Out Temp. Diff. [ºC]": np.round(self.exp["Temp C"].median() - self.exp["Ambient Temp"].median(),2),
+            "Meean Indoor Temp. [ºC]": np.round(self.exp["Temp C"].mean(),2),
+            "Mean In/Out Temp. Diff. [ºC]": np.round(self.exp["Temp C"].mean() - self.exp["Ambient Temp"].mean(),2)
+            # "Ttest": stats.test_ind()
         }
 
         return self.data 
