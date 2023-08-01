@@ -44,6 +44,7 @@ class FEM_Calc(FEM_Geom):
                 for bc_name, bc_cell in self.bc_data.items():
                     if L.relate_pattern(bc_cell["poly"], fh.DE9IMPattern.BC_LINE_CELL_ADJ.value):
                         # ADIABATIC BC - need to find the cell to mirror (Cengel eq. 5-30)
+                        # TODO: move this elsewhere?
                         if bc_cell["condition"]== fh.BoundaryCondition.ADIABATIC.name:
                             try:
                                 L_OPP = lines[line_num - 2]
@@ -73,3 +74,29 @@ class FEM_Calc(FEM_Geom):
         self.eqn = smp.Eq(0, sum(terms))
 
         return self.eqn
+    
+    def generate_and_subs(self):
+        # Cengel - ex 5.6
+        self.subs = {
+            self.T_infinity: 33, # F 
+            self.h: 1.8, # Btu/h-ft^2-F
+            self.k: 0.4, # Btu/h-ft-F
+            self.edot: 0, # W/m^3
+            self.delta_x: self.dx,
+            self.delta_y: self.dy,
+        }
+        # TODO -> should have check for if number of variables and equations remaining after substitution are not equal 
+
+        self.eqns = []
+        for i in range(len(self.cells)):
+            eqn = self.create_cell_eq(cell_num=i)
+            self.eqns.append(eqn)
+
+        self.eqns_simp = [eqn.subs(self.subs) for eqn in self.eqns]
+
+        return self.eqns_simp
+    
+    def solve(self):
+        self.sol = smp.solve(self.eqns_simp, list(self.cells_temp.values()))
+
+        return self.sol
