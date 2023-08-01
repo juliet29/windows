@@ -18,7 +18,7 @@ class FEM_Geom:
     def __init__(self):
         self.room_lx = 20 # m - length in x
         self.room_ly = 10 # m 
-        self.num_points = 5
+        self.num_points = 5 # number of cells in each direction 
 
         # assigned later 
         self.room_pts = None # TODO make an empty 2d array

@@ -25,6 +25,7 @@ class LineData: # more general than quantities => has geometrical and quantity i
     dirxy = "x"
     rel_len = 1
     Tneighbour = smp.symbols("T_neighbour")
+    Tmirror = smp.symbols("T_mirror")
 
 class CellQuantities:
     Tself = smp.symbols("T_self")

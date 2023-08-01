@@ -42,10 +42,17 @@ class FEM_Calc(FEM_Geom):
             # only cycle over boundary conditions if cell is missing neighbours
             if len(self.cells_nb[cell_num]) < len(lines.items()):
                 for bc_name, bc_cell in self.bc_data.items():
-
-                    # # ic(line_num, line_data.dirxy, bc_name, L.relate(bc_cell["poly"]))
                     if L.relate_pattern(bc_cell["poly"], fh.DE9IMPattern.BC_LINE_CELL_ADJ.value):
-                        # ic("we in ")
+                        # ADIABATIC BC - need to find the cell to mirror (Cengel eq. 5-30)
+                        if bc_cell["condition"]== fh.BoundaryCondition.ADIABATIC.name:
+                            try:
+                                L_OPP = lines[line_num - 2]
+                            except:
+                                L_OPP = lines[line_num + 2]
+                            for ixn in self.cells_nb[cell_num]: 
+                                if L_OPP.relate_pattern(self.cells[ixn], fh.DE9IMPattern.LINE_CELL_ADJ.value):
+                                    line_data.Tmirror = self.cells_temp[ixn]
+                            
                         term = FEM_Term(bc_cell["condition"], line_data, cell_quantities).create_term()
                         terms.append(term)
 
@@ -53,18 +60,14 @@ class FEM_Calc(FEM_Geom):
             for ixn in self.cells_nb[cell_num]: 
                 if L.relate_pattern(self.cells[ixn], fh.DE9IMPattern.LINE_CELL_ADJ.value):
                     line_data.Tneighbour = self.cells_temp[ixn]
-                    # ic(line_data.Tneighbour, self.cells_temp[ixn] )
-
                     term = FEM_Term(fh.BoundaryCondition.CONDUCTION.name, line_data, cell_quantities).create_term()
                     terms.append(term)
 
         # heat generation term - at the cell level, not the line level
         term = self.edot * cell_data["x"] * self.delta_x * cell_data["y"] * self.delta_y  # TODO should move to fem_term and combinge cell_quantities to just be cell_data 
         terms.append(term)
-
-        terms = terms 
                         
-        # should have 5 terms total 
+        # should have 5 terms at this point
         assert len(terms) == 5
 
         self.eqn = smp.Eq(0, sum(terms))

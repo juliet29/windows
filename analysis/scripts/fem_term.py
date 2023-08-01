@@ -12,7 +12,8 @@ class FEM_Term():
         self.line_data = line_data
         self.cell_quantities = cell_quantities
         self.T_infinity, self.h, self.k, self.edot, self.delta_x, self.delta_y = smp.symbols("T_ininity, h, k, edot, delta_x, delta_y")
-        pass
+        
+        self.dxdy = self.delta_x/self.delta_y if self.line_data.dirxy == "x" else self.delta_y/self.delta_x
 
 
     def create_convection_term(self):
@@ -26,13 +27,12 @@ class FEM_Term():
         return term
 
     def create_adiabatic_term(self):
-        return smp.symbols("Q_adiabatic")
+        term = self.k * self.line_data.rel_len * self.dxdy * (self.line_data.Tmirror - self.cell_quantities.Tself)
+        return term
+        # return smp.symbols("Q_adiabatic")
 
     def create_conduction_term(self):
-        dxdy = self.delta_x/self.delta_y if self.line_data.dirxy == "x" else self.delta_y/self.delta_x
-
-
-        term = self.k * self.line_data.rel_len * dxdy * (self.line_data.Tneighbour - self.cell_quantities.Tself)
+        term = self.k * self.line_data.rel_len * self.dxdy * (self.line_data.Tneighbour - self.cell_quantities.Tself)
 
         return term 
         
