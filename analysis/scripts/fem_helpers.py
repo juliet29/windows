@@ -1,4 +1,5 @@
 from shapely import *
+import sympy as smp
 from enum import Enum
 
 class DE9IMPattern(Enum):
@@ -6,6 +7,28 @@ class DE9IMPattern(Enum):
     # adjacency means next to each other, not diagonal from each other 
     CELL_ADJ = "FF2F11212"
     LINE_CELL_ADJ = "F1FF0F212"
+
+class Position(Enum):
+    LEFT = 1
+    RIGHT = 2
+    TOP = 3
+    BOTTOM = 4
+
+class BoundaryCondition(Enum):
+    CONVECTION = 1
+    ADIABATIC = 2
+    FIXED_TEMP = 3
+
+class LineData: # more general than quantities => has geometrical and quantity info 
+    dirxy = "x"
+    rel_len = 1
+    Tneighbour = smp.symbols(T_neighbour)
+
+class CellQuantities:
+    Tself = smp.symbols(T_self)
+
+
+
 
 
 

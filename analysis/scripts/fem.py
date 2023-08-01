@@ -28,6 +28,7 @@ class FEM_Geom:
         self.cells_nb = {} # dict of lists containing index of neighbours in self.cells
         self.dx = 0
         self.dy = 0
+        self.bc_data = {}
 
 
     def create_room(self):
@@ -74,6 +75,19 @@ class FEM_Geom:
             for ix in near_cells_ix:
                 if v.relate_pattern(self.cells[ix], fh.DE9IMPattern.CELL_ADJ):
                     self.cells_nb[k].append(ix)
+
+    
+    def create_boundary_cells(self):
+        for pos in fh.Position:
+            p = pos.name
+            self.bc_data[p] = {}
+            self.bc_data[p]["poly"] = generate_BC_geom(p, room_poly=room_poly, dx=dx, dy=dy)
+
+            # fixed rn, need to be able to make arbitrary..
+            if p == Position.LEFT.name:
+                self.bc_data[p]["condition"] = fh.BoundaryCondition.CONVECTION.name
+            else:
+                self.bc_data[p]["condition"] = fh.BoundaryCondition.ADIABATIC.name 
 
 
 
