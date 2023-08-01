@@ -50,15 +50,15 @@ class FEM_Geom:
         # create cells around points in mesh of points 
         self.dx = self.room_lx/(self.num_points - 1)
         self.dy = self.room_ly/(self.num_points - 1)
-        self.cells_untrimmed = [fh.box_from_centroid(pt, dx, dy) for pt in self.room_pts]
+        self.cells_untrimmed = [fh.box_from_centroid(pt, self.dx, self.dy) for pt in self.room_pts]
 
         # all cells should have the same area before they are trimmed
-        assert len(np.unique(np.array([cell.area for cell in cells_untrimmed]))) == 1
+        assert len(np.unique(np.array([cell.area for cell in self.cells_untrimmed]))) == 1
 
         # edit cell geometries based on overlap with room geom 
         self.cells = {}
         for ix, cell in enumerate(self.cells_untrimmed):
-            if not cell.within(room_poly):
+            if not cell.within(self.room_poly):
                 self.cells[ix] = cell.intersection(self.room_poly)
             else:
                 self.cells[ix] = cell
@@ -73,21 +73,71 @@ class FEM_Geom:
             near_cells_ix = tree.query(v).tolist() 
 
             for ix in near_cells_ix:
-                if v.relate_pattern(self.cells[ix], fh.DE9IMPattern.CELL_ADJ):
+                if v.relate_pattern(self.cells[ix], fh.DE9IMPattern.CELL_ADJ.value):
                     self.cells_nb[k].append(ix)
 
-    
+    # create somewhat arbitrary BCs around this room 
+    def generate_BC_geom(self, pos):
+        rxy = self.room_poly.exterior.xy
+
+        rxmax = max(rxy[0])
+        rxmin = min(rxy[0])
+
+        rymax = max(rxy[1])
+        rymin = min(rxy[1])
+
+        d = {
+        "xmin": rxmin,
+        "xmax": rxmax, 
+        "ymin": rymin,
+        "ymax": rymax
+        }
+
+        update_d = {
+            "LEFT": {
+                "xmin": rxmin - self.dx,
+                "xmax": rxmin,
+            },
+            "RIGHT": {
+                "xmin": rxmax,
+                "xmax": rxmax + self.dx,
+            },
+            "TOP": {
+                "ymin": rymax,
+                "ymax": rymax + self.dy,
+            },
+            "BOTTOM": {
+                "ymin": rymin - self.dy,
+                "ymax": rymin,
+            },
+        }
+
+        d.update(update_d[pos])
+
+        geo = box(**d)
+
+        return geo
+
     def create_boundary_cells(self):
         for pos in fh.Position:
             p = pos.name
             self.bc_data[p] = {}
-            self.bc_data[p]["poly"] = generate_BC_geom(p, room_poly=room_poly, dx=dx, dy=dy)
-
-            # fixed rn, need to be able to make arbitrary..
-            if p == Position.LEFT.name:
+            self.bc_data[p]["poly"] = self.generate_BC_geom(p)
+            # TODO fixed rn, need to be able to make arbitrary..
+            if p == fh.Position.LEFT.name:
                 self.bc_data[p]["condition"] = fh.BoundaryCondition.CONVECTION.name
             else:
                 self.bc_data[p]["condition"] = fh.BoundaryCondition.ADIABATIC.name 
+  
+
+
+    
+    def create_setup(self):
+        self.create_room()
+        self.create_boundary_cells()
+        self.create_cell_pts()
+        self.create_cells()
+        self.find_neigbours()
 
 
 

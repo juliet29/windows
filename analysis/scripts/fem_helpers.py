@@ -7,6 +7,7 @@ class DE9IMPattern(Enum):
     # adjacency means next to each other, not diagonal from each other 
     CELL_ADJ = "FF2F11212"
     LINE_CELL_ADJ = "F1FF0F212"
+    BC_LINE_CELL_ADJ = "F1FF0FFF2"
 
 class Position(Enum):
     LEFT = 1
@@ -18,14 +19,15 @@ class BoundaryCondition(Enum):
     CONVECTION = 1
     ADIABATIC = 2
     FIXED_TEMP = 3
+    CONDUCTION = 4
 
 class LineData: # more general than quantities => has geometrical and quantity info 
     dirxy = "x"
     rel_len = 1
-    Tneighbour = smp.symbols(T_neighbour)
+    Tneighbour = smp.symbols("T_neighbour")
 
 class CellQuantities:
-    Tself = smp.symbols(T_self)
+    Tself = smp.symbols("T_self")
 
 
 
