@@ -18,7 +18,7 @@ class FEM_Geom:
     def __init__(self):
         self.room_lx = 20 # m - length in x
         self.room_ly = 10 # m 
-        self.num_points = 5 # number of cells in each direction 
+        self.num_points = 20 #5 # number of cells in each direction 
 
         # assigned later 
         self.room_pts = None # TODO make an empty 2d array
@@ -52,8 +52,10 @@ class FEM_Geom:
         self.dy = self.room_ly/(self.num_points - 1)
         self.cells_untrimmed = [fh.box_from_centroid(pt, self.dx, self.dy) for pt in self.room_pts]
 
+
+
         # all cells should have the same area before they are trimmed
-        assert len(np.unique(np.array([cell.area for cell in self.cells_untrimmed]))) == 1
+        assert len(np.unique(np.array([np.round(cell.area,12) for cell in self.cells_untrimmed]))) == 1
 
         # edit cell geometries based on overlap with room geom 
         self.cells = {}

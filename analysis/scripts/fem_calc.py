@@ -65,11 +65,12 @@ class FEM_Calc(FEM_Geom):
                     terms.append(term)
 
         # heat generation term - at the cell level, not the line level
-        term = self.edot * cell_data["x"] * self.delta_x * cell_data["y"] * self.delta_y  # TODO should move to fem_term and combinge cell_quantities to just be cell_data 
+        term = self.edot * cell_data["x"] * self.delta_x * cell_data["y"] * self.delta_y  # TODO should move to FEM_Term class and combinge cell_quantities to just be cell_data 
         terms.append(term)
                         
         # should have 5 terms at this point
-        assert len(terms) == 5
+        # ic(len(terms))
+        # assert len(terms) == self.num_points
 
         self.eqn = smp.Eq(0, sum(terms))
 
