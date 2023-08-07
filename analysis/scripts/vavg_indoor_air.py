@@ -1,0 +1,78 @@
+from sympy import * 
+from spb import *
+
+import numpy as np
+
+import plotly.graph_objects as go
+from plotly.subplots import make_subplots
+
+import sys
+sys.path.insert(0, "../scripts")
+import wall_cond as w
+
+
+class PhysicalConstants:
+    rho= 1.225 #kg/m^3 
+    cp= 1005 # J/(kg-K) 
+    V= 2800 #m^3 
+    T0= 293.15 # K 
+
+
+class VavgIndoorAir:
+    def __init__(self, pc:PhysicalConstants, n_mins=60, calcs_per_min=4,):
+        # physical constant for the room 
+        self.pc = pc 
+
+        # TODO initial val for dt should be exceptable to twall 
+        self.times = np.linspace(start=0, stop=n_mins, num=n_mins*calcs_per_min, endpoint=False)
+        self.dt = self.times[1] - self.times[0]
+
+        # initialize temperature array 
+        self.temps = np.zeros(len(self.times))
+        self.temps[0] = self.pc.T0
+
+        # current information for the whole class
+        self.curr_time = 0
+        self.curr_temp = 0
+        
+        # init wall conduction calculation 
+        self.phys_wall = w.FabricPhysicalConstants()
+        self.twall = w.TransientWallConduction(self.phys_wall, self.times) 
+
+        pass
+   
+
+    def fabric_at_t(self):
+        all_wall_temps = self.twall.calc_Tx_at_t() 
+        wall_surface_temp = all_wall_temps[self.twall.M - 1]
+
+        self.E_fabric = self.phys_wall.h_int*self.phys_wall.A(self.curr_temp - wall_surface_temp)
+        # TODO determine if this should be negative 
+        
+        return self.E_fabric
+    
+    def interior_at_t(self):
+        # interior heat sources 
+        return 0
+    
+    def ventilation_at_t(self):
+        return 0
+    
+    def energy_at_t(self):
+        return self.fabric_at_t() + self.interior_at_t() + self.ventilation_at_t()
+    
+    def calc_transient_indoor_air(self):
+        # constant exponent 
+        const_exp = self.dt/(self.pc.rho*self.pc.cp*self.pc.V) 
+
+        # iterating in time: t_{i} => t_{i=N}
+        for i, _ in enumerate(self.temps):  
+            if i < len(self.temps) - 1: 
+                self.curr_time = self.times[i]
+                self.curr_temp = self.temps[i]
+                self.temps[i+1] = self.temps[i] + const_exp*self.energy_at_t()
+        # TODO In similar way to transient wall conduction make seperate function to calculate a single step, then a big function to calculate all the steps
+
+        return self.times, self.temps
+    
+
