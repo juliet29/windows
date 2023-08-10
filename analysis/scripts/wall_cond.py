@@ -33,6 +33,7 @@ class TransientWallConduction:
         # since havent checked tau => ensure that dt = 15s or less
         self.times = times
         self.dt = self.times[1] - self.times[0]
+        self.N = len(times)
 
         # initialize N*M matrix - time * x nodes 
         self.Ttx = np.zeros((self.N, self.M))
