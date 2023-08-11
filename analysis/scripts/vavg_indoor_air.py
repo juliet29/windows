@@ -36,7 +36,7 @@ class VavgIndoorAir:
         
         # init wall conduction calculation 
         self.phys_wall = w.FabricPhysicalConstants()
-        self.twall = w.TransientWallConduction(self.phys_wall, self.times) 
+        self.twall = w.TransientWallConduction(self.phys_wall, self.times, pc.T0) 
         self.surface_temps = np.zeros(len(self.times))
         self.wall_heat_flux = np.zeros(len(self.times))
         self.all_wall_temps = np.zeros((len(self.times), self.twall.M))
@@ -46,11 +46,16 @@ class VavgIndoorAir:
 
     def fabric_at_t(self):
         # find the index of the current time...
-        all_wall_temps = self.twall.calc_Tx_at_t(self.index) 
-        self.all_wall_temps[self.index] = all_wall_temps # N * M matrix 
-        wall_surface_temp = all_wall_temps[self.twall.M - 1]
+        wall_temps_at_t = self.twall.calc_Tx_at_t(self.index, self.temps[self.index]) 
+
+        # update knowledge of wall temps across time -> result is N*M matrix 
+        self.all_wall_temps[self.index] = wall_temps_at_t 
+
+        # update knowlegede about surface temps over time 
+        wall_surface_temp = wall_temps_at_t[self.twall.M - 1]
         self.surface_temps[self.index] = wall_surface_temp
 
+        # update knowledge about heat transfer over time 
         self.E_fabric = self.phys_wall.h_int*self.phys_wall.A*(self.temps[self.index] - wall_surface_temp)
         self.wall_heat_flux[self.index] = self.E_fabric
 

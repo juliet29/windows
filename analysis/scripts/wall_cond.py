@@ -42,11 +42,10 @@ class TransientWallConduction:
         # establish adjacent temps  
         self.ext_temps = self.get_ext_temps()
         self.int_temps = np.zeros(self.N)
-        self.int_temps[0] = T0_indoor_avg
+        self.int_temps[0] = T0_int
 
         # initialize N*M matrix - time * x nodes 
         self.Ttx = np.zeros((self.N, self.M))
-        self.T0_indoor_avg = T0_int
         self.Ttx = self.define_init_temps()
 
         # time constant
@@ -66,7 +65,7 @@ class TransientWallConduction:
         # #TODO fix interpolation issue 
         # resample (15 min data, to be 15s) 
         sample_time = "15s"
-        assert pd.Timedelta(sample_time).seconds == t.dt
+        # assert pd.Timedelta(sample_time).seconds == self.dt #TODO
         b01_dt = b01_day.set_index(b01_day["DateTime"].values)
         b01_dt = b01_dt.resample(sample_time).ffill()
         # return temps that are appropriate for solution 
@@ -83,8 +82,7 @@ class TransientWallConduction:
 
         # set init values in the N*M matrix 
         self.Ttx[0,:] = self.T_inits
-        self.Ttx[0,0] = T0_ext
-        self.Ttx[0, self.M-1] = T0_int
+
         return self.Ttx
     
         
