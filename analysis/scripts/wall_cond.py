@@ -1,9 +1,13 @@
 import numpy as np
+import pandas as pd
 
-import plotly.graph_objects as go
-from plotly.subplots import make_subplots
+import sys
+sys.path.insert(0, "../scripts")
+import helpers as h
 
 from icecream import ic
+
+C_TO_KELVIN = 273.15
 
 
 class FabricPhysicalConstants:
@@ -21,7 +25,7 @@ class FabricPhysicalConstants:
     alpha = k/(cp*rho) # thermal diffusivity
 
 class TransientWallConduction:
-    def __init__(self, pc:FabricPhysicalConstants, times):
+    def __init__(self, pc:FabricPhysicalConstants, times, T0_indoor_avg):
         self.pc = pc
         # x vals init in example => th = 0.10 m, dt = 0.010 m 
         thickness = 0.10 
@@ -35,15 +39,55 @@ class TransientWallConduction:
         self.dt = self.times[1] - self.times[0]
         self.N = len(times)
 
+        # establish adjacent temps  
+        self.ext_temps = self.get_ext_temps()
+        self.int_temps = np.zeros(self.N)
+        self.int_temps[0] = T0_indoor_avg
+
         # initialize N*M matrix - time * x nodes 
         self.Ttx = np.zeros((self.N, self.M))
-        self.Ttx[0,:] = self.pc.T0
-        self.Ttx[0,0] = self.pc.Tinf_ext 
-        self.Ttx[0, self.M-1] = self.pc.Tinf_int
+        self.T0_indoor_avg = T0_indoor_avg
+        self.Ttx = self.define_init_temps()
 
         # time constant
         # # TODO check tau  
         self.tau = self.pc.alpha * self.dt / (self.dx**2)
+
+
+    def get_ext_temps(self):
+        b00, b01 = h.import_desired_data("B", "15T")
+        # ensure windows are always closed in this dataset 
+        assert(b01["Window Open"].unique() == [0]) 
+
+        # only using one day for now 
+        mask = (b01['DateTime'] <= pd.Timedelta(1, "d") + b01["DateTime"].iloc[0]) 
+        b01_day = b01.loc[mask].reset_index(drop=True)
+
+        # #TODO fix interpolation issue 
+        # resample (15 min data, to be 15s) 
+        sample_time = "15s"
+        assert pd.Timedelta(sample_time).seconds == t.dt
+        b01_dt = b01_day.set_index(b01_day["DateTime"].values)
+        b01_dt = b01_dt.resample(sample_time).ffill()
+        # return temps that are appropriate for solution 
+        return b01_dt["Ambient Temp"][0: self.N] + C_TO_KELVIN
+
+
+
+    def define_init_temps(self):
+        # interpolate betweene outdoor and indoor temps
+        T0_ext  = self.ext_temps[0]
+        T0_int = self.int_temps[0]
+        m = (T0_int - T0_ext)/(self.x_vals[-1] - self.x_vals[0])
+        self.T_inits = m*(self.x_vals) + T0_ext
+
+        # set values in the N*M matrix 
+        self.Ttx[0,:] = self.T_inits
+        self.Ttx[0,0] = T0_ext
+        self.Ttx[0, self.M-1] = T0_int
+        return self.Ttx
+    
+        
         
 
     def calc_boundary_nodes(self, i):

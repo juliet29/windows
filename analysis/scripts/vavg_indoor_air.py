@@ -23,7 +23,7 @@ class VavgIndoorAir:
         # physical constant for the room 
         self.pc = pc 
 
-        # TODO initial val for dt should be exceptable to twall 
+        # TODO initial val for dt should be input to twall 
         self.times = np.linspace(start=0, stop=n_mins, num=n_mins*calcs_per_min, endpoint=False)
         self.dt = self.times[1] - self.times[0]
 
