@@ -61,11 +61,13 @@ class TransientWallConduction:
         # only using one day for now 
         mask = (b01['DateTime'] <= pd.Timedelta(1, "d") + b01["DateTime"].iloc[0]) 
         b01_day = b01.loc[mask].reset_index(drop=True)
-
-        # #TODO fix interpolation issue 
+ 
+        #TODO fix interpolation issue  -  
+        # see https://www.notion.so/julietnu/Model-Validation-Setup-758afaafeba64d1c894db7b030a7495b?pvs=4#6b735b03c00d4b97a58d50111ef7cfba
         # resample (15 min data, to be 15s) 
         sample_time = "15s"
         # assert pd.Timedelta(sample_time).seconds == self.dt #TODO
+        # need a datetime index before resampling
         b01_dt = b01_day.set_index(b01_day["DateTime"].values)
         b01_dt = b01_dt.resample(sample_time).ffill()
         # return temps that are appropriate for solution 
@@ -85,8 +87,6 @@ class TransientWallConduction:
 
         return self.Ttx
     
-        
-
     def calc_interior_nodes(self, i):
         Tint =  np.zeros(self.M)
         row = self.Ttx[i,:] 
