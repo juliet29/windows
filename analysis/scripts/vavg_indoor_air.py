@@ -56,7 +56,7 @@ class VavgIndoorAir:
         self.surface_temps[self.index] = wall_surface_temp
 
         # update knowledge about heat transfer over time 
-        self.E_fabric = self.phys_wall.h_int*self.phys_wall.A*(self.temps[self.index] - wall_surface_temp)
+        self.E_fabric = -1*self.phys_wall.h_int*self.phys_wall.A*(self.temps[self.index] - wall_surface_temp)
         self.wall_heat_flux[self.index] = self.E_fabric
 
         

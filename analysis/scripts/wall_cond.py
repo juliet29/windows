@@ -40,7 +40,7 @@ class TransientWallConduction:
         self.N = len(times)
 
         # establish adjacent temps  
-        self.ext_temps = self.get_ext_temps()
+        self.ext_temps, self.real_temps = self.get_ext_temps()
         self.int_temps = np.zeros(self.N)
         self.int_temps[0] = T0_int
 
@@ -71,7 +71,7 @@ class TransientWallConduction:
         b01_dt = b01_day.set_index(b01_day["DateTime"].values)
         b01_dt = b01_dt.resample(sample_time).ffill()
         # return temps that are appropriate for solution 
-        return b01_dt["Ambient Temp"][0: self.N] + C_TO_KELVIN
+        return b01_dt["Ambient Temp"][0: self.N] + C_TO_KELVIN, b01_dt["Temp C"][0: self.N] + C_TO_KELVIN, 
 
 
 
@@ -109,7 +109,7 @@ class TransientWallConduction:
         # T0 at exterior
         T0 = eq(self.Ttx[i,0], self.Ttx[i, 1], self.ext_temps[i], self.pc.h_ext)
         # TM on interior 
-        TM = eq(self.Ttx[i,self.M-1], self.Ttx[i, self.M-2], self.int_temps[i], self.pc.h_int)
+        TM = eq(self.Ttx[i,self.M-1], self.Ttx[i, self.M-2], 1*self.int_temps[i], self.pc.h_int)
 
         return T0, TM
     
