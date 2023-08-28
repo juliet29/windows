@@ -53,7 +53,7 @@ class TransientWallConduction:
         self.tau = self.pc.alpha * self.dt / (self.dx**2)
 
 
-    def get_ext_temps(self):
+    def get_ext_temps_1day(self):
         b00, b01 = h.import_desired_data("B", "15T")
         # ensure windows are always closed in this dataset 
         assert(b01["Window Open"].unique() == [0]) 
@@ -71,7 +71,24 @@ class TransientWallConduction:
         b01_dt = b01_day.set_index(b01_day["DateTime"].values)
         b01_dt = b01_dt.resample(sample_time).ffill()
         # return temps that are appropriate for solution 
-        return b01_dt["Ambient Temp"][0: self.N] + C_TO_KELVIN, b01_dt["Temp C"][0: self.N] + C_TO_KELVIN, 
+        return b01_dt["Ambient Temp"][0: self.N] + C_TO_KELVIN, b01_dt["Temp C"][0: self.N] + C_TO_KELVIN
+    
+
+    def get_ext_temps(self):
+        b00, b01 = h.import_desired_data("B", "15T")
+        # ensure windows are always closed in this dataset 
+        assert(b01["Window Open"].unique() == [0]) 
+
+        # UPDATE 8/28: use as many days as needed
+        b01_day = b01.reset_index(drop=True)
+ 
+        # resample - change 15 min data to 15s 
+        sample_time = "15s"
+        # need a datetime index before resampling
+        b01_dt = b01_day.set_index(b01_day["DateTime"].values)
+        b01_dt = b01_dt.resample(sample_time).ffill()
+        # return temps that are appropriate for solution 
+        return b01_dt["Ambient Temp"][0: self.N] + C_TO_KELVIN, b01_dt["Temp C"][0: self.N] + C_TO_KELVIN
 
 
 

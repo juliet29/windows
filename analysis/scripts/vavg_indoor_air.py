@@ -36,7 +36,7 @@ class VavgIndoorAir:
         
         # init wall conduction calculation 
         self.phys_wall = w.FabricPhysicalConstants()
-        self.twall = w.TransientWallConduction(self.phys_wall, self.times, pc.T0) 
+        self.twall = w.TransientWallConduction(self.phys_wall, self.times, self.pc.T0) 
         self.surface_temps = np.zeros(len(self.times))
         self.wall_heat_flux = np.zeros(len(self.times))
         self.all_wall_temps = np.zeros((len(self.times), self.twall.M))
